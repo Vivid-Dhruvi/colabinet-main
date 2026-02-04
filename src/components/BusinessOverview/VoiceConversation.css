@@ -1,0 +1,123 @@
+.voice-conversation__transcript-popover {
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  margin-bottom: 0.75rem;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  padding: 0.75rem;
+  font-size: 0.875rem;
+  color: #374151;
+  z-index: 20;
+  width: 100%;
+  max-width: 32rem;
+  min-width: 16rem;
+  box-shadow: 0 10px 15px -3px rgba(15, 23, 42, 0.15), 0 4px 6px -4px rgba(15, 23, 42, 0.15);
+  box-sizing: border-box;
+  animation: voice-conversation-fade-in 180ms ease-out;
+}
+
+.voice-conversation__transcript-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.voice-conversation__status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.voice-conversation__status-indicator {
+  display: inline-block;
+  width: 0.625rem;
+  height: 0.625rem;
+  background-color: #22c55e;
+  border-radius: 9999px;
+  animation: voice-conversation-pulse 1.5s ease-in-out infinite;
+}
+
+.voice-conversation__status-text {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #16a34a;
+}
+
+.voice-conversation__transcript-text {
+  color: #111827;
+  overflow-wrap: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.voice-conversation__transcript-hint {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  margin-top: 0.5rem;
+}
+
+.voice-conversation__button {
+  border-radius: 9999px;
+  width: 2rem;
+  height: 2rem;
+  transition: all 200ms ease-in;
+  background-color: #dddddd;
+  color: #007d88;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.voice-conversation__button:hover {
+  background-color: #007d88;
+  color: #ffffff;
+}
+
+.voice-conversation__button--enabled {
+  background-color: #007d88;
+  color: #ffffff;
+}
+
+.voice-conversation__button--enabled:hover {
+  background-color: #005f68;
+}
+
+.voice-conversation__button--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.voice-conversation__icon {
+  width: 1rem;
+  height: 1rem;
+  transition: all 200ms ease-in;
+}
+
+@keyframes voice-conversation-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
+}
+
+@keyframes voice-conversation-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
