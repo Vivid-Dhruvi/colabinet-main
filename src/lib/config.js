@@ -72,7 +72,7 @@ export const stages = [
   {
     number: "1",
     subtitle: "Business Setup",
-    title: "Build Your Business Brain – Business Setup Overview",
+    title: "Build Your Business Brain – Business Setup",
     description: "This video explains how to set up the foundation your business needs to run in Colabi.",
     right_title: "Don't wait until the end to",
     right_subtitle: "see how it all works",

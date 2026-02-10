@@ -24,7 +24,9 @@ export const MainHeader = ({ isBusinessOverview }) => {
 
   const [showRatePopup, setShowRatePopup] = useState(false);
   const canAccessBusinessSetup = user?.role_id != 7 || !isUserAllow(user, "hide-business-setup");
-  const canAccessBusinessOverview = user?.role_id != 7 || !isUserAllow(user, "hide-business-overview");
+    const canAccessBusinessOverview = user?.role_id != 7 || (!isUserAllow(user, "hide-business-overview") && 
+    isUserAllowAny(user, ["create-business-area", "edit-business-area", "delete-business-area", "create-workflow", "edit-workflow", "delete-workflow"])
+  );
 
   useEffect(() => {
     const handleClickOutside = (event) => {

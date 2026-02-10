@@ -202,6 +202,7 @@ export default function BusinessStages({ defaultStage = 0, onStageTwo, onStageTh
   }, [defaultStage]);
 
   const stage = STAGES[currentStage];
+  const VISIBLE_STAGES = STAGES.filter((s) => s.id <= 2);
 
   const handleNext = () => {
     if (currentStage === 0 && typeof onStageTwo === "function") {
@@ -273,7 +274,7 @@ export default function BusinessStages({ defaultStage = 0, onStageTwo, onStageTh
         </>
       )}
 
-      <div className="business-stages__actions">
+      {/* <div className="business-stages__actions">
         <Button className={cn("business-stages__chat-button", `business-stages__button--${stage.theme}`)} onClick={onChatNow}>
           <svg width="9" height="12" viewBox="0 0 9 12" fill="none" xmlns="http://www.w3.org/2000/svg" className="business-stages__chat-icon">
             <path
@@ -292,7 +293,7 @@ export default function BusinessStages({ defaultStage = 0, onStageTwo, onStageTh
           </svg>
           Watch Guide
         </Button>
-      </div>
+      </div> */}
 
       {!notallowUserToAccess(user, [6]) && (isBusinessOverviewAccessible(user) || isBusinessSetupAccessible(user)) && (
         <div className="business-stages__nav">
@@ -309,13 +310,13 @@ export default function BusinessStages({ defaultStage = 0, onStageTwo, onStageTh
               <svg className="business-stages__nav-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M15 6l-6 6 6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-              Previous Stage
+              See Stage {currentStage}
             </button>
           )}
 
           {defaultStage <= 2 && (
             <div className="business-stages__nav-indicators">
-              {STAGES.map((item) => (
+              {VISIBLE_STAGES.map((item) => (
                 <span
                   key={item.id}
                   className={cn(
@@ -339,7 +340,7 @@ export default function BusinessStages({ defaultStage = 0, onStageTwo, onStageTh
               onClick={handleNext}
               disabled={currentStage === STAGES.length - 1}
             >
-              Next Stage
+              See Stage {currentStage + 2}
               <svg className="business-stages__nav-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M9 18l6-6-6-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>

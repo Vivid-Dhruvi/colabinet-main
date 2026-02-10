@@ -12,6 +12,7 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
   const [isFrame, setIsFrame] = useState(false);
   const iframeRef = useRef(null);
   const [videoGuide, setVideoGuide] = useState({ open: false, link: "" });
+  const [permissionPopup, setPermissionPopup] = useState(false);
   const [completedState, setCompletedState] = useState({
     is_business_plan_completed: false,
     is_marketing_plan_completed: false,
@@ -97,6 +98,14 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
     setVideoGuide({ open: false, link: "" });
   };
 
+  const handleAddClick = (hasPermission, path) => {
+    if (hasPermission) {
+      handleCreateLink(path);
+    } else {
+      setPermissionPopup(true);
+    }
+  };
+
   const isAIWorkForceAllow = useMemo(() => {
     return isUserAllowAny(user, [
       "view-ai-employee",
@@ -119,10 +128,6 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
   const canEditGuest = useMemo(() => isUserAllowAny(user, ["view-guest", "create-guest", "edit-guest", "delete-guest"]), [user]);
   const canViewFreelancer = useMemo(() => isUserAllow(user, "view-freelancer"), [user]);
 
-  const isFirstRowComplete = useMemo(() => {
-    return isAIWorkForceAllow || canEditGuest || canEditTeam || canViewFreelancer;
-  }, [isAIWorkForceAllow, canEditGuest, canEditTeam, canViewFreelancer]);
-
   const isViewBusinessPlan = useMemo(() => isUserAllowAny(user, ["view-business-plan", "create-business-plan"]), [user]);
   const isViewJobDescriptions = useMemo(() => isUserAllowAny(user, ["view-job-descriptions", "manage-job-descriptions"]), [user]);
   const isViewMarketingPlan = useMemo(() => isUserAllowAny(user, ["view-marketing-plan", "manage-marketing-plan"]), [user]);
@@ -130,10 +135,6 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
     () => isUserAllowAny(user, ["view-current-processes", "create-current-processes", "edit-current-processes", "delete-current-processes"]),
     [user],
   );
-
-  const isSecondRowComplete = useMemo(() => {
-    return isViewBusinessPlan || isViewJobDescriptions || isViewMarketingPlan || canCaptureProcesses;
-  }, [isViewBusinessPlan, isViewJobDescriptions, isViewMarketingPlan, canCaptureProcesses]);
 
   const cardView = useMemo(() => {
     let count = 0;
@@ -191,7 +192,6 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
           </div>
           <p className="mt-1.5 text-sm text-[#85838B] font-normal">Add what you have today. Everything here is optional and can be added or improved over time.</p>
           <div className="mt-6">
-            {(isFirstRowComplete || isSecondRowComplete) && (
               <div className="flex gap-8 flex-wrap lg:flex-nowrap">
                 <div className="w-full">
                   <div className="flex justify-between items-end">
@@ -210,7 +210,6 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
                     </div>
                   </div>
                   <div className="flex flex-col gap-6 bg-white shadow-[0px_1px_3px_0px_#0000001A,_0px_1px_2px_0px_#0000001A] rounded-xl p-4 lg:p-6">
-                    {isFirstRowComplete && (
                       <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-y-3 gap-4 max-w-[1400px] w-full mx-auto">
                         <div className="flex flex-wrap w-full gap-3 col-span-full">
                           <div className="flex justify-between items-center w-full">
@@ -235,7 +234,6 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
                             </div>
                           </div>
                         </div>
-                        {canEditTeam && (
                           <div className="p-4 [@media(max-width:1536px)]:pt-4 [@media(max-width:1536px)]:pr-4 [@media(max-width:1536px)]:pb-4 [@media(max-width:1536px)]:pl-4 2xl:py-4 2xl:px-5 border border-solid border-[#DEE4E7] rounded-xl bg-[#FEFEFE] h-full transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_12px_30px_rgba(250,139,100,0.35)] hover:border-[#FA8B64]">
                             <div className="flex items-center gap-3">
                               <div className="size-8 shrink-0 bg-[#2563EB]/20 rounded-full">
@@ -283,15 +281,13 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
                                 </div>
                               </div>
                               <button
-                                onClick={() => handleCreateLink(`${getOriginUrl()}/teams?reactframe=true`)}
+                                onClick={() => handleAddClick(canEditTeam, `${getOriginUrl()}/teams?reactframe=true`)}
                                 className="bg-[#71AEA3] border border-[#4B9B8B] rounded-[8px]  py-1.5  2xl:py-1.5  px-5   text-[#FEFEFE] text-sm flex items-center w-fit font-normal cursor-pointer"
                               >
                                 Add
                               </button>
                             </div>
                           </div>
-                        )}
-                        {canEditGuest && (
                           <div className="p-4 [@media(max-width:1536px)]:pt-4 [@media(max-width:1536px)]:pr-4 [@media(max-width:1536px)]:pb-4 [@media(max-width:1536px)]:pl-4 2xl:py-4 2xl:px-5 border border-solid border-[#DEE4E7] rounded-xl bg-[#FEFEFE] h-full transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_12px_30px_rgba(250,139,100,0.35)] hover:border-[#FA8B64]">
                             <div className="flex items-center gap-3">
                               <div className="size-8 shrink-0 bg-[#CA8A04]/20 rounded-full p-1.5">
@@ -340,15 +336,13 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
                                 </div>
                               </div>
                               <button
-                                onClick={() => handleCreateLink(`${getOriginUrl()}/guests?reactframe=true`)}
+                                onClick={() => handleAddClick(canEditGuest, `${getOriginUrl()}/guests?reactframe=true`)}
                                 className="bg-[#71AEA3] border border-[#4B9B8B] rounded-[8px]  py-1.5  2xl:py-1.5  px-5   text-[#FEFEFE] text-sm flex items-center w-fit font-normal cursor-pointer"
                               >
                                 Add{" "}
                               </button>
                             </div>
                           </div>
-                        )}
-                        {canViewFreelancer && (
                           <div className="p-4 [@media(max-width:1536px)]:pt-4 [@media(max-width:1536px)]:pr-4 [@media(max-width:1536px)]:pb-4 [@media(max-width:1536px)]:pl-4 2xl:py-4 2xl:px-5 border border-solid border-[#DEE4E7] rounded-xl bg-[#FEFEFE] h-full transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_12px_30px_rgba(250,139,100,0.35)] hover:border-[#FA8B64]">
                             <div className="flex items-center gap-3">
                               <div className="size-8 shrink-0 bg-[#49B8BF]/20 rounded-full p-2">
@@ -399,15 +393,13 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
                                 </div>
                               </div>
                               <button
-                                onClick={() => handleCreateLink(`${getOriginUrl()}/my-freelancer-index?reactframe=true`)}
+                                onClick={() => handleAddClick(canViewFreelancer, `${getOriginUrl()}/my-freelancer-index?reactframe=true`)}
                                 className="bg-[#71AEA3] border border-[#4B9B8B] rounded-[8px]  py-1.5  2xl:py-1.5  px-5   text-[#FEFEFE] text-sm flex items-center w-fit font-normal cursor-pointer"
                               >
                                 Add{" "}
                               </button>
                             </div>
                           </div>
-                        )}
-                        {isAIWorkForceAllow && (
                           <div className="p-4 [@media(max-width:1536px)]:pt-4 [@media(max-width:1536px)]:pr-4 [@media(max-width:1536px)]:pb-4 [@media(max-width:1536px)]:pl-4 2xl:py-4 2xl:px-5 border border-solid border-[#DEE4E7] rounded-xl bg-[#FEFEFE] h-full transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_12px_30px_rgba(250,139,100,0.35)] hover:border-[#FA8B64]">
                             <div className="flex items-center gap-3">
                               <div className="size-8 bg-[#9333EA]/20 rounded-full p-1.5">
@@ -455,18 +447,15 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
                                 </div>
                               </div>
                               <button
-                                onClick={() => handleCreateLink(`${getOriginUrl()}/workforce?reactframe=true`)}
+                                onClick={() => handleAddClick(isAIWorkForceAllow, `${getOriginUrl()}/workforce?reactframe=true`)}
                                 className="bg-[#71AEA3] border border-[#4B9B8B] rounded-[8px]  py-1.5  2xl:py-1.5  px-5   text-[#FEFEFE] text-sm flex items-center w-fit font-normal cursor-pointer"
                               >
                                 Add{" "}
                               </button>
                             </div>
                           </div>
-                        )}
                       </div>
-                    )}
                     <div className="max-w-[1400px] w-full mx-auto text-[#1BA0A5] font-normal italic text-sm ml-auto">Recommended - Needed to run and assign work</div>
-                    {isSecondRowComplete && (
                       <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-y-3 gap-4 max-w-[1400px] w-full mx-auto">
                         <div className="col-span-full flex flex-col">
                           <h3 className="text-[#FA8B64] font-semibold text-lg col-span-full">Your Business Blueprint (Optional)</h3>
@@ -474,7 +463,6 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
                             Adding your Business Blueprint unlocks personalised AI workflow suggestions in Stage 2.
                           </span>
                         </div>
-                        {isViewBusinessPlan && (
                           <div className="p-4 [@media(max-width:1536px)]:pt-4 [@media(max-width:1536px)]:pr-4 [@media(max-width:1536px)]:pb-4 [@media(max-width:1536px)]:pl-4 2xl:py-4 2xl:px-5 border border-solid border-[#DEE4E7] rounded-xl bg-[#FEFEFE] h-full transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_12px_30px_rgba(250,139,100,0.35)] hover:border-[#FA8B64]">
                             <div className="flex items-center gap-3">
                               <div className="size-8 shrink-0 bg-[#49B8BF]/20 rounded-full p-1">
@@ -505,7 +493,8 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
                               </div>
                               <button
                                 onClick={() =>
-                                  handleCreateLink(
+                                  handleAddClick(
+                                    isViewBusinessPlan,
                                     isUserAllow(user, "create-business-plan")
                                       ? `${getOriginUrl()}/chatlayer/business-plan?reactframe=true`
                                       : `${getOriginUrl()}/company-detail/create?reactframe=true`,
@@ -517,9 +506,7 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
                               </button>
                             </div>
                           </div>
-                        )}
 
-                        {isViewMarketingPlan && (
                           <div className="p-4 [@media(max-width:1536px)]:pt-4 [@media(max-width:1536px)]:pr-4 [@media(max-width:1536px)]:pb-4 [@media(max-width:1536px)]:pl-4 2xl:py-4 2xl:px-5 border border-solid border-[#DEE4E7] rounded-xl bg-[#FEFEFE] h-full transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_12px_30px_rgba(250,139,100,0.35)] hover:border-[#FA8B64]">
                             <div className="flex items-center gap-3">
                               <div className="size-8 shrink-0 bg-[#FA8B64]/20 rounded-full p-1">
@@ -553,7 +540,8 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
                               </div>
                               <button
                                 onClick={() =>
-                                  handleCreateLink(
+                                  handleAddClick(
+                                    isViewMarketingPlan,
                                     user?.company_hash && isUserAllow(user, "manage-marketing-plan")
                                       ? `${getOriginUrl()}/chatlayer/marketing-plan/${user?.company_hash}?reactframe=true`
                                       : `${getOriginUrl()}/marketing/my-marketing-plan?reactframe=true`,
@@ -565,9 +553,7 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
                               </button>
                             </div>
                           </div>
-                        )}
 
-                        {isViewJobDescriptions && (
                           <div className="p-4 [@media(max-width:1536px)]:pt-4 [@media(max-width:1536px)]:pr-4 [@media(max-width:1536px)]:pb-4 [@media(max-width:1536px)]:pl-4 2xl:py-4 2xl:px-5 border border-solid border-[#DEE4E7] rounded-xl bg-[#FEFEFE] h-full transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_12px_30px_rgba(250,139,100,0.35)] hover:border-[#FA8B64]">
                             <div className="flex items-center gap-3">
                               <div className="size-8 shrink-0 bg-[#FA8B64]/20 rounded-full p-1">
@@ -597,15 +583,13 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
                                 </label>
                               </div>
                               <a
-                                onClick={() => handleCreateLink(`${getOriginUrl()}/job-description/index?reactframe=true`)}
+                                onClick={() => handleAddClick(isViewJobDescriptions, `${getOriginUrl()}/job-description/index?reactframe=true`)}
                                 className="bg-[#71AEA3] border border-[#4B9B8B] rounded-[8px]  py-1.5  2xl:py-1.5  px-5   text-[#FEFEFE] text-sm flex items-center w-fit font-normal cursor-pointer"
                               >
                                 Add
                               </a>
                             </div>
                           </div>
-                        )}
-                        {canCaptureProcesses && (
                           <div className="p-4 [@media(max-width:1536px)]:pt-4 [@media(max-width:1536px)]:pr-4 [@media(max-width:1536px)]:pb-4 [@media(max-width:1536px)]:pl-4 2xl:py-4 2xl:px-5 border border-solid border-[#DEE4E7] rounded-xl bg-[#FEFEFE] h-full transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_12px_30px_rgba(250,139,100,0.35)] hover:border-[#FA8B64]">
                             <div className="flex items-center gap-3">
                               <div className="size-8 shrink-0 bg-[#D7F1EA] rounded-full p-1.5">
@@ -646,20 +630,17 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
                                 </label>
                               </div>
                               <button
-                                onClick={() => handleCreateLink(`${getOriginUrl()}/process?reactframe=true`)}
+                                onClick={() => handleAddClick(canCaptureProcesses, `${getOriginUrl()}/process?reactframe=true`)}
                                 className="bg-[#71AEA3] border border-[#4B9B8B] rounded-[8px]  py-1.5  2xl:py-1.5  px-5   text-[#FEFEFE] text-sm flex items-center w-fit font-normal cursor-pointer"
                               >
                                 Add
                               </button>
                             </div>
                           </div>
-                        )}
                       </div>
-                    )}
                   </div>
                 </div>
               </div>
-            )}
 
             <div className="grid xl:grid-cols-2 gap-y-4 gap-x-6 2xl:gap-x-8 mt-5">
               <div className="flex flex-col">
@@ -731,6 +712,28 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      )}
+      {permissionPopup && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-50">
+          <div className="bg-white rounded-xl shadow-2xl p-6 w-[400px] max-w-[90vw] text-center">
+            <div className="flex items-center justify-center mb-4">
+              <div className="size-12 bg-red-100 rounded-full flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#EF4444" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="4.93" y1="4.93" x2="19.07" y2="19.07" />
+                </svg>
+              </div>
+            </div>
+            <h3 className="text-lg font-semibold text-[#4A4C5E] mb-2">Permission Denied</h3>
+            <p className="text-sm text-[#85838B] mb-6">You don't have permission to access this feature. Please contact your administrator to request access.</p>
+            <button
+              onClick={() => setPermissionPopup(false)}
+              className="bg-[#71AEA3] border border-[#4B9B8B] rounded-[8px] py-2 px-8 text-[#FEFEFE] text-sm font-medium cursor-pointer hover:bg-[#5f9e93] transition-colors"
+            >
+              OK
+            </button>
           </div>
         </div>
       )}
