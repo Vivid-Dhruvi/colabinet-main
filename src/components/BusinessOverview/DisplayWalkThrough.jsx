@@ -1,6 +1,7 @@
 import { X } from "lucide-react";
 import "./DisplayWalkThrough.css";
 import React from "react";
+import { Button } from "../ui/button";
 
 export default function WalkThroughPopup({ current_stage, onClose, current_page }) {
   const [overviewVideo, setOverviewVideo] = React.useState(null);
@@ -44,6 +45,14 @@ export default function WalkThroughPopup({ current_stage, onClose, current_page 
           <p>
             This experience guides you through the essential first steps. You'll learn how to structure your setup and establish the foundation for success.
           </p>
+        </div>
+        <div className="flex justify-center mt-1">
+          <Button
+            className="bg-[#FA8B64] hover:bg-[#e07a5a] cursor-pointer"
+            onClick={handleClose}
+          >
+            Click Here To Start Stage {current_stage?.number || ""}
+          </Button>
         </div>
       </div>
 
