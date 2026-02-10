@@ -179,28 +179,62 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
         <div className="w-full px-4 pt-8 md:px-10 2xl:px-16 overflow-auto grow h-96 pb-36 md:pb-10 xl:pb-0">
           <div className="flex items-center justify-between w-full flex-wrap md:flex-nowrap">
             <h3 className="text-xl md:text-xl lg:text-xl font-medium text-[#49B8BF]">Start Building Your Colabi Business Brain.</h3>
-            <div className="mt-5 md:mt-0">
+            <div className="mt-5 md:mt-0 flex flex-col">
               <p className="text-base leading-none font-normal text-[#2E2F30]">
-                Brain Training: <span className="text-[#EC6E43] text-lg">{completeProfilePerc}%</span> Completed
+                Brain Training: <span className="text-[#EC6E43] text-lg">{completeProfilePerc}%</span> Added
               </p>
               <span className="block w-full bg-[#ffdbd1] h-2 rounded-2xl overflow-hidden relative">
                 <span className={cn("block bg-[#faa282] h-full")} style={{ width: `${completeProfilePerc}%` }}></span>
               </span>
+              <span className="text-xs text-[#A09EA6] font-normal">This updates as you add more business context</span>
             </div>
           </div>
-          <p className="mt-1.5 text-sm text-[#85838B] font-normal">The more you add, the smarter your Brain gets——start now or return anytime.</p>
+          <p className="mt-1.5 text-sm text-[#85838B] font-normal">Add what you have today. Everything here is optional and can be added or improved over time.</p>
           <div className="mt-6">
             {(isFirstRowComplete || isSecondRowComplete) && (
               <div className="flex gap-8 flex-wrap lg:flex-nowrap">
                 <div className="w-full">
-                  <div className="flex items-baseline gap-5">
-                    <span className="text-sm lg:text-base text-white p-5 py-2 ml-4 font-normal w-fit shrink-0 rounded-t-sm bg-[#FA8B64]">&gt; Step 1</span>
-                    <h4 className="text-[#817F88] font-bold text-xs md:text-sm xl:text-lg">Business Setup – Build Your Foundation:</h4>
+                  <div className="flex justify-between items-end">
+                    <div className="flex items-baseline gap-5">
+                      <span className="text-sm lg:text-base text-white p-5 py-2 ml-4 font-normal w-fit shrink-0 rounded-t-sm bg-[#FA8B64]">&gt; Step 1</span>
+                      <h4 className="text-[#817F88] font-bold text-xs md:text-sm xl:text-lg">Business Setup – Build Your Foundation:</h4>
+                    </div>
+                    <div className="cursor-pointer flex flex-row gap-3 text-[#1BA0A5] text-sm font-normal ml-auto bg-[#1BA0A5]/5 border border-[#e5e7eb] rounded-md mb-2 py-2 p-3">
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M10 20C12.6522 20 15.1957 18.9464 17.0711 17.0711C18.9464 15.1957 20 12.6522 20 10C20 7.34784 18.9464 4.8043 17.0711 2.92893C15.1957 1.05357 12.6522 0 10 0C7.34784 0 4.8043 1.05357 2.92893 2.92893C1.05357 4.8043 0 7.34784 0 10C0 12.6522 1.05357 15.1957 2.92893 17.0711C4.8043 18.9464 7.34784 20 10 20ZM8.4375 13.125H9.375V10.625H8.4375C7.91797 10.625 7.5 10.207 7.5 9.6875C7.5 9.16797 7.91797 8.75 8.4375 8.75H10.3125C10.832 8.75 11.25 9.16797 11.25 9.6875V13.125H11.5625C12.082 13.125 12.5 13.543 12.5 14.0625C12.5 14.582 12.082 15 11.5625 15H8.4375C7.91797 15 7.5 14.582 7.5 14.0625C7.5 13.543 7.91797 13.125 8.4375 13.125ZM10 5C10.3315 5 10.6495 5.1317 10.8839 5.36612C11.1183 5.60054 11.25 5.91848 11.25 6.25C11.25 6.58152 11.1183 6.89946 10.8839 7.13388C10.6495 7.3683 10.3315 7.5 10 7.5C9.66848 7.5 9.35054 7.3683 9.11612 7.13388C8.8817 6.89946 8.75 6.58152 8.75 6.25C8.75 5.91848 8.8817 5.60054 9.11612 5.36612C9.35054 5.1317 9.66848 5 10 5Z"
+                          fill="currentColor"
+                        />
+                        </svg>
+                        <span className="text-[#A09EA6]">You can start using colabi immediately. Everything on this page can be added later to make your Business Brain smart over time.</span>
+                    </div>
                   </div>
-                  <div className="flex flex-col gap-6 lg:gap-11 bg-white shadow-[0px_1px_3px_0px_#0000001A,_0px_1px_2px_0px_#0000001A] rounded-xl p-4 lg:p-6">
+                  <div className="flex flex-col gap-6 bg-white shadow-[0px_1px_3px_0px_#0000001A,_0px_1px_2px_0px_#0000001A] rounded-xl p-4 lg:p-6">
                     {isFirstRowComplete && (
                       <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-y-3 gap-4 max-w-[1400px] w-full mx-auto">
-                        <h3 className="text-[#FA8B64] font-semibold text-lg col-span-full">Your Workforce</h3>
+                        <div className="flex flex-wrap w-full gap-3 col-span-full">
+                          <div className="flex justify-between items-center w-full">
+                            <h3 className="text-[#FA8B64] font-semibold text-lg">Your Workforce</h3>
+                            <div onClick={handleBusinessOverview} className="text-[#1BA0A5] text-sm flex items-center gap-1 cursor-pointer hover:text-[#0E7C7F] transition-colors">
+                              <span>Skip setup for now and go to Business Overview</span>
+                              <svg 
+                                xmlns="http://www.w3.org/2000/svg" 
+                                width="16" 
+                                height="16" 
+                                viewBox="0 0 24 24" 
+                                fill="none" 
+                                stroke="currentColor" 
+                                strokeWidth="2" 
+                                strokeLinecap="round" 
+                                strokeLinejoin="round" 
+                                className="lucide lucide-arrow-right"
+                              >
+                                <path d="M5 12h14"/>
+                                <path d="m12 5 7 7-7 7"/>
+                              </svg>
+                            </div>
+                          </div>
+                        </div>
                         {canEditTeam && (
                           <div className="p-4 [@media(max-width:1536px)]:pt-4 [@media(max-width:1536px)]:pr-4 [@media(max-width:1536px)]:pb-4 [@media(max-width:1536px)]:pl-4 2xl:py-4 2xl:px-5 border border-solid border-[#DEE4E7] rounded-xl bg-[#FEFEFE] h-full transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_12px_30px_rgba(250,139,100,0.35)] hover:border-[#FA8B64]">
                             <div className="flex items-center gap-3">
@@ -244,7 +278,7 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
                                     checked={completedState["is_core_team_completed"]}
                                   />
                                   <label htmlFor="completed-1" className="text-[10px] text-[#A09EA6] font-normal leading-none cursor-pointer">
-                                    Completed
+                                    Added
                                   </label>
                                 </div>
                               </div>
@@ -301,7 +335,7 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
                                     checked={completedState["is_guests_completed"]}
                                   />
                                   <label htmlFor="completed-2" className="text-[10px] text-[#A09EA6] font-normal leading-none cursor-pointer">
-                                    Completed
+                                    Added
                                   </label>
                                 </div>
                               </div>
@@ -360,7 +394,7 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
                                     checked={completedState["is_freelancers_completed"]}
                                   />
                                   <label htmlFor="completed-2" className="text-[10px] text-[#A09EA6] font-normal leading-none cursor-pointer">
-                                    Completed
+                                    Added
                                   </label>
                                 </div>
                               </div>
@@ -416,7 +450,7 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
                                     checked={completedState["is_ai_employee_completed"]}
                                   />
                                   <label htmlFor="completed-5" className="text-[10px] text-[#A09EA6] font-normal leading-none cursor-pointer">
-                                    Completed
+                                    Added
                                   </label>
                                 </div>
                               </div>
@@ -431,7 +465,7 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
                         )}
                       </div>
                     )}
-
+                    <div className="max-w-[1400px] w-full mx-auto text-[#1BA0A5] font-normal italic text-sm ml-auto">Recommended - Needed to run and assign work</div>
                     {isSecondRowComplete && (
                       <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-y-3 gap-4 max-w-[1400px] w-full mx-auto">
                         <div className="col-span-full flex flex-col">
@@ -466,7 +500,7 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
                                   checked={completedState["is_business_plan_completed"]}
                                 />
                                 <label htmlFor="completed-3" className="text-[10px] text-[#A09EA6] font-normal leading-none cursor-pointer">
-                                  Completed
+                                  Added
                                 </label>
                               </div>
                               <button
@@ -514,7 +548,7 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
                                   checked={completedState["is_marketing_plan_completed"]}
                                 />
                                 <label htmlFor="is_marketing_plan_completed" className="text-[10px] text-[#A09EA6] font-normal leading-none cursor-pointer">
-                                  Completed
+                                  Added
                                 </label>
                               </div>
                               <button
@@ -559,7 +593,7 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
                                   checked={completedState["is_job_descriptions_completed"]}
                                 />
                                 <label htmlFor="completed-4" className="text-[10px] text-[#A09EA6] font-normal leading-none cursor-pointer">
-                                  Completed
+                                  Added
                                 </label>
                               </div>
                               <a
@@ -608,7 +642,7 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
                                   checked={completedState["add_your_current_processes"]}
                                 />
                                 <label htmlFor="add_your_current_processes" className="text-[10px] text-[#A09EA6] font-normal leading-none cursor-pointer">
-                                  Completed
+                                  Added
                                 </label>
                               </div>
                               <button
