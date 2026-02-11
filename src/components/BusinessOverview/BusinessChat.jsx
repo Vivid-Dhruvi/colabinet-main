@@ -667,7 +667,7 @@ export default function BusinessChat({
           <div className={cn("clb-aiChat-block", sidebarOpen || isMobile ? "sidebar-open" : "sidebar-closed", openAccordion && "accordian-open")}>
             <div className={cn("flex flex-col w-full sm:bottom-7 sm:static grow")}>
               <div className="w-full bg-white flex flex-col gap-2.5 grow">
-                {(!openAccordion || !isMobile) && <PasteInputComponent handleSubmitText={handleMessagesAnd} sidebarOpen={sidebarOpen} isMobile={isMobile} />}
+                {(!openAccordion || !isMobile) && <PasteInputComponent handleSubmitText={handleMessagesAnd} sidebarOpen={sidebarOpen} isMobile={isMobile} handleShowVideo={handleShowVideo}/>}
                 {isMobile && type === "business-setup" && (
                   <ReadmapMobile setCurrnetPath={setCurrnetPath} setOpenAccordion={setOpenAccordion} openAccordion={openAccordion} />
                 )}

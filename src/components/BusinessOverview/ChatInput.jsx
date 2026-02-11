@@ -6,7 +6,7 @@ import { ChatContext } from "@/App";
 import { ErrorToast } from "../General/toastVarient";
 import "./ChatInput.css";
 
-export default function PasteInputComponent({ handleSubmitText, sidebarOpen, isMobile = false }) {
+export default function PasteInputComponent({ handleSubmitText, sidebarOpen, isMobile = false, handleShowVideo  }) {
   const [inputValue, setInputValue] = useState("");
   const [pastedContents, setPastedContents] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -43,6 +43,9 @@ export default function PasteInputComponent({ handleSubmitText, sidebarOpen, isM
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
+    if (e.target.value && handleShowVideo) {
+      handleShowVideo(false);
+    }
   };
 
   useEffect(() => {
@@ -57,6 +60,9 @@ export default function PasteInputComponent({ handleSubmitText, sidebarOpen, isM
   const handlePaste = (e) => {
     e.preventDefault();
     const pastedText = e.clipboardData.getData("text");
+    if (pastedText && handleShowVideo) {
+      handleShowVideo(false);
+    }
     if (pastedText.length > 200) {
       setPastedContents((prev) => [...prev, pastedText]);
     } else {
