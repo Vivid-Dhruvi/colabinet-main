@@ -158,14 +158,14 @@ export const WorkflowPreviewPane = ({ data, onPrimaryAction, onClose, workflow }
     trigger = {};
   }
 
-  const rawSteps = Array.isArray(trigger?.tasks) ? trigger.tasks : Array.isArray(data?.steps) ? data.steps : [];
+  const rawSteps = Array.isArray(trigger?.tasks) ? trigger.tasks : Array.isArray(data?.steps) ? data.steps : Array.isArray(trigger?.general_flow) ? trigger?.general_flow : [];
   const workflowSteps = rawSteps
     .map((step, index) => {
       if (!step) return null;
 
       const { label, tone } = resolveStepActor(step.assigned_to ?? step.actor ?? step.owner ?? "");
-      const name = step.task_name ?? step.title ?? step.name ?? (typeof step === "string" ? step : "");
-      const descriptionText = step.task_description ?? step.description ?? step.text ?? step.details ?? "";
+      const name = step.task_name ?? step.title ?? step.name ?? step.step_name ?? (typeof step === "string" ? step : "");
+      const descriptionText = step.task_description ?? step.description ?? step.text ?? step.step_description ?? step.details ?? "";
       const primary = name || descriptionText;
       const secondary = name && descriptionText && descriptionText !== name ? descriptionText : "";
 
