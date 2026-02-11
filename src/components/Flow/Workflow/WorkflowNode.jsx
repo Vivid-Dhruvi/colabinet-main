@@ -172,26 +172,37 @@ function WorkflowNode({ data }) {
         </div>
       )}
 
-      <div className="flex items-center gap-3">
-        <div
-          className="capitalize flex items-center gap-2 text-xs font-semibold leading-none w-fit py-1.5  my-1"
-          // style={{ background: value?.workflow_type === "project" ? "#F98A63" : "#62AAB4" }}
-        >
-          <div className="flex gap-2 items-center justify-center rounded-full py-1 px-2 bg-[#F98A63] text-white">
-            <Folder size={12} />
-            <span className="text-xs font-medium">Project</span>
-          </div>
-          <Switch
-            checked={value?.workflow_type?.toLowerCase() == "process"}
-            onCheckedChange={(checked) => onChange(checked ? "process" : "project")}
-            className="data-[state=unchecked]:bg-[#62aab4] data-[state=checked]:bg-[#f98a63] cursor-pointer"
-          />
-          <div className="flex gap-2 items-center justify-center rounded-full py-1 px-2 bg-[#62AAB4] text-white">
+      <div className="flex items-center gap-3 relative overflow-hidden rounded-lg">
+        <div className="w-fit capitalize flex items-center gap-0 text-xs font-semibold leading-none bg-zinc-100 border border-soloid border-zinc-200 rounded-full p-0.5 my-1 relative z-10">
+          <button
+            type="button"
+            onClick={() => onChange("process")}
+            className={cn(
+              "flex gap-1.5 items-center justify-center rounded-full py-1 px-2.5 transition-all duration-200 flex-1",
+              value?.workflow_type?.toLowerCase() === "process"
+                ? "bg-[#62AAB4] text-white shadow-lg"
+                : "bg-transparent text-[#666] hover:bg-zinc-100"
+            )}
+          >
             <Settings size={12} />
-            <span className="text-xs font-medium">Process</span>
-          </div>
+            <span className="uppercase text-xs font-semibold">Processes</span>
+          </button>
+          <button
+            type="button"
+            onClick={() => onChange("project")}
+            className={cn(
+              "flex gap-1.5 items-center justify-center rounded-full py-1 px-2.5 transition-all duration-200 flex-1",
+              value?.workflow_type?.toLowerCase() === "project"
+                ? "bg-[#F98A63] text-white shadow-lg"
+                : "bg-transparent text-[#666] hover:bg-zinc-100"
+            )}
+          >
+            <Folder size={12} />
+            <span className="uppercase text-xs font-semibold">Projects</span>
+          </button>
         </div>
       </div>
+
 
       {transfer && (
         <ul className="w-full flex flex-col gap-2 mb-4">

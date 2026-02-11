@@ -627,13 +627,13 @@ export default function BusinessChat({
                         </button>
                       </CustomTooltip>
                     </li>
-                    <li className={cn("chatFlow-btn-item", selectedBusinessTemplate === "unified" && "active")}>
+                    {/* <li className={cn("chatFlow-btn-item", selectedBusinessTemplate === "unified" && "active")}>
                       <CustomTooltip content="Your master roadmap. Bridge live operations with AI strategic planning.">
                         <button className="py-2 px-1 sm:px-3 sm:py-3" onClick={() => setSelectedBusinessTemplate("unified")}>
                           Unified View
                         </button>
                       </CustomTooltip>
-                    </li>
+                    </li> */}
                     {/* <li className={cn("chatFlow-btn-item relative", selectedBusinessTemplate > 0 && Number(selectedBusinessTemplate) != "isNaN" && "active")}>
                       <button onClick={() => setIsOpen(!isOpen)} className="gap-2 py-1 px-2 sm:px-3 sm:py-3">
                         Business Templates

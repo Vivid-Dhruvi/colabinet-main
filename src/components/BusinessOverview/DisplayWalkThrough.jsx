@@ -41,11 +41,11 @@ export default function WalkThroughPopup({ current_stage, onClose, current_page 
         )}
 
         {/* Additional content area */}
-        <div className="build-your-business-brain">
+        {/* <div className="build-your-business-brain">
           <p>
             This experience guides you through the essential first steps. You'll learn how to structure your setup and establish the foundation for success.
           </p>
-        </div>
+        </div> */}
         <div className="flex justify-center mt-1">
           <Button
             className="bg-[#FA8B64] hover:bg-[#e07a5a] cursor-pointer"

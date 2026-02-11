@@ -39,3 +39,36 @@
   border-style: solid;
   border-color: #fa8b64 transparent transparent transparent;
 }
+
+[data-tooltip-direction="down"] .custom-tooltip__content {
+  top: 100% !important;
+  bottom: auto !important;
+  margin-top: 8px !important;
+}
+
+[data-tooltip-direction="down"] .custom-tooltip__arrow {
+  top: -6px !important;
+  bottom: auto !important;
+  transform: rotate(180deg) !important;
+}
+
+[data-tooltip-broad="true"] .custom-tooltip__content {
+  top: 100% !important;
+  bottom: auto !important;
+  margin-top: 8px !important;
+  min-width: 200px !important; /* Adjust width as needed */
+  max-width: 300px !important;
+  width: fit-content !important;
+  white-space: normal !important;
+}
+
+[data-tooltip-broad="true"] .custom-tooltip__arrow {
+  top: -6px !important;
+  bottom: auto !important;
+  transform: rotate(180deg) !important;
+}
+
+[data-tooltip-broad="true"] .custom-tooltip__bubble {
+  padding: 8px !important; /* Add more padding */
+  text-align: center !important;
+}

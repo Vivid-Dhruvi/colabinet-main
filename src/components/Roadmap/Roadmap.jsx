@@ -177,11 +177,11 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
           ></iframe>
         </div>
       ) : (
-        <div className="w-full px-4 pt-8 md:px-10 2xl:px-16 overflow-auto grow h-96 pb-36 md:pb-10 xl:pb-0">
+        <div className="w-full px-4 pt-6 md:px-10 2xl:px-16 overflow-auto grow h-96 pb-36 md:pb-8">
           <div className="flex items-center justify-between w-full flex-wrap md:flex-nowrap">
             <h3 className="text-xl md:text-xl lg:text-xl font-medium text-[#49B8BF]">Start Building Your Colabi Business Brain.</h3>
             <div className="mt-5 md:mt-0 flex flex-col">
-              <p className="text-base leading-none font-normal text-[#2E2F30]">
+              <p className="text-sm 2xl:text-base leading-none font-normal text-[#2E2F30]">
                 Brain Training: <span className="text-[#EC6E43] text-lg">{completeProfilePerc}%</span> Added
               </p>
               <span className="block w-full bg-[#ffdbd1] h-2 rounded-2xl overflow-hidden relative">
@@ -191,15 +191,15 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
             </div>
           </div>
           <p className="mt-1.5 text-sm text-[#85838B] font-normal">Add what you have today. Everything here is optional and can be added or improved over time.</p>
-          <div className="mt-6">
+          <div className="mt-4 2xl:mt-6">
               <div className="flex gap-8 flex-wrap lg:flex-nowrap">
                 <div className="w-full">
                   <div className="flex justify-between items-end">
-                    <div className="flex items-baseline gap-5">
+                    <div className="flex items-center gap-5">
                       <span className="text-sm lg:text-base text-white p-5 py-2 ml-4 font-normal w-fit shrink-0 rounded-t-sm bg-[#FA8B64]">&gt; Step 1</span>
-                      <h4 className="text-[#817F88] font-bold text-xs md:text-sm xl:text-lg">Business Setup – Build Your Foundation:</h4>
+                      <h4 className="text-[#817F88] font-bold text-xs md:text-sm 2xl:text-lg">Business Setup – Build Your Foundation:</h4>
                     </div>
-                    <div className="cursor-pointer flex flex-row gap-3 text-[#1BA0A5] text-sm font-normal ml-auto bg-[#1BA0A5]/5 border border-[#e5e7eb] rounded-md mb-2 py-2 p-3">
+                    <div className="flex flex-row items-center gap-2 2xl:gap-3 text-[#1BA0A5] text-xs 2xl:text-sm font-normal ml-auto bg-[#1BA0A5]/5 border border-[#e5e7eb] rounded-md mb-2 py-1.5 2xl:py-2 p-3">
                       <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                           d="M10 20C12.6522 20 15.1957 18.9464 17.0711 17.0711C18.9464 15.1957 20 12.6522 20 10C20 7.34784 18.9464 4.8043 17.0711 2.92893C15.1957 1.05357 12.6522 0 10 0C7.34784 0 4.8043 1.05357 2.92893 2.92893C1.05357 4.8043 0 7.34784 0 10C0 12.6522 1.05357 15.1957 2.92893 17.0711C4.8043 18.9464 7.34784 20 10 20ZM8.4375 13.125H9.375V10.625H8.4375C7.91797 10.625 7.5 10.207 7.5 9.6875C7.5 9.16797 7.91797 8.75 8.4375 8.75H10.3125C10.832 8.75 11.25 9.16797 11.25 9.6875V13.125H11.5625C12.082 13.125 12.5 13.543 12.5 14.0625C12.5 14.582 12.082 15 11.5625 15H8.4375C7.91797 15 7.5 14.582 7.5 14.0625C7.5 13.543 7.91797 13.125 8.4375 13.125ZM10 5C10.3315 5 10.6495 5.1317 10.8839 5.36612C11.1183 5.60054 11.25 5.91848 11.25 6.25C11.25 6.58152 11.1183 6.89946 10.8839 7.13388C10.6495 7.3683 10.3315 7.5 10 7.5C9.66848 7.5 9.35054 7.3683 9.11612 7.13388C8.8817 6.89946 8.75 6.58152 8.75 6.25C8.75 5.91848 8.8817 5.60054 9.11612 5.36612C9.35054 5.1317 9.66848 5 10 5Z"
@@ -209,7 +209,7 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
                         <span className="text-[#A09EA6]">You can start using colabi immediately. Everything on this page can be added later to make your Business Brain smart over time.</span>
                     </div>
                   </div>
-                  <div className="flex flex-col gap-6 bg-white shadow-[0px_1px_3px_0px_#0000001A,_0px_1px_2px_0px_#0000001A] rounded-xl p-4 lg:p-6">
+                  <div className="flex flex-col gap-3 2xl:gap-6 bg-white shadow-[0px_1px_3px_0px_#0000001A,_0px_1px_2px_0px_#0000001A] rounded-xl p-4 2xl:p-6">
                       <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-y-3 gap-4 max-w-[1400px] w-full mx-auto">
                         <div className="flex flex-wrap w-full gap-3 col-span-full">
                           <div className="flex justify-between items-center w-full">
@@ -234,7 +234,7 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
                             </div>
                           </div>
                         </div>
-                          <div className="p-4 [@media(max-width:1536px)]:pt-4 [@media(max-width:1536px)]:pr-4 [@media(max-width:1536px)]:pb-4 [@media(max-width:1536px)]:pl-4 2xl:py-4 2xl:px-5 border border-solid border-[#DEE4E7] rounded-xl bg-[#FEFEFE] h-full transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_12px_30px_rgba(250,139,100,0.35)] hover:border-[#FA8B64]">
+                          <div className="p-3 2xl:py-4 2xl:px-5 border border-solid border-[#DEE4E7] rounded-xl bg-[#FEFEFE] h-full transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_12px_30px_rgba(250,139,100,0.35)] hover:border-[#FA8B64]">
                             <div className="flex items-center gap-3">
                               <div className="size-8 shrink-0 bg-[#2563EB]/20 rounded-full">
                                 <svg width="33" height="33" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg" className="size-full block">
@@ -288,7 +288,7 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
                               </button>
                             </div>
                           </div>
-                          <div className="p-4 [@media(max-width:1536px)]:pt-4 [@media(max-width:1536px)]:pr-4 [@media(max-width:1536px)]:pb-4 [@media(max-width:1536px)]:pl-4 2xl:py-4 2xl:px-5 border border-solid border-[#DEE4E7] rounded-xl bg-[#FEFEFE] h-full transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_12px_30px_rgba(250,139,100,0.35)] hover:border-[#FA8B64]">
+                          <div className="p-3 2xl:py-4 2xl:px-5 border border-solid border-[#DEE4E7] rounded-xl bg-[#FEFEFE] h-full transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_12px_30px_rgba(250,139,100,0.35)] hover:border-[#FA8B64]">
                             <div className="flex items-center gap-3">
                               <div className="size-8 shrink-0 bg-[#CA8A04]/20 rounded-full p-1.5">
                                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" className="size-full block">
@@ -343,7 +343,7 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
                               </button>
                             </div>
                           </div>
-                          <div className="p-4 [@media(max-width:1536px)]:pt-4 [@media(max-width:1536px)]:pr-4 [@media(max-width:1536px)]:pb-4 [@media(max-width:1536px)]:pl-4 2xl:py-4 2xl:px-5 border border-solid border-[#DEE4E7] rounded-xl bg-[#FEFEFE] h-full transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_12px_30px_rgba(250,139,100,0.35)] hover:border-[#FA8B64]">
+                          <div className="p-3 2xl:py-4 2xl:px-5 border border-solid border-[#DEE4E7] rounded-xl bg-[#FEFEFE] h-full transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_12px_30px_rgba(250,139,100,0.35)] hover:border-[#FA8B64]">
                             <div className="flex items-center gap-3">
                               <div className="size-8 shrink-0 bg-[#49B8BF]/20 rounded-full p-2">
                                 <svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg" className="size-full block">
@@ -400,7 +400,7 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
                               </button>
                             </div>
                           </div>
-                          <div className="p-4 [@media(max-width:1536px)]:pt-4 [@media(max-width:1536px)]:pr-4 [@media(max-width:1536px)]:pb-4 [@media(max-width:1536px)]:pl-4 2xl:py-4 2xl:px-5 border border-solid border-[#DEE4E7] rounded-xl bg-[#FEFEFE] h-full transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_12px_30px_rgba(250,139,100,0.35)] hover:border-[#FA8B64]">
+                          <div className="p-3 2xl:py-4 2xl:px-5 border border-solid border-[#DEE4E7] rounded-xl bg-[#FEFEFE] h-full transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_12px_30px_rgba(250,139,100,0.35)] hover:border-[#FA8B64]">
                             <div className="flex items-center gap-3">
                               <div className="size-8 bg-[#9333EA]/20 rounded-full p-1.5">
                                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" className="size-full block">
@@ -463,7 +463,7 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
                             Adding your Business Blueprint unlocks personalised AI workflow suggestions in Stage 2.
                           </span>
                         </div>
-                          <div className="p-4 [@media(max-width:1536px)]:pt-4 [@media(max-width:1536px)]:pr-4 [@media(max-width:1536px)]:pb-4 [@media(max-width:1536px)]:pl-4 2xl:py-4 2xl:px-5 border border-solid border-[#DEE4E7] rounded-xl bg-[#FEFEFE] h-full transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_12px_30px_rgba(250,139,100,0.35)] hover:border-[#FA8B64]">
+                          <div className="p-3 2xl:py-4 2xl:px-5 border border-solid border-[#DEE4E7] rounded-xl bg-[#FEFEFE] h-full transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_12px_30px_rgba(250,139,100,0.35)] hover:border-[#FA8B64]">
                             <div className="flex items-center gap-3">
                               <div className="size-8 shrink-0 bg-[#49B8BF]/20 rounded-full p-1">
                                 <svg width="11" height="21" viewBox="0 0 11 21" fill="none" xmlns="http://www.w3.org/2000/svg" className="size-full block">
@@ -507,7 +507,7 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
                             </div>
                           </div>
 
-                          <div className="p-4 [@media(max-width:1536px)]:pt-4 [@media(max-width:1536px)]:pr-4 [@media(max-width:1536px)]:pb-4 [@media(max-width:1536px)]:pl-4 2xl:py-4 2xl:px-5 border border-solid border-[#DEE4E7] rounded-xl bg-[#FEFEFE] h-full transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_12px_30px_rgba(250,139,100,0.35)] hover:border-[#FA8B64]">
+                          <div className="p-3 2xl:py-4 2xl:px-5 border border-solid border-[#DEE4E7] rounded-xl bg-[#FEFEFE] h-full transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_12px_30px_rgba(250,139,100,0.35)] hover:border-[#FA8B64]">
                             <div className="flex items-center gap-3">
                               <div className="size-8 shrink-0 bg-[#FA8B64]/20 rounded-full p-1">
                                 <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg" className="size-full block">
@@ -554,7 +554,7 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
                             </div>
                           </div>
 
-                          <div className="p-4 [@media(max-width:1536px)]:pt-4 [@media(max-width:1536px)]:pr-4 [@media(max-width:1536px)]:pb-4 [@media(max-width:1536px)]:pl-4 2xl:py-4 2xl:px-5 border border-solid border-[#DEE4E7] rounded-xl bg-[#FEFEFE] h-full transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_12px_30px_rgba(250,139,100,0.35)] hover:border-[#FA8B64]">
+                          <div className="p-3 2xl:py-4 2xl:px-5 border border-solid border-[#DEE4E7] rounded-xl bg-[#FEFEFE] h-full transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_12px_30px_rgba(250,139,100,0.35)] hover:border-[#FA8B64]">
                             <div className="flex items-center gap-3">
                               <div className="size-8 shrink-0 bg-[#FA8B64]/20 rounded-full p-1">
                                 <svg width="11" height="21" viewBox="0 0 11 21" fill="none" xmlns="http://www.w3.org/2000/svg" className="size-full block">
@@ -590,7 +590,7 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
                               </a>
                             </div>
                           </div>
-                          <div className="p-4 [@media(max-width:1536px)]:pt-4 [@media(max-width:1536px)]:pr-4 [@media(max-width:1536px)]:pb-4 [@media(max-width:1536px)]:pl-4 2xl:py-4 2xl:px-5 border border-solid border-[#DEE4E7] rounded-xl bg-[#FEFEFE] h-full transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_12px_30px_rgba(250,139,100,0.35)] hover:border-[#FA8B64]">
+                          <div className="p-3 2xl:py-4 2xl:px-5 border border-solid border-[#DEE4E7] rounded-xl bg-[#FEFEFE] h-full transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_12px_30px_rgba(250,139,100,0.35)] hover:border-[#FA8B64]">
                             <div className="flex items-center gap-3">
                               <div className="size-8 shrink-0 bg-[#D7F1EA] rounded-full p-1.5">
                                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" className="size-full block">
@@ -646,14 +646,14 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
               <div className="flex flex-col">
                 <div className="flex items-center gap-5">
                   <div className="text-sm lg:text-base text-white p-5 py-2 ml-4 font-normal w-fit shrink-0 rounded-t-sm bg-[#FA8B64]">&gt; Step 2</div>
-                  <h4 className="text-[#817F88] font-bold text-xs md:text-sm xl:text-lg">Business Overview – See Your Business in One View</h4>
+                  <h4 className="text-[#817F88] font-bold text-xs md:text-sm 2xl:text-lg">Business Overview – See Your Business in One View</h4>
                 </div>
-                <div className="grow p-5 flex flex-col bg-white shadow-[0px_1px_3px_0px_#0000001A,_0px_1px_2px_0px_#0000001A] rounded-lg">
-                  <p className="text-sm text-[#B4B2BA] font-medium col-span-full mb-5">
+                <div className="grow bg-white shadow-[0px_1px_3px_0px_#0000001A,_0px_1px_2px_0px_#0000001A] p-3 2xl:p-5 rounded-xl flex flex-col">
+                  <p className="text-sm text-[#B4B2BA] font-medium col-span-full mb-1 2xl:mb-5">
                     Build & view your business areas and workflows on a single visual canvas.
                   </p>
-                  <div className="mt-auto border-[#72AEA2]/90 border border-solid rounded px-5 py-5 flex gap-4 2xl:gap-6 items-center">
-                    <div className="w-12 h-12 bg-[#f6f9fb] flex items-center justify-center rounded-2xl">
+                  <div className="mt-auto border-[#72AEA2]/90 border border-solid rounded p-3 2xl:p-5 flex gap-4 2xl:gap-6 items-center">
+                    <div className="size-10 2xl:size-12 bg-[#f6f9fb] flex items-center justify-center rounded-2xl">
                       <svg
                         width="16"
                         height="14"
@@ -669,7 +669,7 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
                       </svg>
                     </div>
                     <div onClick={handleBusinessOverview} className="w-[calc(100%_-_70px)] cursor-pointer">
-                      <h4 className="text-[#4A4C5E] leading-4 font-bold text-[14.5px] mb-2">Map Your Business in One View.</h4>
+                      <h4 className="text-[#4A4C5E] leading-4 font-bold text-[14.5px] mb-0 2xl:mb-2">Map Your Business in One View.</h4>
                       <p className="text-xs leading-4 font-light text-[#9798A1]">See your business mapped in one visual workspace</p>
                     </div>
                   </div>
@@ -678,14 +678,14 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
               <div className="flex flex-col">
                 <div className="flex items-center gap-5">
                   <div className="text-sm lg:text-base text-white p-5 py-2 ml-4 font-normal w-fit shrink-0 rounded-t-sm bg-[#FA8B64]">&gt; Step 3</div>
-                  <h4 className="text-[#817F88] font-bold text-xs md:text-sm xl:text-lg">Dashboard – Run & Manage Your Business</h4>
+                  <h4 className="text-[#817F88] font-bold text-xs md:text-sm 2xl:text-lg">Dashboard – Run & Manage Your Business</h4>
                 </div>
-                <div className="grow bg-white shadow-[0px_1px_3px_0px_#0000001A,_0px_1px_2px_0px_#0000001A] p-5 rounded-xl flex flex-col">
-                  <p className="text-sm text-[#B4B2BA] font-medium col-span-full mb-5">
+                <div className="grow bg-white shadow-[0px_1px_3px_0px_#0000001A,_0px_1px_2px_0px_#0000001A] p-3 2xl:p-5 rounded-xl flex flex-col">
+                  <p className="text-sm text-[#B4B2BA] font-medium col-span-full mb-1 2xl:mb-5">
                     Run workflows, track tasks, and collaborate with your team in real time
                   </p>
-                  <div className="mt-auto border-[#72AEA2]/90 border border-solid rounded px-5 py-5 flex gap-4 2xl:gap-6 items-center">
-                    <div className="w-12 h-12 bg-[#f6f9fb] flex items-center justify-center rounded-2xl">
+                  <div className="mt-auto border-[#72AEA2]/90 border border-solid rounded p-3 2xl:p-5 flex gap-4 2xl:gap-6 items-center">
+                    <div className="size-10 2xl:size-12 bg-[#f6f9fb] flex items-center justify-center rounded-2xl">
                       <svg
                         width="14"
                         height="20"
@@ -701,7 +701,7 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
                       </svg>
                     </div>
                     <div onClick={handleBusinessOverview} className="w-[calc(100%_-_70px)] cursor-pointer">
-                      <a className="text-[#4A4C5E] leading-4 font-bold text-[14.5px] mb-2 block" href="/ai-dashboard">
+                      <a className="text-[#4A4C5E] leading-4 font-bold text-[14.5px] mb-0 2xl:mb-2 block" href="/ai-dashboard">
                         Manage Your Business in Real Time
                       </a>
                       <p className="text-xs leading-4 font-light text-[#9798A1]">

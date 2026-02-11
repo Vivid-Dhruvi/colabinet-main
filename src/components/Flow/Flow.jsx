@@ -4514,7 +4514,49 @@ function Flow({ currentPath, setCurrnetPath, reportData, setSidebarOpen, sidebar
                   </CollapsibleContent>
                 </Collapsible>
               </div>
-
+              <div className="absolute top-24 md:top-8 lg:top-4 right-20 md:right-16 z-10 flex flex-row gap-1 backdrop-blur-sm rounded-lg p-1 border border-gray-200 shadow-lg h-10" data-tooltip-direction="down" data-tooltip-broad="true">
+                <CustomTooltip content="Manage your active operations and real-time team workflows.">
+                  <button 
+                    className={cn(
+                      "px-3 h-full text-sm font-medium rounded-md transition-all duration-200 flex items-center",
+                      selectedBusinessTemplate === "0" 
+                        ? "bg-gradient-to-r from-[#49b8c1] to-[#62AAB4] text-white shadow-sm" 
+                        : "bg-white text-gray-700 hover:bg-gray-50 border border-gray-200"
+                    )}
+                    onClick={() => setSelectedBusinessTemplate("0")}
+                  >
+                    Your Business
+                  </button>
+                </CustomTooltip>
+                
+                <CustomTooltip content="Explore AI growth suggestions based on your Stage 1 Blueprint.">
+                  <button 
+                    className={cn(
+                      "px-3 h-full text-sm font-medium rounded-md transition-all duration-200 flex items-center",
+                      selectedBusinessTemplate === "suggested" 
+                        ? "bg-gradient-to-r from-[#49b8c1] to-[#62AAB4] text-white shadow-sm" 
+                        : "bg-white text-gray-700 hover:bg-gray-50 border border-gray-200"
+                    )}
+                    onClick={() => setSelectedBusinessTemplate("suggested")}
+                  >
+                    AI Business
+                  </button>
+                </CustomTooltip>
+                
+                {/* <CustomTooltip content="Your master roadmap. Bridge live operations with AI strategic planning.">
+                  <button 
+                    className={cn(
+                      "px-3 h-full text-sm font-medium rounded-md transition-all duration-200 flex items-center",
+                      selectedBusinessTemplate === "unified" 
+                        ? "bg-gradient-to-r from-[#49b8c1] to-[#62AAB4] text-white shadow-sm" 
+                        : "bg-white text-gray-700 hover:bg-gray-50 border border-gray-200"
+                    )}
+                    onClick={() => setSelectedBusinessTemplate("unified")}
+                  >
+                    Unified View
+                  </button>
+                </CustomTooltip> */}
+              </div>
               {(currentFlow.type != "template" || user.role_id == 17) && (
                 <button
                   onClick={() => setIsRearrange(true)}
@@ -4612,13 +4654,13 @@ function Flow({ currentPath, setCurrnetPath, reportData, setSidebarOpen, sidebar
                 </button>
               </CustomTooltip>
             </li>
-            <li className={cn("chatFlow-btn-item", selectedBusinessTemplate === "unified" && "active")}>
+            {/* <li className={cn("chatFlow-btn-item", selectedBusinessTemplate === "unified" && "active")}>
               <CustomTooltip content="Your master roadmap. Bridge live operations with AI strategic planning.">
                 <button className="py-2 px-1 sm:px-3 sm:py-3" onClick={() => setSelectedBusinessTemplate("unified")}>
                   Unified View
                 </button>
               </CustomTooltip>
-            </li>
+            </li> */}
             {/* <li className={cn("chatFlow-btn-item relative", selectedBusinessTemplate > 0 && Number(selectedBusinessTemplate) != "isNaN" && "active")}>
               <button onClick={() => setIsOpen(!isOpen)} className="gap-2 py-2.5 px-1.5 sm:px-3 sm:py-3 font-semibold">
                 Business Templates
