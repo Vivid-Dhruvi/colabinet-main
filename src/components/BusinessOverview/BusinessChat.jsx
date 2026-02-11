@@ -365,6 +365,24 @@ export default function BusinessChat({
     synthRef.current?.speak(utterance);
   };
 
+  const shouldHideAside = () => {
+    const allowedPaths = [
+      '/business/setup',
+      '/business/overview',
+      '/ai-dashboard',
+      '/workflow/On-boarding',
+    ];
+
+    if (currentPath) {
+      const isAllowedIframe = allowedPaths.some(path => currentPath.includes(path));
+      return !isAllowedIframe;
+    }
+
+    const currentRoute = location.pathname;
+    const isAllowedRoute = allowedPaths.some(path => currentRoute.includes(path));    
+    return !isAllowedRoute;
+  };
+
   return (
     <>
       {guide.open && <span className="fixed hidden lg:block bottom-0 right-0 min-w-screen h-full bg-black/10 backdrop-blur-sm pointer-events-none z-15"></span>}
@@ -377,7 +395,8 @@ export default function BusinessChat({
             className="w-full h-[calc(100vh_-_48px)] md:h-[calc(100vh_-_64px)]"
           ></iframe>
         </div>
-      ) : (
+      ) : (<>
+      {!shouldHideAside() && (
         <aside className={cn("clb-aside iframe-aside", sidebarOpen ? "clb-aside-sdo" : "clb-aside-sdc")}>
           {(!openAccordion || !isMobile) && (
             <>
@@ -717,6 +736,8 @@ export default function BusinessChat({
             </>
           )}
         </aside>
+        )}
+      </>
       )}
     </>
   );
