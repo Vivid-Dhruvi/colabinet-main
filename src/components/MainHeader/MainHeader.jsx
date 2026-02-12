@@ -9,10 +9,10 @@ import { MainContext } from "@/App";
 import { NotificationPopup } from "./Notification";
 import { BusinessContext } from "@/Pages/layouts/BusinessLayout";
 import { Button } from "../ui/button";
-import { X } from "lucide-react";
+import { ChevronDown, X } from "lucide-react";
 
 export const MainHeader = ({ isBusinessOverview }) => {
-  const { handleProfile, handleBusinessOverview, handlePath, handleShowVideo } = useContext(BusinessContext);
+  const { handleProfile, handlePermission, handleBusinessOverview, handlePath, handleShowVideo } = useContext(BusinessContext);
   const { user, token } = useContext(MainContext);
   const [openProfile, setOpenProfile] = React.useState(false);
   const [menuOpen, setMenuOpen] = React.useState(false);
@@ -24,9 +24,10 @@ export const MainHeader = ({ isBusinessOverview }) => {
 
   const [showRatePopup, setShowRatePopup] = useState(false);
   const canAccessBusinessSetup = user?.role_id != 7 || !isUserAllow(user, "hide-business-setup");
-    const canAccessBusinessOverview = user?.role_id != 7 || (!isUserAllow(user, "hide-business-overview") && 
-    isUserAllowAny(user, ["create-business-area", "edit-business-area", "delete-business-area", "create-workflow", "edit-workflow", "delete-workflow"])
-  );
+  const canAccessBusinessOverview =
+    user?.role_id != 7 ||
+    (!isUserAllow(user, "hide-business-overview") &&
+      isUserAllowAny(user, ["create-business-area", "edit-business-area", "delete-business-area", "create-workflow", "edit-workflow", "delete-workflow"]));
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -325,33 +326,48 @@ export const MainHeader = ({ isBusinessOverview }) => {
           <NotificationPopup />
           <div className="w-fit relative" ref={headDropRef}>
             <button className="outline-none block cursor-pointer overflow-hidden rounded-full size-8 md:size-9" onClick={() => setOpenProfile(!openProfile)}>
-              <img
-                src={`${getOriginUrl()}/${user?.avatar}`}
-                className="size-full block"
-                alt="profile image"
-                onError={(e) => {
-                  e.target.src = "/images/user.jpg";
-                }}
-              />
+              {user?.avatar ? (
+                <img
+                  src={`${getOriginUrl()}/${user?.avatar}`}
+                  className="size-full block"
+                  alt="profile image"
+                  onError={(e) => {
+                    e.target.src = "/images/user.jpg";
+                  }}
+                />
+              ) : (
+                <div className="rounded-full size-full flex justify-center items-center bg-[#007D88] text-white">
+                  {user?.name[0]}
+                  {user?.last_name[0]}
+                </div>
+              )}
             </button>
             <div className="absolute top-full right-0 pt-1">
               <div className={cn("bg-white rounded-md shadow-[0px_6px_16px_rgba(47,52,58,0.1)] w-76", openProfile ? "block" : "hidden")}>
                 <div className="flex items-center gap-3 p-3 2xl:pb-4 border-b border-solid border-gray-200">
-                  <div className="w-12 h-12 shrink-0 rounded-full overflow-hidden">
-                    <img
-                      src={`${getOriginUrl()}/${user?.avatar}`}
-                      className="block w-full h-full"
-                      alt="profile-img"
-                      onError={(e) => {
-                        e.target.src = "/images/user.jpg";
-                      }}
-                    />
+                  <div className="size-12 shrink-0 rounded-full overflow-hidden">
+                    {user?.avatar ? (
+                      <img
+                        src={`${getOriginUrl()}/${user?.avatar}`}
+                        className="block w-full h-full"
+                        alt="profile-img"
+                        onError={(e) => {
+                          e.target.src = "/images/user.jpg";
+                        }}
+                      />
+                    ) : (
+                      <div className="rounded-full size-full flex justify-center items-center bg-[#007D88] text-white">
+                        {user?.name[0]}
+                        {user?.last_name[0]}
+                      </div>
+                    )}
                   </div>
                   <div className="w-2/4 grow flex flex-col gap-1">
                     <button type="button" className="text-sm xl:text-base font-medium text-gray-800 w-full text-left cursor-pointer flex items-center gap-2">
                       <span>
                         {user?.name} {user?.last_name}
                       </span>
+                      <ChevronDown className="size-4 shrink-0" />
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4 hidden">
                         <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                       </svg>
@@ -372,6 +388,19 @@ export const MainHeader = ({ isBusinessOverview }) => {
                       Profile
                     </button>
                   </li>
+                  {[7].includes(user?.role_id) && (
+                    <li className="px-3 leading-none">
+                      <button
+                        onClick={() => {
+                          handlePermission();
+                          setOpenProfile(false);
+                        }}
+                        className="w-full text-left cursor-pointer block px-1.5 py-1 rounded no-underline xl:text-base font-medium text-black hover:bg-gray-100 transition-all duration-200 ease-in"
+                      >
+                        Permissions
+                      </button>
+                    </li>
+                  )}
                 </ul>
                 {user?.role_id != 7 && (
                   <ul className="border-b border-solid border-gray-200 py-1 xl:py-2">

@@ -147,6 +147,10 @@ function BusinessLayout() {
     setCurrnetPath(`${getOriginUrl()}/private-profile?reactframe=true`);
   };
 
+  const handlePermission = () => {
+    setCurrnetPath(`${getOriginUrl()}/users/permissions/view?reactframe=true`);
+  };
+
   const handleShowVideo = (open, number) => {
     let video = stages[0];
     if (number) {
@@ -195,6 +199,7 @@ function BusinessLayout() {
     <BusinessContext.Provider
       value={{
         handleProfile,
+        handlePermission,
         handleBusinessOverview,
         handlePath,
         handleShowVideo,
