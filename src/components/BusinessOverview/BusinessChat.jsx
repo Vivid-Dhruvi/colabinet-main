@@ -9,7 +9,7 @@ import BusinessStages from "./BusinessStages";
 import { useLocation, useParams } from "react-router-dom";
 import { getWorkFlowdetails, uploadFileService } from "@/service/general.service";
 import { ErrorToast } from "@/components/General/toastVarient";
-import { FileText } from "lucide-react";
+import { ChevronLeft, FileText } from "lucide-react";
 import "./BusinessChat.css";
 import CustomTooltip from "./CustomTooltip";
 import WalkThroughPopup from "./DisplayWalkThrough";
@@ -400,18 +400,22 @@ export default function BusinessChat({
         <aside className={cn("clb-aside iframe-aside", sidebarOpen ? "clb-aside-sdo" : "clb-aside-sdc")}>
           {(!openAccordion || !isMobile) && (
             <>
-              <button type="button" className="clb-sidebar-btn" onClick={() => setSidebarOpen(!sidebarOpen)}>
-                <svg
-                  width="13"
-                  height="20"
-                  viewBox="0 0 13 20"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className={`block ${sidebarOpen ? "rotate-180" : ""}`}
-                >
-                  <path d="M2.025 20L0.25 18.225L8.475 10L0.25 1.775L2.025 0L12.025 10L2.025 20Z" fill="white" />
-                </svg>
-              </button>
+            {
+              sidebarOpen ? 
+              (
+                <button type="button" className="clb-sidebar-btn" onClick={() => setSidebarOpen(!sidebarOpen)}>
+                  <ChevronLeft className="text-white" />
+                </button>
+              ):
+              (
+                <button type="button" className="clb-sidebar-btn2" onClick={() => setSidebarOpen(!sidebarOpen)}>
+                  <img src="/images/colabi-roo.png" alt="COLABI-ROO" />
+                  <span>COLABI-ROO</span>
+                  <b>Chat Here</b>
+                </button>
+              )
+            }
+              
 
               <div className="">
                 {isMobile && (
@@ -729,7 +733,7 @@ export default function BusinessChat({
                   </div>
                 </>
               ) : (
-                <div className="clb-video-block">
+                <div className={cn("clb-video-block", !sidebarOpen ? "full-video-popup" : "")}>
                   <WalkThroughPopup current_stage={guide} onClose={() => handleShowVideo(false)} current_page={type} />
                 </div>
               )}

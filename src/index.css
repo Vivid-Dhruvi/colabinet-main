@@ -1048,9 +1048,6 @@ aside .clb-sidebar-btn {
   .clb-aiChat-block.accordian-open {
     flex-grow: initial;
   }
-  aside.clb-aside.clb-aside-sdc > button {
-    width: 40px !important;
-  }
 }
 
 @media (min-width: 1024px) {
@@ -1716,10 +1713,11 @@ aside .clb-sidebar-btn {
   right: 0;
   transform: inherit;
 }
-.chatFlow-btn-item:last-child .custom-tooltip__content .custom-tooltip__arrow {
-  left: auto;
-  right: 34px;
-}
+.chatFlow-btn-item:last-child .custom-tooltip__content .custom-tooltip__arrow {left: auto;right: 34px;}
+.clb-sidebar-btn2{outline: none;cursor: pointer;position: absolute;left: 100%;z-index: 10;top: 40px;width: 62px; background-color: #ffffff;border-radius: 0 8px 8px 0;padding: 3px 3px 2px 4px;border: 2px solid #FFFFFF;box-shadow: 0px 4px 4px 0px #00000040;}
+.clb-sidebar-btn2 img{display: block;max-width: 100%;height: auto;}
+.clb-sidebar-btn2 span{white-space: nowrap; font-family: "Poppins", sans-serif;font-weight: 500;font-size: 9px;line-height: 16px;letter-spacing: -0.7px;color:#535258;display: block;}
+.clb-sidebar-btn2 b{font-family: "Poppins", sans-serif;font-weight: 500;font-size: 9px;line-height: 15px;letter-spacing: -0.7px;color: #FF8C42;display: block;}
 
 @media (max-width: 639px) {
   /* ------This css for ai-dashboard page for mobile view - Start------ */

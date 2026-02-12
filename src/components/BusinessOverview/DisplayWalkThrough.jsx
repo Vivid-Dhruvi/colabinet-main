@@ -40,17 +40,8 @@ export default function WalkThroughPopup({ current_stage, onClose, current_page 
           </div>
         )}
 
-        {/* Additional content area */}
-        {/* <div className="build-your-business-brain">
-          <p>
-            This experience guides you through the essential first steps. You'll learn how to structure your setup and establish the foundation for success.
-          </p>
-        </div> */}
-        <div className="flex justify-center mt-1">
-          <Button
-            className="bg-[#FA8B64] hover:bg-[#e07a5a] cursor-pointer"
-            onClick={handleClose}
-          >
+        <div className="stage-button-container">
+          <Button className="stage-button" onClick={handleClose}>
             Click Here To Start Stage {current_stage?.number || ""}
           </Button>
         </div>
@@ -60,7 +51,7 @@ export default function WalkThroughPopup({ current_stage, onClose, current_page 
       <div className="business-setup-right">
         <div className="business-setup-r-head">
           <h2>
-           {overviewVideo?.right_title} <span>{overviewVideo?.right_subtitle}</span>
+            {overviewVideo?.right_title} <span>{overviewVideo?.right_subtitle}</span>
           </h2>
           <button onClick={handleClose} className="close-btn" aria-label="Close">
             <X />

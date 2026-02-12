@@ -1,4 +1,5 @@
 .business-setup-popup {font-family: "Inter", sans-serif;background: linear-gradient(135deg, #F9FAFB 0%, #FFFFFF 70.71%);border-radius: 1rem;box-shadow: 0 20px 25px -5px rgba(0,0,0, 0.1), 0 8px 10px -6px rgba(0,0,0, 0.1);width: 100%;min-width: 50svw;max-height: 80svh;display: flex;flex-direction: column;overflow: auto;}
+.full-video-popup .business-setup-popup{min-width: 65dvw;}
 .business-setup-left{position:relative;width:100%;padding:1.25rem;flex: 1;}
 .business-setup-r-head {display:flex;justify-content:space-between;align-items:center;padding:1rem;}
 .business-setup-right{width:100%;background:#F9FAFB;border-left:1px solid #E5E7EB;}
@@ -27,6 +28,9 @@
 .close-btn svg,.close-btn-mb svg{width: 100%;height: 100%;display: block;color: #4B5563;}
 .clb-back-btn .business-setup-r-btn{background-color: #CED4DA; color: #000000;padding: 6px 12px;font-size: 14px;border-radius: 0px;cursor: pointer;transition: all 0.33s ease;margin-top: 10px;margin-bottom: 10px;width: 100%; padding: 15px;text-decoration: underline;}
 .clb-back-btn .business-setup-r-btn:hover{background-color: #55919a;color: #ffffff;}
+.stage-button-container {display: flex;justify-content: center;margin-top: 4px;}
+.stage-button { background-color: #FA8B64; cursor: pointer;}
+.stage-button:hover {background-color: #e07a5a;}
 
 @media (min-width:640px){.business-setup-popup{max-height:60svh}}
 @media (min-width:1024px){.business-setup-popup{max-height:80svh}}
@@ -34,6 +38,7 @@
     .business-setup-r-head h2 span{display: block;}
     .business-setup-r-main {flex-direction: column;overflow-x: hidden; height: fit-content;}
     .business-setup-popup{min-width:calc(66.666svw - 120px);max-height:85svh;overflow:hidden;flex-direction:row}
+    .full-video-popup .business-setup-popup{min-width: 78dvw;}
     .business-setup-right{width:20rem;overflow-y:auto; display: flex;flex-direction: column;}
     .build-your-business-brain{font-size:.875rem;line-height:1.25rem;padding:1rem;border-radius:.75rem}
     .business-setup-r-inner{width: 100%;}
@@ -41,8 +46,13 @@
     .close-btn-mb{display: none !important;}
 }
 @media (min-width:1536px){
-    .business-setup-popup{min-width:80rem}
+    .business-setup-popup{min-width:66rem}
+    .full-video-popup .business-setup-popup{min-width: 72dvw;}
     .business-setup-title{font-size:1.5rem;line-height:2rem}
+}
+@media (min-width: 1600px){
+    .business-setup-popup{min-width:80rem;}
+    .full-video-popup .business-setup-popup{min-width: 74dvw;}
 }
 
 
