@@ -41,9 +41,9 @@ export default function WalkThroughPopup({ current_stage, onClose, current_page 
         )}
 
         <div className="stage-button-container">
-          <Button className="stage-button" onClick={handleClose}>
+          <button className="stage-button" onClick={handleClose}>
             Click Here To Start Stage {current_stage?.number || ""}
-          </Button>
+          </button>
         </div>
       </div>
 
