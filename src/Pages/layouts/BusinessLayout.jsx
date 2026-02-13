@@ -166,8 +166,6 @@ function BusinessLayout() {
       open: open,
       ...video,
     }));
-    setSidebarOpen(true)
-    sessionStorage.setItem("sidebar-state", 1)
   };
 
   const handleRedirectWorkflow = (url) => {
@@ -261,8 +259,8 @@ function BusinessLayout() {
         setIsOpen={setOpen}
         handleSkipSubmit={() => {
           handleShowVideo(true);
-          setSidebarOpen(true);
-          sessionStorage.setItem("sidebar-state", 1);
+          setSidebarOpen(false);
+          sessionStorage.setItem("sidebar-state", 0);
 
           if (token) {
             updateViewPopup(token, {

@@ -203,8 +203,9 @@ function Flow({ currentPath, setCurrnetPath, reportData, setSidebarOpen, sidebar
 
   useEffect(() => {
     if (user && user?.view_business_overview_popup == 0) {
-      setSidebarOpen(true);
       handleShowVideo(true);
+      setSidebarOpen(false);
+      sessionStorage.setItem("sidebar-state", 0);
       updateViewPopup(token, {
         view_business_overview_popup: "1",
       });
@@ -216,16 +217,6 @@ function Flow({ currentPath, setCurrnetPath, reportData, setSidebarOpen, sidebar
       prepareDatFunction(reportData);
     }
   }, [reportData, user]);
-
-  useEffect(() => {
-    if (user && user?.view_business_overview_popup == 0) {
-      setSidebarOpen(true);
-      handleShowVideo(true);
-      updateViewPopup(token, {
-        view_business_overview_popup: "1",
-      });
-    }
-  }, [user]);
 
   useEffect(() => {
     if (reportData) {

@@ -326,7 +326,7 @@ export const MainHeader = ({ isBusinessOverview }) => {
           <NotificationPopup />
           <div className="w-fit relative" ref={headDropRef}>
             <button className="outline-none block cursor-pointer overflow-hidden rounded-full size-8 md:size-9" onClick={() => setOpenProfile(!openProfile)}>
-              {user?.avatar ? (
+              {user?.avatar && user?.avatar != 'images/default.png' ? (
                 <img
                   src={`${getOriginUrl()}/${user?.avatar}`}
                   className="size-full block"
@@ -346,7 +346,7 @@ export const MainHeader = ({ isBusinessOverview }) => {
               <div className={cn("bg-white rounded-md shadow-[0px_6px_16px_rgba(47,52,58,0.1)] w-76", openProfile ? "block" : "hidden")}>
                 <div className="flex items-center gap-3 p-3 2xl:pb-4 border-b border-solid border-gray-200">
                   <div className="size-12 shrink-0 rounded-full overflow-hidden">
-                    {user?.avatar ? (
+                    {user?.avatar && user?.avatar != 'images/default.png' ? (
                       <img
                         src={`${getOriginUrl()}/${user?.avatar}`}
                         className="block w-full h-full"

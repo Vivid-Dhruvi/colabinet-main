@@ -302,23 +302,22 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
                     </div>
                     <div className="p-3 2xl:py-4 2xl:px-5 border border-solid border-[#DEE4E7] rounded-xl bg-[#FEFEFE] h-full transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_12px_30px_rgba(250,139,100,0.35)] hover:border-[#FA8B64]">
                       <div className="flex items-center gap-3">
-                        <div className="size-8 shrink-0 bg-[#CA8A04]/20 rounded-full p-1.5">
+                        <div className="size-8 bg-[#9333EA]/20 rounded-full p-1.5">
                           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" className="size-full block">
                             <path
-                              d="M10.3435 9.27711C11.2008 9.27711 12.0229 9.61765 12.6291 10.2238C13.2353 10.83 13.5758 11.6522 13.5758 12.5094V13.1559C13.5758 13.4988 13.4396 13.8277 13.1971 14.0701C12.9547 14.3126 12.6258 14.4488 12.2829 14.4488H3.23238C2.88948 14.4488 2.56061 14.3126 2.31814 14.0701C2.07567 13.8277 1.93945 13.4988 1.93945 13.1559V12.5094C1.93945 11.6522 2.28 10.83 2.88618 10.2238C3.49236 9.61765 4.31451 9.27711 5.17178 9.27711H10.3435ZM12.9294 5.39832C13.1008 5.39832 13.2652 5.46643 13.3865 5.58766C13.5077 5.7089 13.5758 5.87333 13.5758 6.04478V6.69125H14.2223C14.3937 6.69125 14.5582 6.75936 14.6794 6.88059C14.8006 7.00183 14.8687 7.16626 14.8687 7.33771C14.8687 7.50917 14.8006 7.6736 14.6794 7.79483C14.5582 7.91607 14.3937 7.98418 14.2223 7.98418H13.5758V8.63064C13.5758 8.8021 13.5077 8.96653 13.3865 9.08776C13.2652 9.209 13.1008 9.27711 12.9294 9.27711C12.7579 9.27711 12.5935 9.209 12.4722 9.08776C12.351 8.96653 12.2829 8.8021 12.2829 8.63064V7.98418H11.6364C11.465 7.98418 11.3005 7.91607 11.1793 7.79483C11.0581 7.6736 10.99 7.50917 10.99 7.33771C10.99 7.16626 11.0581 7.00183 11.1793 6.88059C11.3005 6.75936 11.465 6.69125 11.6364 6.69125H12.2829V6.04478C12.2829 5.87333 12.351 5.7089 12.4722 5.58766C12.5935 5.46643 12.7579 5.39832 12.9294 5.39832ZM7.75764 1.51953C8.6149 1.51953 9.43706 1.86008 10.0432 2.46626C10.6494 3.07244 10.99 3.89459 10.99 4.75185C10.99 5.60912 10.6494 6.43127 10.0432 7.03745C9.43706 7.64363 8.6149 7.98418 7.75764 7.98418C6.90037 7.98418 6.07822 7.64363 5.47204 7.03745C4.86586 6.43127 4.52531 5.60912 4.52531 4.75185C4.52531 3.89459 4.86586 3.07244 5.47204 2.46626C6.07822 1.86008 6.90037 1.51953 7.75764 1.51953Z"
-                              fill="#CA8A04"
+                              d="M6.18106 1.29297C6.60264 1.29241 7.0133 1.427 7.35277 1.67697V13.6553C6.93058 14.0216 6.39024 14.2229 5.83132 14.2223C5.34243 14.2221 4.86597 14.0682 4.46937 13.7823C4.07277 13.4965 3.77611 13.0931 3.62138 12.6294L3.50017 12.2644C2.95583 12.1993 2.44789 11.9574 2.05428 11.5758C1.66066 11.1942 1.40311 10.694 1.32113 10.152C1.23916 9.60993 1.33728 9.05595 1.60046 8.57504C1.86364 8.09412 2.27733 7.71283 2.77807 7.48966C2.51449 7.26252 2.30304 6.98116 2.15817 6.6648C2.0133 6.34845 1.93841 6.00455 1.93863 5.65661C1.93876 5.04155 2.17266 4.44954 2.59296 4.00049C3.01326 3.55144 3.58852 3.27894 4.20223 3.23818C4.21113 2.71924 4.42352 2.22456 4.79366 1.86071C5.16379 1.49687 5.66204 1.29298 6.18106 1.29297ZM9.33257 1.29297C9.85159 1.29298 10.3498 1.49687 10.72 1.86071C11.0901 2.22456 11.3025 2.71924 11.3114 3.23818C11.9251 3.27894 12.5004 3.55144 12.9207 4.00049C13.341 4.44954 13.5749 5.04155 13.575 5.65661C13.5752 6.0045 13.5003 6.34833 13.3554 6.66463C13.2105 6.98092 12.9991 7.26223 12.7356 7.48934C13.2362 7.7126 13.6498 8.09394 13.9129 8.57486C14.1761 9.05578 14.2742 9.60973 14.1922 10.1518C14.1102 10.6938 13.8527 11.194 13.4592 11.5756C13.0656 11.9572 12.5578 12.1992 12.0135 12.2644L11.8922 12.6297C11.7375 13.0934 11.4408 13.4967 11.0442 13.7825C10.6476 14.0683 10.1712 14.2221 9.68231 14.2223C9.10049 14.2223 8.5691 14.008 8.16085 13.6553V1.67697C8.50033 1.427 8.91099 1.29241 9.33257 1.29297Z"
+                              fill="#9333EA"
                             />
                           </svg>
                         </div>
-                        {/* <img src="/images/at-client.png" alt="Internal Team" className="w-8 h-8" /> */}
                         <div>
                           <h4
-                            onClick={() => handleAddClick(canEditGuest, `${getOriginUrl()}/guests?reactframe=true`)}
+                            onClick={() => handleAddClick(isAIWorkForceAllow, `${getOriginUrl()}/workforce?reactframe=true`)}
                             className="text-[#4A4C5E] font-bold text-sm cursor-pointer"
                           >
-                            Add Guests
+                            Add Your Al Workforce
                           </h4>
-                          <p className="text-[11px] text-[#BCB8C5] font-normal">Collaborators with limited access</p>
+                          <p className="text-[11px] text-[#BCB8C5] font-normal">AI teammates that work 24/7</p>
                         </div>
                       </div>
                       <div className="flex items-center justify-between mt-2">
@@ -329,7 +328,7 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
                               "cursor-pointer mt-1 p-0 flex items-center gap-2 text-[#64748B] bg-[#F1F5F9] hover:bg-[#E2E8F0] h-6 rounded-md text-xs font-normal"
                             }
                             type="button"
-                            onClick={() => handleVideoClick("guest")}
+                            onClick={() => handleVideoClick("ai_workforce")}
                           >
                             <svg width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                               <path
@@ -342,18 +341,18 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
                           <div className="flex items-center gap-1.5">
                             <input
                               type="checkbox"
-                              id="is_guests_completed"
-                              name="is_guests_completed"
+                              id="is_ai_employee_completed"
+                              name="is_ai_employee_completed"
                               onChange={onCompleteChange}
-                              checked={completedState["is_guests_completed"]}
+                              checked={completedState["is_ai_employee_completed"]}
                             />
-                            <label htmlFor="completed-2" className="text-[10px] text-[#A09EA6] font-normal leading-none cursor-pointer">
+                            <label htmlFor="completed-5" className="text-[10px] text-[#A09EA6] font-normal leading-none cursor-pointer">
                               Added
                             </label>
                           </div>
                         </div>
                         <button
-                          onClick={() => handleAddClick(canEditGuest, `${getOriginUrl()}/guests?reactframe=true`)}
+                          onClick={() => handleAddClick(isAIWorkForceAllow, `${getOriginUrl()}/workforce?reactframe=true`)}
                           className="bg-[#71AEA3] border border-[#4B9B8B] rounded-[8px]  py-1.5  2xl:py-1.5  px-5   text-[#FEFEFE] text-sm flex items-center w-fit font-normal cursor-pointer"
                         >
                           Add{" "}
@@ -422,22 +421,22 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
                     </div>
                     <div className="p-3 2xl:py-4 2xl:px-5 border border-solid border-[#DEE4E7] rounded-xl bg-[#FEFEFE] h-full transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_12px_30px_rgba(250,139,100,0.35)] hover:border-[#FA8B64]">
                       <div className="flex items-center gap-3">
-                        <div className="size-8 bg-[#9333EA]/20 rounded-full p-1.5">
+                        <div className="size-8 shrink-0 bg-[#CA8A04]/20 rounded-full p-1.5">
                           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" className="size-full block">
                             <path
-                              d="M6.18106 1.29297C6.60264 1.29241 7.0133 1.427 7.35277 1.67697V13.6553C6.93058 14.0216 6.39024 14.2229 5.83132 14.2223C5.34243 14.2221 4.86597 14.0682 4.46937 13.7823C4.07277 13.4965 3.77611 13.0931 3.62138 12.6294L3.50017 12.2644C2.95583 12.1993 2.44789 11.9574 2.05428 11.5758C1.66066 11.1942 1.40311 10.694 1.32113 10.152C1.23916 9.60993 1.33728 9.05595 1.60046 8.57504C1.86364 8.09412 2.27733 7.71283 2.77807 7.48966C2.51449 7.26252 2.30304 6.98116 2.15817 6.6648C2.0133 6.34845 1.93841 6.00455 1.93863 5.65661C1.93876 5.04155 2.17266 4.44954 2.59296 4.00049C3.01326 3.55144 3.58852 3.27894 4.20223 3.23818C4.21113 2.71924 4.42352 2.22456 4.79366 1.86071C5.16379 1.49687 5.66204 1.29298 6.18106 1.29297ZM9.33257 1.29297C9.85159 1.29298 10.3498 1.49687 10.72 1.86071C11.0901 2.22456 11.3025 2.71924 11.3114 3.23818C11.9251 3.27894 12.5004 3.55144 12.9207 4.00049C13.341 4.44954 13.5749 5.04155 13.575 5.65661C13.5752 6.0045 13.5003 6.34833 13.3554 6.66463C13.2105 6.98092 12.9991 7.26223 12.7356 7.48934C13.2362 7.7126 13.6498 8.09394 13.9129 8.57486C14.1761 9.05578 14.2742 9.60973 14.1922 10.1518C14.1102 10.6938 13.8527 11.194 13.4592 11.5756C13.0656 11.9572 12.5578 12.1992 12.0135 12.2644L11.8922 12.6297C11.7375 13.0934 11.4408 13.4967 11.0442 13.7825C10.6476 14.0683 10.1712 14.2221 9.68231 14.2223C9.10049 14.2223 8.5691 14.008 8.16085 13.6553V1.67697C8.50033 1.427 8.91099 1.29241 9.33257 1.29297Z"
-                              fill="#9333EA"
+                              d="M10.3435 9.27711C11.2008 9.27711 12.0229 9.61765 12.6291 10.2238C13.2353 10.83 13.5758 11.6522 13.5758 12.5094V13.1559C13.5758 13.4988 13.4396 13.8277 13.1971 14.0701C12.9547 14.3126 12.6258 14.4488 12.2829 14.4488H3.23238C2.88948 14.4488 2.56061 14.3126 2.31814 14.0701C2.07567 13.8277 1.93945 13.4988 1.93945 13.1559V12.5094C1.93945 11.6522 2.28 10.83 2.88618 10.2238C3.49236 9.61765 4.31451 9.27711 5.17178 9.27711H10.3435ZM12.9294 5.39832C13.1008 5.39832 13.2652 5.46643 13.3865 5.58766C13.5077 5.7089 13.5758 5.87333 13.5758 6.04478V6.69125H14.2223C14.3937 6.69125 14.5582 6.75936 14.6794 6.88059C14.8006 7.00183 14.8687 7.16626 14.8687 7.33771C14.8687 7.50917 14.8006 7.6736 14.6794 7.79483C14.5582 7.91607 14.3937 7.98418 14.2223 7.98418H13.5758V8.63064C13.5758 8.8021 13.5077 8.96653 13.3865 9.08776C13.2652 9.209 13.1008 9.27711 12.9294 9.27711C12.7579 9.27711 12.5935 9.209 12.4722 9.08776C12.351 8.96653 12.2829 8.8021 12.2829 8.63064V7.98418H11.6364C11.465 7.98418 11.3005 7.91607 11.1793 7.79483C11.0581 7.6736 10.99 7.50917 10.99 7.33771C10.99 7.16626 11.0581 7.00183 11.1793 6.88059C11.3005 6.75936 11.465 6.69125 11.6364 6.69125H12.2829V6.04478C12.2829 5.87333 12.351 5.7089 12.4722 5.58766C12.5935 5.46643 12.7579 5.39832 12.9294 5.39832ZM7.75764 1.51953C8.6149 1.51953 9.43706 1.86008 10.0432 2.46626C10.6494 3.07244 10.99 3.89459 10.99 4.75185C10.99 5.60912 10.6494 6.43127 10.0432 7.03745C9.43706 7.64363 8.6149 7.98418 7.75764 7.98418C6.90037 7.98418 6.07822 7.64363 5.47204 7.03745C4.86586 6.43127 4.52531 5.60912 4.52531 4.75185C4.52531 3.89459 4.86586 3.07244 5.47204 2.46626C6.07822 1.86008 6.90037 1.51953 7.75764 1.51953Z"
+                              fill="#CA8A04"
                             />
                           </svg>
                         </div>
                         <div>
                           <h4
-                            onClick={() => handleAddClick(isAIWorkForceAllow, `${getOriginUrl()}/workforce?reactframe=true`)}
+                            onClick={() => handleAddClick(canEditGuest, `${getOriginUrl()}/guests?reactframe=true`)}
                             className="text-[#4A4C5E] font-bold text-sm cursor-pointer"
                           >
-                            Add Your Al Workforce
+                            Add Guests (Optional)
                           </h4>
-                          <p className="text-[11px] text-[#BCB8C5] font-normal">AI teammates that work 24/7</p>
+                          <p className="text-[11px] text-[#BCB8C5] font-normal">Collaborators with limited access</p>
                         </div>
                       </div>
                       <div className="flex items-center justify-between mt-2">
@@ -448,7 +447,7 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
                               "cursor-pointer mt-1 p-0 flex items-center gap-2 text-[#64748B] bg-[#F1F5F9] hover:bg-[#E2E8F0] h-6 rounded-md text-xs font-normal"
                             }
                             type="button"
-                            onClick={() => handleVideoClick("ai_workforce")}
+                            onClick={() => handleVideoClick("guest")}
                           >
                             <svg width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                               <path
@@ -461,18 +460,18 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
                           <div className="flex items-center gap-1.5">
                             <input
                               type="checkbox"
-                              id="is_ai_employee_completed"
-                              name="is_ai_employee_completed"
+                              id="is_guests_completed"
+                              name="is_guests_completed"
                               onChange={onCompleteChange}
-                              checked={completedState["is_ai_employee_completed"]}
+                              checked={completedState["is_guests_completed"]}
                             />
-                            <label htmlFor="completed-5" className="text-[10px] text-[#A09EA6] font-normal leading-none cursor-pointer">
+                            <label htmlFor="completed-2" className="text-[10px] text-[#A09EA6] font-normal leading-none cursor-pointer">
                               Added
                             </label>
                           </div>
                         </div>
                         <button
-                          onClick={() => handleAddClick(isAIWorkForceAllow, `${getOriginUrl()}/workforce?reactframe=true`)}
+                          onClick={() => handleAddClick(canEditGuest, `${getOriginUrl()}/guests?reactframe=true`)}
                           className="bg-[#71AEA3] border border-[#4B9B8B] rounded-[8px]  py-1.5  2xl:py-1.5  px-5   text-[#FEFEFE] text-sm flex items-center w-fit font-normal cursor-pointer"
                         >
                           Add{" "}
