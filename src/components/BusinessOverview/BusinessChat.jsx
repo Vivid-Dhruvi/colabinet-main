@@ -26,8 +26,7 @@ export default function BusinessChat({
   handlePath,
   setRefreshData,
   selectedBusinessTemplate,
-  setSelectedBusinessTemplate,
-  businessTemplate,
+  handleBusinessTemplateChange,
   handleCurrentInnerPath,
 }) {
   const param = useParams();
@@ -638,21 +637,21 @@ export default function BusinessChat({
                   <ul className="chatFlow-btn-list">
                     <li className={cn("chatFlow-btn-item", selectedBusinessTemplate === "0" && "active")}>
                       <CustomTooltip content="Manage your active operations and real-time team workflows.">
-                        <button className="py-2 px-1 sm:px-3 sm:py-3" onClick={() => setSelectedBusinessTemplate("0")}>
+                        <button className="py-2 px-1 sm:px-3 sm:py-3" onClick={() => handleBusinessTemplateChange("0")}>
                           Your Business
                         </button>
                       </CustomTooltip>
                     </li>
                     <li className={cn("chatFlow-btn-item", selectedBusinessTemplate === "suggested" && "active")}>
                       <CustomTooltip content="Explore AI growth suggestions based on your Stage 1 Blueprint.">
-                        <button className="py-2 px-1 sm:px-3 sm:py-3" onClick={() => setSelectedBusinessTemplate("suggested")}>
+                        <button className="py-2 px-1 sm:px-3 sm:py-3" onClick={() => handleBusinessTemplateChange("suggested")}>
                           AI Business Structure
                         </button>
                       </CustomTooltip>
                     </li>
                     {/* <li className={cn("chatFlow-btn-item", selectedBusinessTemplate === "unified" && "active")}>
                       <CustomTooltip content="Your master roadmap. Bridge live operations with AI strategic planning.">
-                        <button className="py-2 px-1 sm:px-3 sm:py-3" onClick={() => setSelectedBusinessTemplate("unified")}>
+                        <button className="py-2 px-1 sm:px-3 sm:py-3" onClick={() => handleBusinessTemplateChange("unified")}>
                           Unified View
                         </button>
                       </CustomTooltip>
@@ -667,7 +666,7 @@ export default function BusinessChat({
                             <button
                               key={temp.id}
                               onClick={() => {
-                                setSelectedBusinessTemplate(temp.id);
+                                handleBusinessTemplateChange(temp.id);
                                 setIsOpen(false);
                               }}
                               className={cn(

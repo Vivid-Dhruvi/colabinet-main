@@ -193,6 +193,14 @@ function BusinessLayout() {
     setCurrentInnerPath(currentLink);
   };
 
+  const handleBusinessTemplateChange = (templateId) => {
+    if(templateId === "suggested"){
+      setSidebarOpen(true);
+      sessionStorage.setItem("sidebar-state", 1);
+    }
+    setSelectedBusinessTemplate(templateId);
+  }
+
   return (
     <BusinessContext.Provider
       value={{
@@ -216,7 +224,7 @@ function BusinessLayout() {
         handleRedirectWorkflow,
         businessTemplate,
         selectedBusinessTemplate,
-        setSelectedBusinessTemplate,
+        handleBusinessTemplateChange,
         handleCurrentInnerPath,
       }}
     >
@@ -241,7 +249,7 @@ function BusinessLayout() {
             handlePath={handlePath}
             setRefreshData={setRefreshData}
             selectedBusinessTemplate={selectedBusinessTemplate}
-            setSelectedBusinessTemplate={setSelectedBusinessTemplate}
+            handleBusinessTemplateChange={handleBusinessTemplateChange}
             businessTemplate={businessTemplate}
             setCurrentInnerPath={setCurrentInnerPath}
           />

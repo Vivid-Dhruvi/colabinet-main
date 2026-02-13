@@ -7,7 +7,7 @@ import { MainContext } from "@/App";
 import MainLoader from "@/components/General/MainLoader";
 
 function BusinessOverview() {
-  const { currentPath, setCurrnetPath, reportData, setReportData, sidebarOpen, setSidebarOpen, setSelectedBusinessTemplate, refreshData, setRefreshData } =
+  const { currentPath, setCurrnetPath, reportData, setReportData, sidebarOpen, setSidebarOpen, handleBusinessTemplateChange, refreshData, setRefreshData } =
     useContext(BusinessContext);
   const { token } = useContext(MainContext);
   const [loading, setLoading] = React.useState(false);
@@ -27,7 +27,7 @@ function BusinessOverview() {
     if (refreshData) {
       handleGetData(true);
       setRefreshData(false);
-      setSelectedBusinessTemplate("suggested");
+      handleBusinessTemplateChange("suggested");
     }
   }, [refreshData]);
 

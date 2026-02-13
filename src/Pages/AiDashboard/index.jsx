@@ -24,11 +24,11 @@ function AiDashBoard() {
 
   useEffect(() => {
     if (user && user?.view_dashboard_popup == 0 && !notallowUserToAccess(user, [6])) {
-      setSidebarOpen(true);
-      localStorage.setItem("sidebar-state", 1);
+      setSidebarOpen(false);
+      localStorage.setItem("sidebar-state", 0);
       setGuide({
-        video: user?.role_id == 7 ? videoLinks.dash_board.member : videoLinks.dash_board.non_member,
         open: true,
+        ...stages[2],
       });
 
       if (token) {
@@ -67,7 +67,7 @@ function AiDashBoard() {
     setSidebarOpen(open);
     localStorage.setItem("sidebar-state", 1);
 
-    let video = stages[2]; // Default to stage 3
+    let video = stages[2];
     if (number) {
       video = stages.find((stage) => stage.number === number) || stages[0];
     }

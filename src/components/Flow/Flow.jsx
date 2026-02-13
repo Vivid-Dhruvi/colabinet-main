@@ -47,7 +47,7 @@ const nodeTypes = {
 };
 
 function Flow({ currentPath, setCurrnetPath, reportData, setSidebarOpen, sidebarOpen, handleGetData }) {
-  const { handleShowVideo, isMobile, businessTemplate, selectedBusinessTemplate, setSelectedBusinessTemplate, handleCurrentInnerPath } =
+  const { handleShowVideo, isMobile, businessTemplate, selectedBusinessTemplate, handleBusinessTemplateChange, handleCurrentInnerPath } =
     useContext(BusinessContext);
   const { user, token } = useContext(MainContext);
   const { setViewport, zoomIn, zoomOut } = useReactFlow();
@@ -3862,7 +3862,7 @@ function Flow({ currentPath, setCurrnetPath, reportData, setSidebarOpen, sidebar
       };
       const businessArea = reportDataNew?.business_areas || [];
       handleRearrangeConfirm({ business_areas: businessArea, topcard: tc_details });
-      setSelectedBusinessTemplate("0");
+      handleBusinessTemplateChange("0");
       setCurrentFlow({
         type: "company",
         suggested: false,
@@ -4072,7 +4072,7 @@ function Flow({ currentPath, setCurrnetPath, reportData, setSidebarOpen, sidebar
 
   useEffect(() => {
     if (currentFlow?.type === "company" && currentFlow?.suggested === false && currentFlow?.unified === false) {
-      setSelectedBusinessTemplate("0");
+      handleBusinessTemplateChange("0");
     }
   }, [currentFlow]);
 
@@ -4514,7 +4514,7 @@ function Flow({ currentPath, setCurrnetPath, reportData, setSidebarOpen, sidebar
                         ? "bg-gradient-to-r from-[#49b8c1] to-[#62AAB4] text-white shadow-sm" 
                         : "bg-white text-gray-700 hover:bg-gray-50 border border-gray-200"
                     )}
-                    onClick={() => setSelectedBusinessTemplate("0")}
+                    onClick={() => handleBusinessTemplateChange("0")}
                   >
                     Your Business
                   </button>
@@ -4528,7 +4528,7 @@ function Flow({ currentPath, setCurrnetPath, reportData, setSidebarOpen, sidebar
                         ? "bg-gradient-to-r from-[#49b8c1] to-[#62AAB4] text-white shadow-sm" 
                         : "bg-white text-gray-700 hover:bg-gray-50 border border-gray-200"
                     )}
-                    onClick={() => setSelectedBusinessTemplate("suggested")}
+                    onClick={() => handleBusinessTemplateChange("suggested")}
                   >
                     AI Business
                   </button>
@@ -4542,7 +4542,7 @@ function Flow({ currentPath, setCurrnetPath, reportData, setSidebarOpen, sidebar
                         ? "bg-gradient-to-r from-[#49b8c1] to-[#62AAB4] text-white shadow-sm" 
                         : "bg-white text-gray-700 hover:bg-gray-50 border border-gray-200"
                     )}
-                    onClick={() => setSelectedBusinessTemplate("unified")}
+                    onClick={() => handleBusinessTemplateChange("unified")}
                   >
                     Unified View
                   </button>
@@ -4633,21 +4633,21 @@ function Flow({ currentPath, setCurrnetPath, reportData, setSidebarOpen, sidebar
           <ul className="chatFlow-btn-list !bg-[#e2ebf3]">
             <li className={cn("chatFlow-btn-item", selectedBusinessTemplate === "0" && "active")}>
               <CustomTooltip content="Manage your active operations and real-time team workflows.">
-                <button className="py-2.5 px-1.5 sm:px-3 sm:py-3 font-semibold" onClick={() => setSelectedBusinessTemplate("0")}>
+                <button className="py-2.5 px-1.5 sm:px-3 sm:py-3 font-semibold" onClick={() => handleBusinessTemplateChange("0")}>
                   Your Business
                 </button>
               </CustomTooltip>
             </li>
             <li className={cn("chatFlow-btn-item", selectedBusinessTemplate === "suggested" && "active")}>
               <CustomTooltip content="Explore AI growth suggestions based on your Stage 1 Blueprint.">
-                <button className="py-2.5 px-1.5 sm:px-3 sm:py-3 font-semibold" onClick={() => setSelectedBusinessTemplate("suggested")}>
+                <button className="py-2.5 px-1.5 sm:px-3 sm:py-3 font-semibold" onClick={() => handleBusinessTemplateChange("suggested")}>
                   AI Business Structure
                 </button>
               </CustomTooltip>
             </li>
             {/* <li className={cn("chatFlow-btn-item", selectedBusinessTemplate === "unified" && "active")}>
               <CustomTooltip content="Your master roadmap. Bridge live operations with AI strategic planning.">
-                <button className="py-2 px-1 sm:px-3 sm:py-3" onClick={() => setSelectedBusinessTemplate("unified")}>
+                <button className="py-2 px-1 sm:px-3 sm:py-3" onClick={() => handleBusinessTemplateChange("unified")}>
                   Unified View
                 </button>
               </CustomTooltip>
@@ -4662,7 +4662,7 @@ function Flow({ currentPath, setCurrnetPath, reportData, setSidebarOpen, sidebar
                     <button
                       key={temp.id}
                       onClick={() => {
-                        setSelectedBusinessTemplate(temp.id);
+                        handleBusinessTemplateChange(temp.id);
                         setIsOpen(false);
                       }}
                       className={cn(
