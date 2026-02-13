@@ -59,12 +59,12 @@ export const socket_values = [
 ];
 
 export const videoLinks = {
-  intro_video: "https://player.vimeo.com/video/1088678383?autoplay=1&muted=1&title=0&byline=0&portrait=0&controls=1&playsinline=0",
-  business_overview: "https://player.vimeo.com/video/1088673917?autoplay=1&muted=1&title=0&byline=0&portrait=0&controls=1&playsinline=0",
-  business_setup: "https://player.vimeo.com/video/1088675868?autoplay=1&muted=1&title=0&byline=0&portrait=0&controls=1&playsinline=0",
+  intro_video: "https://player.vimeo.com/video/1088678383?autoplay=1&title=0&byline=0&portrait=0&controls=1&playsinline=0",
+  business_overview: "https://player.vimeo.com/video/1088673917?autoplay=1&title=0&byline=0&portrait=0&controls=1&playsinline=0",
+  business_setup: "https://player.vimeo.com/video/1088675868?autoplay=1&title=0&byline=0&portrait=0&controls=1&playsinline=0",
   dash_board: {
-    member: "https://player.vimeo.com/video/1088696463?autoplay=1&muted=1&title=0&byline=0&portrait=0&controls=1&playsinline=0",
-    non_member: "https://player.vimeo.com/video/1088682578?autoplay=1&muted=1&title=0&byline=0&portrait=0&controls=1&playsinline=0",
+    member: "https://player.vimeo.com/video/1088696463?autoplay=1&title=0&byline=0&portrait=0&controls=1&playsinline=0",
+    non_member: "https://player.vimeo.com/video/1088682578?autoplay=1&title=0&byline=0&portrait=0&controls=1&playsinline=0",
   },
 };
 
@@ -76,7 +76,7 @@ export const stages = [
     description: "This video explains how to set up the foundation your business needs to run in Colabi.",
     right_title: "Don't wait until the end to",
     right_subtitle: "see how it all works",
-    video_url: "https://player.vimeo.com/video/1088675868?autoplay=1&muted=1&title=0&byline=0&portrait=0&controls=1&playsinline=0",
+    video_url: "https://player.vimeo.com/video/1088675868?autoplay=1&title=0&byline=0&portrait=0&controls=1&playsinline=0",
     image: "/images/ai-workforce-overview.jpg",
     option_videos: [
       {
@@ -86,7 +86,7 @@ export const stages = [
         title: "Your Business Overview",
         description: "A clear visual view of your business areas, workflows",
         image: "/images/business_overview.png",
-        video_url: "https://player.vimeo.com/video/1159574654?autoplay=1&muted=1&title=0&byline=0&portrait=0&controls=1&playsinline=0",
+        video_url: "https://player.vimeo.com/video/1159574654?autoplay=1&title=0&byline=0&portrait=0&controls=1&playsinline=0",
       },
       {
         number: 3,
@@ -95,7 +95,7 @@ export const stages = [
         title: "Your Daily Dashboard",
         description: "AI employees, freelancers, your team all working together.",
         image: "/images/dashboard.png",
-        video_url: "https://player.vimeo.com/video/1159575709?autoplay=1&muted=1&title=0&byline=0&portrait=0&controls=1&playsinline=0",
+        video_url: "https://player.vimeo.com/video/1159575709?autoplay=1&title=0&byline=0&portrait=0&controls=1&playsinline=0",
       },
     ],
   },
@@ -106,7 +106,7 @@ export const stages = [
     right_title: "Workflow Learning Path ",
     right_subtitle: "see how it all works",
     description: "This video shows how your business is structured in Colabi, from areas to workflows to tasks.",
-    video_url: "https://player.vimeo.com/video/1159574654?autoplay=1&muted=1&title=0&byline=0&portrait=0&controls=1&playsinline=0",
+    video_url: "https://player.vimeo.com/video/1159574654?autoplay=1&title=0&byline=0&portrait=0&controls=1&playsinline=0",
     image: "/images/ai-workforce-overview.jpg",
     option_videos: [
       {
@@ -114,28 +114,28 @@ export const stages = [
         sub_option: true,
         description: "See how workflows structure work in Colabi",
         image: "/images/step-2.1.png",
-        video_url: "https://player.vimeo.com/video/1160947089?autoplay=1&muted=1&title=0&byline=0&portrait=0&controls=1&playsinline=0",
+        video_url: "https://player.vimeo.com/video/1160947089?autoplay=1&title=0&byline=0&portrait=0&controls=1&playsinline=0",
       },
       {
         title: "Build Your First Workflow",
         sub_option: true,
         description: "Create a workflow and see tasks flow from start to finish",
         image: "/images/step-2.2.png",
-        video_url: "https://player.vimeo.com/video/1117691815?autoplay=1&muted=1&title=0&byline=0&portrait=0&controls=1&playsinline=0",
+        video_url: "https://player.vimeo.com/video/1117691815?autoplay=1&title=0&byline=0&portrait=0&controls=1&playsinline=0",
       },
       {
         title: "Advanced Workflow Start Options",
         sub_option: true,
         description: "Control how workflows begin using triggers and events",
         image: "/images/step-2.3.png",
-        video_url: "https://player.vimeo.com/video/1118028121?autoplay=1&muted=1&title=0&byline=0&portrait=0&controls=1&playsinline=0",
+        video_url: "https://player.vimeo.com/video/1118028121?autoplay=1&title=0&byline=0&portrait=0&controls=1&playsinline=0",
       },
       {
         title: "Advanced Task Features",
         sub_option: true,
         description: "Fine-tune task timing, collaboration, and completion.",
         image: "/images/step-2.4.png",
-        video_url: "https://player.vimeo.com/video/1161348695?autoplay=1&muted=1&title=0&byline=0&portrait=0&controls=1&playsinline=0",
+        video_url: "https://player.vimeo.com/video/1161348695?autoplay=1&title=0&byline=0&portrait=0&controls=1&playsinline=0",
       }
     ],
   },
@@ -146,17 +146,17 @@ export const stages = [
     description: "This video shows how work runs day to day in Colabi.",
     right_title: "Workflow Walkthroughs",
     right_subtitle: "See how work is managed day to day in Colabi.",
-    video_url: "https://player.vimeo.com/video/1159575709?autoplay=1&muted=1&title=0&byline=0&portrait=0&controls=1&playsinline=0",
+    video_url: "https://player.vimeo.com/video/1159575709?autoplay=1&title=0&byline=0&portrait=0&controls=1&playsinline=0",
     image: "/images/ai-workforce-overview.jpg",
-    member_vurl: "https://player.vimeo.com/video/1088696463?autoplay=1&muted=1&title=0&byline=0&portrait=0&controls=1&playsinline=0",
-    non_member_vurl: "https://player.vimeo.com/video/1088682578?autoplay=1&muted=1&title=0&byline=0&portrait=0&controls=1&playsinline=0",
+    member_vurl: "https://player.vimeo.com/video/1088696463?autoplay=1&title=0&byline=0&portrait=0&controls=1&playsinline=0",
+    non_member_vurl: "https://player.vimeo.com/video/1088682578?autoplay=1&title=0&byline=0&portrait=0&controls=1&playsinline=0",
     option_videos: [
       {
         title: "Manage Your Workflows",
         sub_option: true,
         description: "Learn how to track progress, manage tasks, and keep work moving smoothly.",
         image: "/images/step-3.1.png",
-        video_url: "https://player.vimeo.com/video/1159443469?autoplay=1&muted=1&title=0&byline=0&portrait=0&controls=1&playsinline=0",
+        video_url: "https://player.vimeo.com/video/1159443469?autoplay=1&title=0&byline=0&portrait=0&controls=1&playsinline=0",
       },
     ],
   },
@@ -165,13 +165,13 @@ export const stages = [
 export const getVideoLink = (key) => {
   switch (key) {
     case "ai_workforce":
-      return "https://player.vimeo.com/video/1123401852?autoplay=1&muted=1&title=0&byline=0&portrait=0&controls=1&playsinline=0";
+      return "https://player.vimeo.com/video/1123401852?autoplay=1&title=0&byline=0&portrait=0&controls=1&playsinline=0";
     case "freelancers":
-      return "https://player.vimeo.com/video/1129752554?autoplay=1&muted=1&title=0&byline=0&portrait=0&controls=1&playsinline=0";
+      return "https://player.vimeo.com/video/1129752554?autoplay=1&title=0&byline=0&portrait=0&controls=1&playsinline=0";
     case "team":
-      return "https://player.vimeo.com/video/1159511190?autoplay=1&muted=1&title=0&byline=0&portrait=0&controls=1&playsinline=0";
+      return "https://player.vimeo.com/video/1159511190?autoplay=1&title=0&byline=0&portrait=0&controls=1&playsinline=0";
     case "guest":
-      return "https://player.vimeo.com/video/1159528236?autoplay=1&muted=1&title=0&byline=0&portrait=0&controls=1&playsinline=0";
+      return "https://player.vimeo.com/video/1159528236?autoplay=1&title=0&byline=0&portrait=0&controls=1&playsinline=0";
     default:
       return "";
   }
