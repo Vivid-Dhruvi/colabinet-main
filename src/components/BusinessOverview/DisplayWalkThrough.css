@@ -55,7 +55,7 @@
 @media (min-width:1280px){
     .business-setup-r-head h2 span{display: block;}
     .business-setup-r-main {flex-direction: column;overflow-x: hidden; height: fit-content;}
-    .business-setup-popup{min-width:calc(66.666svw - 120px);max-height:85svh;overflow:hidden;flex-direction:row}
+    .business-setup-popup{min-width:calc(66.666svw - 140px);max-height:85svh;overflow:hidden;flex-direction:row}
     .full-video-popup .business-setup-popup{min-width: 70dvw;}
     .business-setup-right{width:20rem;overflow-y:auto; display: flex;flex-direction: column;}
     .build-your-business-brain{font-size:.875rem;line-height:1.25rem;padding:1rem;border-radius:.75rem}
