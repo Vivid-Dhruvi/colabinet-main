@@ -1735,6 +1735,7 @@ aside .clb-sidebar-btn {
   .for-only-mobile .mobi-dashboard-two-section .mobi-dashboard-top {
     flex-grow: 1;
     justify-content: flex-start;
+    z-index: 999;
   }
   .mobi-dashboard-two-section .mobi-ai-chat {
     display: flex;
