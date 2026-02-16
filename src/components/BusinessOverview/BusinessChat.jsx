@@ -249,8 +249,7 @@ export default function BusinessChat({
           text: message.text,
           message_type: message.message_type,
           attachments: message.attached_files || [],
-        }))
-        .slice(-10);
+        }));
       setMessages(previousMessages);
     } else {
       if (voiceConversationEnabled) {
