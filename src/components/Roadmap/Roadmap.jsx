@@ -179,7 +179,7 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
       ) : (
         <div className="w-full px-4 pt-6 md:px-10 2xl:px-16 overflow-auto grow h-96 pb-36 md:pb-8">
           <div className="flex items-center justify-between w-full flex-wrap md:flex-nowrap">
-            <h3 className="text-xl md:text-xl lg:text-xl font-medium text-[#49B8BF]">Start Building Your Colabi Business Brain.</h3>
+            <h3 className="text-xl md:text-xl lg:text-xl font-medium text-[#49B8BF]">Start Building Your Colabi Business Brain</h3>
             <div className="mt-5 md:mt-0 flex flex-col">
               <p className="text-sm 2xl:text-base leading-none font-normal text-[#2E2F30]">
                 Brain Training: <span className="text-[#EC6E43] text-lg">{completeProfilePerc}%</span> Added
@@ -191,7 +191,7 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
             </div>
           </div>
           <p className="mt-1.5 text-sm text-[#85838B] font-normal">
-            Add what you have today. Everything here is optional and can be added or improved over time.
+            Start with what you have today. You can build and refine everything as you go.
           </p>
           <div className="mt-4 2xl:mt-6">
             <div className="flex gap-8 flex-wrap lg:flex-nowrap">
@@ -199,18 +199,7 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
                 <div className="flex justify-between items-end">
                   <div className="flex items-center gap-5">
                     <span className="text-sm lg:text-base text-white p-5 py-2 ml-4 font-normal w-fit shrink-0 rounded-t-sm bg-[#FA8B64]">&gt; Step 1</span>
-                    <h4 className="text-[#817F88] font-bold text-xs md:text-sm 2xl:text-lg">Business Setup – Build Your Foundation:</h4>
-                  </div>
-                  <div className="flex flex-row items-center gap-2 2xl:gap-3 text-[#1BA0A5] text-xs 2xl:text-sm font-normal ml-auto bg-[#1BA0A5]/5 border border-[#e5e7eb] rounded-md mb-2 py-1.5 2xl:py-2 p-3">
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M10 20C12.6522 20 15.1957 18.9464 17.0711 17.0711C18.9464 15.1957 20 12.6522 20 10C20 7.34784 18.9464 4.8043 17.0711 2.92893C15.1957 1.05357 12.6522 0 10 0C7.34784 0 4.8043 1.05357 2.92893 2.92893C1.05357 4.8043 0 7.34784 0 10C0 12.6522 1.05357 15.1957 2.92893 17.0711C4.8043 18.9464 7.34784 20 10 20ZM8.4375 13.125H9.375V10.625H8.4375C7.91797 10.625 7.5 10.207 7.5 9.6875C7.5 9.16797 7.91797 8.75 8.4375 8.75H10.3125C10.832 8.75 11.25 9.16797 11.25 9.6875V13.125H11.5625C12.082 13.125 12.5 13.543 12.5 14.0625C12.5 14.582 12.082 15 11.5625 15H8.4375C7.91797 15 7.5 14.582 7.5 14.0625C7.5 13.543 7.91797 13.125 8.4375 13.125ZM10 5C10.3315 5 10.6495 5.1317 10.8839 5.36612C11.1183 5.60054 11.25 5.91848 11.25 6.25C11.25 6.58152 11.1183 6.89946 10.8839 7.13388C10.6495 7.3683 10.3315 7.5 10 7.5C9.66848 7.5 9.35054 7.3683 9.11612 7.13388C8.8817 6.89946 8.75 6.58152 8.75 6.25C8.75 5.91848 8.8817 5.60054 9.11612 5.36612C9.35054 5.1317 9.66848 5 10 5Z"
-                        fill="currentColor"
-                      />
-                    </svg>
-                    <span className="text-[#A09EA6]">
-                      You can start using colabi immediately. Everything on this page can be added later to make your Business Brain smart over time.
-                    </span>
+                    <h4 className="text-[#817F88] font-bold text-xs md:text-sm 2xl:text-lg">Business Setup – Build Your Foundation</h4>
                   </div>
                 </div>
                 <div className="flex flex-col gap-3 2xl:gap-6 bg-white shadow-[0px_1px_3px_0px_#0000001A,_0px_1px_2px_0px_#0000001A] rounded-xl p-4 2xl:p-6">
@@ -710,7 +699,7 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
                 </div>
                 <div className="grow bg-white shadow-[0px_1px_3px_0px_#0000001A,_0px_1px_2px_0px_#0000001A] p-3 2xl:p-5 rounded-xl flex flex-col">
                   <p className="text-sm text-[#B4B2BA] font-medium col-span-full mb-1 2xl:mb-5">
-                    Build & view your business areas and workflows on a single visual canvas.
+                    Build & view your business areas and workflows on a single visual canvas
                   </p>
                   <div className="mt-auto border-[#72AEA2]/90 border border-solid rounded p-3 2xl:p-5 flex gap-4 2xl:gap-6 items-center">
                     <div className="size-10 2xl:size-12 bg-[#f6f9fb] flex items-center justify-center rounded-2xl">
@@ -729,7 +718,7 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
                       </svg>
                     </div>
                     <div onClick={handleBusinessOverview} className="w-[calc(100%_-_70px)] cursor-pointer">
-                      <h4 className="text-[#4A4C5E] leading-4 font-bold text-[14.5px] mb-0 2xl:mb-2">Map Your Business in One View.</h4>
+                      <h4 className="text-[#4A4C5E] leading-4 font-bold text-[14.5px] mb-0 2xl:mb-2">Map Your Business in One View</h4>
                       <p className="text-xs leading-4 font-light text-[#9798A1]">See your business mapped in one visual workspace</p>
                     </div>
                   </div>
