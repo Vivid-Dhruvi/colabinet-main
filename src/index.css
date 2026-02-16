@@ -1239,7 +1239,7 @@ aside .clb-sidebar-btn {
   .clb-video-block {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     position: fixed;
     inset: 0;
     width: 100%;
