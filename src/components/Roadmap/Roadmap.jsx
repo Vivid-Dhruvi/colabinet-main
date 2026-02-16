@@ -206,7 +206,12 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
                   <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-y-3 gap-4 max-w-[1400px] w-full mx-auto">
                     <div className="flex flex-wrap w-full gap-3 col-span-full">
                       <div className="flex justify-between items-center w-full">
-                        <h3 className="text-[#FA8B64] font-semibold text-lg">Your Workforce</h3>
+                        <div className="col-span-full flex flex-col">
+                          <h3 className="text-[#FA8B64] font-semibold text-lg">Your Workforce</h3>
+                          <span className="text-sm col-span-full font-medium">
+                          Recommended - Needed to run and assign work
+                        </span>
+                        </div>
                         <div
                           onClick={handleBusinessOverview}
                           className="text-[#1BA0A5] text-sm flex items-center gap-1 cursor-pointer hover:text-[#0E7C7F] transition-colors"
@@ -283,7 +288,7 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
                         </div>
                         <button
                           onClick={() => handleAddClick(canEditTeam, `${getOriginUrl()}/teams?reactframe=true`)}
-                          className="bg-[#71AEA3] border border-[#4B9B8B] rounded-[8px]  py-1.5  2xl:py-1.5  px-5   text-[#FEFEFE] text-sm flex items-center w-fit font-normal cursor-pointer"
+                          className="bg-gradient-to-tl from-[#62AAB4] to-[#F08965]  rounded-[8px]  py-1.5  2xl:py-1.5  px-5   text-[#FEFEFE] text-sm flex items-center w-fit font-normal cursor-pointer"
                         >
                           Add
                         </button>
@@ -342,7 +347,7 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
                         </div>
                         <button
                           onClick={() => handleAddClick(isAIWorkForceAllow, `${getOriginUrl()}/workforce?reactframe=true`)}
-                          className="bg-[#71AEA3] border border-[#4B9B8B] rounded-[8px]  py-1.5  2xl:py-1.5  px-5   text-[#FEFEFE] text-sm flex items-center w-fit font-normal cursor-pointer"
+                          className="bg-gradient-to-tl from-[#62AAB4] to-[#F08965]  rounded-[8px]  py-1.5  2xl:py-1.5  px-5   text-[#FEFEFE] text-sm flex items-center w-fit font-normal cursor-pointer"
                         >
                           Add{" "}
                         </button>
@@ -402,7 +407,7 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
                         </div>
                         <button
                           onClick={() => handleAddClick(canViewFreelancer, `${getOriginUrl()}/my-freelancer-index?reactframe=true`)}
-                          className="bg-[#71AEA3] border border-[#4B9B8B] rounded-[8px]  py-1.5  2xl:py-1.5  px-5   text-[#FEFEFE] text-sm flex items-center w-fit font-normal cursor-pointer"
+                          className="bg-gradient-to-tl from-[#62AAB4] to-[#F08965]  rounded-[8px]  py-1.5  2xl:py-1.5  px-5   text-[#FEFEFE] text-sm flex items-center w-fit font-normal cursor-pointer"
                         >
                           Add{" "}
                         </button>
@@ -461,15 +466,12 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
                         </div>
                         <button
                           onClick={() => handleAddClick(canEditGuest, `${getOriginUrl()}/guests?reactframe=true`)}
-                          className="bg-[#71AEA3] border border-[#4B9B8B] rounded-[8px]  py-1.5  2xl:py-1.5  px-5   text-[#FEFEFE] text-sm flex items-center w-fit font-normal cursor-pointer"
+                          className="bg-gradient-to-tl from-[#62AAB4] to-[#F08965]  rounded-[8px]  py-1.5  2xl:py-1.5  px-5   text-[#FEFEFE] text-sm flex items-center w-fit font-normal cursor-pointer"
                         >
                           Add{" "}
                         </button>
                       </div>
                     </div>
-                  </div>
-                  <div className="max-w-[1400px] w-full mx-auto text-[#1BA0A5] font-normal italic text-sm ml-auto">
-                    Recommended - Needed to run and assign work
                   </div>
                   <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-y-3 gap-4 max-w-[1400px] w-full mx-auto">
                     <div className="col-span-full flex flex-col">
@@ -527,9 +529,12 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
                                 : `${getOriginUrl()}/company-detail/create?reactframe=true`,
                             )
                           }
-                          className="bg-[#71AEA3] border border-[#4B9B8B] rounded-[8px]  py-1.5  2xl:py-1.5  px-5   text-[#FEFEFE] text-sm flex items-center w-fit font-normal cursor-pointer"
+                          className="bg-gradient-to-tl from-[#62AAB4] to-[#F08965] rounded-[8px]  py-1.5  2xl:py-1.5  px-5   text-[#FEFEFE] text-sm flex items-center w-fit font-normal cursor-pointer"
                         >
-                          Add
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z" />
+                          </svg>
+                          <span className="ml-1">Create with AI</span>
                         </button>
                       </div>
                     </div>
@@ -586,9 +591,12 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
                                 : `${getOriginUrl()}/marketing/my-marketing-plan?reactframe=true`,
                             )
                           }
-                          className="bg-[#71AEA3] border border-[#4B9B8B] rounded-[8px]  py-1.5  2xl:py-1.5  px-5   text-[#FEFEFE] text-sm flex items-center w-fit font-normal cursor-pointer"
+                          className="bg-gradient-to-tl from-[#62AAB4] to-[#F08965] rounded-[8px]  py-1.5  2xl:py-1.5  px-5   text-[#FEFEFE] text-sm flex items-center w-fit font-normal cursor-pointer"
                         >
-                          Add
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z" />
+                          </svg>
+                          <span className="ml-1">Create with AI</span>
                         </button>
                       </div>
                     </div>
@@ -628,9 +636,12 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
                         </div>
                         <a
                           onClick={() => handleAddClick(isViewJobDescriptions, `${getOriginUrl()}/job-description/index?reactframe=true`)}
-                          className="bg-[#71AEA3] border border-[#4B9B8B] rounded-[8px]  py-1.5  2xl:py-1.5  px-5   text-[#FEFEFE] text-sm flex items-center w-fit font-normal cursor-pointer"
+                          className="bg-gradient-to-tl from-[#62AAB4] to-[#F08965]  rounded-[8px]  py-1.5  2xl:py-1.5  px-5   text-[#FEFEFE] text-sm flex items-center w-fit font-normal cursor-pointer"
                         >
-                          Add
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z" />
+                          </svg>
+                          <span className="ml-1">Create with AI</span>
                         </a>
                       </div>
                     </div>
@@ -680,9 +691,12 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
                         </div>
                         <button
                           onClick={() => handleAddClick(canCaptureProcesses, `${getOriginUrl()}/process?reactframe=true`)}
-                          className="bg-[#71AEA3] border border-[#4B9B8B] rounded-[8px]  py-1.5  2xl:py-1.5  px-5   text-[#FEFEFE] text-sm flex items-center w-fit font-normal cursor-pointer"
+                          className="bg-gradient-to-tl from-[#62AAB4] to-[#F08965] rounded-[8px]  py-1.5  2xl:py-1.5  px-5   text-[#FEFEFE] text-sm flex items-center w-fit font-normal cursor-pointer"
                         >
-                          Add
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z" />
+                          </svg>
+                          <span className="ml-1">Create with AI</span>
                         </button>
                       </div>
                     </div>
