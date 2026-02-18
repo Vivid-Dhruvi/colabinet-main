@@ -780,7 +780,7 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
       )}
       {permissionPopup && (
         <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-50">
-          <div className="bg-white rounded-xl shadow-2xl p-6 w-[400px] max-w-[90vw] text-center">
+          <div className="bg-white rounded-xl shadow-2xl p-8 w-[480px] max-w-[90vw] min-h-[260px] text-center">
             <div className="flex items-center justify-center mb-4">
               <div className="size-12 bg-red-100 rounded-full flex items-center justify-center">
                 <svg
@@ -800,8 +800,8 @@ function Roadmap({ currentPath, setCurrnetPath, handleBusinessOverview, crScoket
               </div>
             </div>
             <h3 className="text-lg font-semibold text-[#4A4C5E] mb-2">Permission Denied</h3>
-            <p className="text-sm text-[#85838B] mb-6">
-              You don't have permission to access this feature. Please contact your administrator to request access.
+            <p className="text-sm text-[#85838B] mb-6 leading-[20px]">
+              You don't have permission to access this feature.<br/> Please contact your administrator to request access.
             </p>
             <button
               onClick={() => setPermissionPopup(false)}
