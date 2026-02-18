@@ -142,8 +142,8 @@ export const stages = [
   {
     number: "3",
     subtitle: "Dashboard",
-    title: "See How Work Runs in Colabi",
-    description: "This video shows how work runs day to day in Colabi.",
+    title: "Your Daily Operations Dashboard",
+    description: "Track workflows, manage tasks, and follow team progress in real time.",
     right_title: "Workflow Walkthroughs",
     right_subtitle: "See how work is managed day to day in Colabi.",
     video_url: "https://player.vimeo.com/video/1159575709?autoplay=1&title=0&byline=0&portrait=0&controls=1&playsinline=0",
@@ -152,9 +152,9 @@ export const stages = [
     non_member_vurl: "https://player.vimeo.com/video/1088682578?autoplay=1&title=0&byline=0&portrait=0&controls=1&playsinline=0",
     option_videos: [
       {
-        title: "Manage Your Workflows",
+        title: "Workflow Management Made Simple",
         sub_option: true,
-        description: "Learn how to track progress, manage tasks, and keep work moving smoothly.",
+        description: "Design, adapt, and track every workflow with AI-powered clarity and control.",
         image: "/images/step-3.1.png",
         video_url: "https://player.vimeo.com/video/1159443469?autoplay=1&title=0&byline=0&portrait=0&controls=1&playsinline=0",
       },

@@ -51,7 +51,7 @@ export default function WalkThroughPopup({ current_stage, onClose, current_page 
       <div className="business-setup-right">
         <div className="business-setup-r-head">
           <h2>
-            {overviewVideo?.right_title} <span>{overviewVideo?.right_subtitle}</span>
+            {/* {overviewVideo?.right_title} <span>{overviewVideo?.right_subtitle}</span> */}
           </h2>
           <button onClick={handleClose} className="close-btn" aria-label="Close">
             <X />

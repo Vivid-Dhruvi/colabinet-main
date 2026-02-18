@@ -31,9 +31,9 @@ export function EditClientDetails({ open, setIsOpen, value }) {
         return false;
       }
 
-      const maxSizeInMB = 2;
+      const maxSizeInMB = 6;
       if (icon.size / 1024 / 1024 > maxSizeInMB) {
-        setError("Icon must be less than 2MB");
+        setError("Icon must be less than 6MB");
         return false;
       }
     }

@@ -55,9 +55,9 @@ export function BusinessAreaModal({ bamodel, setBaModel, initialName = "", id })
         return false;
       }
 
-      const maxSizeInMB = 2;
+      const maxSizeInMB = 6;
       if (icon.size / 1024 / 1024 > maxSizeInMB) {
-        setError("Icon must be less than 2MB");
+        setError("Icon must be less than 6MB");
         return false;
       }
     }
@@ -194,7 +194,7 @@ export function BusinessAreaModal({ bamodel, setBaModel, initialName = "", id })
                   </button>{" "}
                   <span className="text-muted-foreground">or drag and drop</span>
                 </span>
-                <span className="mt-1 text-xs text-muted-foreground">JPG/PNG, max 2MB</span>
+                <span className="mt-1 text-xs text-muted-foreground">JPG/PNG, max 6MB</span>
                 <input
                   type="file"
                   accept="image/png,image/jpeg"

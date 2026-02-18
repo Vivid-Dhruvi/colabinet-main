@@ -52,9 +52,9 @@ export function LinkedWorkflowDialog({ open, setOpen, ba_id, parent_id, position
         return false;
       }
 
-      const maxSizeInMB = 2;
+      const maxSizeInMB = 6;
       if (fileName.size / 1024 / 1024 > maxSizeInMB) {
-        setError("Icon must be less than 2MB");
+        setError("Icon must be less than 6MB");
         return false;
       }
     }
@@ -188,7 +188,7 @@ export function LinkedWorkflowDialog({ open, setOpen, ba_id, parent_id, position
                   </div>
                   <p className="text-sm text-[#111827] font-medium">Click to upload or drag and drop</p>
                   <p className="text-xs text-muted-foreground mt-1 flex items-center justify-center gap-2">
-                    {fileName ? `Selected: ${fileName.name}` : "SVG, PNG or JPG (max 2 MB)"}
+                    {fileName ? `Selected: ${fileName.name}` : "SVG, PNG or JPG (max 6 MB)"}
                     {fileName && (
                       <span
                         className="inline-flex cursor-pointer rounded-full bg-muted p-1 hover:bg-red-600 hover:text-white"
