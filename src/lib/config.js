@@ -150,6 +150,7 @@ export const stages = [
     image: "/images/ai-workforce-overview.jpg",
     member_vurl: "https://player.vimeo.com/video/1129734936?autoplay=1&title=0&byline=0&portrait=0&controls=1&playsinline=0",
     non_member_vurl: "https://player.vimeo.com/video/1088682578?autoplay=1&title=0&byline=0&portrait=0&controls=1&playsinline=0",
+    team_member_vurl: "https://player.vimeo.com/video/1088696463?autoplay=1&title=0&byline=0&portrait=0&controls=1&playsinline=0",
     option_videos: [
       {
         title: "Workflow Management Made Simple",

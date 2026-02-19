@@ -428,12 +428,12 @@ export default function BusinessChat({
                   </h1>
                 )}
 
-                {user && user?.role_position !=='Team Member' && <div onClick={() => handleShowVideo(true)} className={cn("clb-handleVideo-block", sidebarOpen ? "sidebar-open" : "sidebar-closed")}>
+                <div onClick={() => handleShowVideo(true)} className={cn("clb-handleVideo-block", sidebarOpen ? "sidebar-open" : "sidebar-closed")}>
                   <span className={"head_truncate"}>Need help? Watch a quick walkthrough of this page</span>
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5 shrink-0">
                     <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                   </svg>
-                </div>}
+                </div>
               </div>
 
               <div className={cn("clb-message-main", sidebarOpen ? "clb-message-main-sdo" : "clb-message-main-sdc")}>
@@ -721,7 +721,7 @@ export default function BusinessChat({
                       </svg>
                     </button>
                     <iframe
-                      src={user?.role_id == 7 ? guide.member_vurl : guide.non_member_vurl}
+                      src={ user?.role_id == 7 ? user?.role_position === "Team Member" ? guide.team_member_vurl : guide.member_vurl : guide.non_member_vurl}
                       frameborder="0"
                       width={"100%"}
                       className="overflow-hidden h-56 sm:h-60 md:h-56 lg:h-[315px] xl:h-[460px] 2xl:h-[540px] rounded-2xl lg:min-w-lg xl:min-w-3xl 2xl:min-w-4xl w-full"
