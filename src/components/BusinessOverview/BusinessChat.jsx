@@ -428,12 +428,12 @@ export default function BusinessChat({
                   </h1>
                 )}
 
-                <div onClick={() => handleShowVideo(true)} className={cn("clb-handleVideo-block", sidebarOpen ? "sidebar-open" : "sidebar-closed")}>
+                {user && user?.role_position !=='Team Member' && <div onClick={() => handleShowVideo(true)} className={cn("clb-handleVideo-block", sidebarOpen ? "sidebar-open" : "sidebar-closed")}>
                   <span className={"head_truncate"}>Need help? Watch a quick walkthrough of this page</span>
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5 shrink-0">
                     <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                   </svg>
-                </div>
+                </div>}
               </div>
 
               <div className={cn("clb-message-main", sidebarOpen ? "clb-message-main-sdo" : "clb-message-main-sdc")}>

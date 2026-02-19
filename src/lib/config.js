@@ -148,7 +148,7 @@ export const stages = [
     right_subtitle: "See how work is managed day to day in Colabi.",
     video_url: "https://player.vimeo.com/video/1159575709?autoplay=1&title=0&byline=0&portrait=0&controls=1&playsinline=0",
     image: "/images/ai-workforce-overview.jpg",
-    member_vurl: "https://player.vimeo.com/video/1088696463?autoplay=1&title=0&byline=0&portrait=0&controls=1&playsinline=0",
+    member_vurl: "https://player.vimeo.com/video/1129734936?autoplay=1&title=0&byline=0&portrait=0&controls=1&playsinline=0",
     non_member_vurl: "https://player.vimeo.com/video/1088682578?autoplay=1&title=0&byline=0&portrait=0&controls=1&playsinline=0",
     option_videos: [
       {
