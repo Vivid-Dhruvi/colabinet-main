@@ -721,7 +721,7 @@ export default function BusinessChat({
                       </svg>
                     </button>
                     <iframe
-                      src={ user?.role_id == 7 ? user?.role_position === "Team Member" ? guide.team_member_vurl : guide.member_vurl : guide.non_member_vurl}
+                      src={ user?.role_id == 7 ? user?.permission_type === 0 ? guide.team_member_vurl : guide.member_vurl : guide.non_member_vurl}
                       frameborder="0"
                       width={"100%"}
                       className="overflow-hidden h-56 sm:h-60 md:h-56 lg:h-[315px] xl:h-[460px] 2xl:h-[540px] rounded-2xl lg:min-w-lg xl:min-w-3xl 2xl:min-w-4xl w-full"
