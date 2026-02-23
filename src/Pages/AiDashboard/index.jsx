@@ -1,8 +1,9 @@
 import { MainContext } from "@/App";
 import BusinessChat from "@/components/BusinessOverview/BusinessChat";
+import IntroColabi from "@/components/General/IntroColabi";
 import { stages, videoLinks } from "@/lib/config";
 import { notallowUserToAccess } from "@/lib/utils";
-import { updateViewPopup } from "@/service/general.service";
+import { skipIntoView, updateViewPopup } from "@/service/general.service";
 import React, { useContext, useEffect, useState } from "react";
 
 function AiDashBoard() {
@@ -15,6 +16,7 @@ function AiDashBoard() {
     video: user?.role_id == 7 ? videoLinks.dash_board.member : videoLinks.dash_board.non_member,
     open: false,
   });
+  const [open, setOpen] = React.useState(false);~
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
@@ -63,6 +65,15 @@ function AiDashBoard() {
     }
   }, [sidebarOpen]);
 
+  useEffect(() => {
+      if (user) {
+        if (user?.colabi_overview_video_seen == 0 && user?.role_id == 7 && user?.permission_type == 1) {
+          setOpen(true);
+          skipIntoView(token);
+        }
+      }
+    }, [user]);
+
   const handleShowVideo = (open, number) => {
     setSidebarOpen(open);
     localStorage.setItem("sidebar-state", 1);
@@ -82,6 +93,7 @@ function AiDashBoard() {
   return (
     user &&
     user?.role_id != 6 && (
+      <>
       <div className="clb-aside-wrapper">
         {guide.open && <span className="clb-guide-block"></span>}
         <BusinessChat
@@ -94,7 +106,23 @@ function AiDashBoard() {
           isMobile={isMobile}
           handleShowVideo={handleShowVideo}
         />
+        <IntroColabi
+          open={open}
+          setIsOpen={setOpen}
+          handleSkipSubmit={() => {
+            handleShowVideo(true);
+            setSidebarOpen(false);
+            sessionStorage.setItem("sidebar-state", 0);
+
+            if (token) {
+              updateViewPopup(token, {
+                view_business_setup_popup: "1",
+              });
+            }
+          }}
+        />
       </div>
+      </>
     )
   );
 }

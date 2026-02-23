@@ -35,6 +35,7 @@ import "@xyflow/react/dist/style.css";
 import { Button } from "../ui/button";
 import { format, set } from "date-fns";
 import CustomTooltip from "../BusinessOverview/CustomTooltip";
+import ZeroWorkflowPopup from "../BusinessOverview/ZeroWorkflowPopup";
 
 export const FlowContext = createContext();
 
@@ -97,6 +98,9 @@ function Flow({ currentPath, setCurrnetPath, reportData, setSidebarOpen, sidebar
     open: false,
     data: null,
   });
+
+  const [showZeroWorkflowPopup, setShowZeroWorkflowPopup] = useState(false);
+  const [hasShownPopup, setHasShownPopup] = useState(false);
 
   useEffect(() => {
     if (isFrame) {
@@ -280,7 +284,28 @@ function Flow({ currentPath, setCurrnetPath, reportData, setSidebarOpen, sidebar
       canvas_x: user?.canvas_x,
       canvas_y: user?.canvas_y,
     };
+    
+    // Calculate active workflows count
+    const activeWorkflowsCount = data?.business_areas?.reduce((acc, ba) => {
+      return acc + (ba.workflows?.filter(wf => 
+        wf.in_draft !== 1 && 
+        wf.recurring_status !== 2 && 
+        wf.recurring_status !== 1
+      ).length || 0);
+    }, 0);
+    
     const businessArea = data?.business_areas || [];
+    
+    // Show popup if no active workflows and we haven't shown it yet
+    // and we're not already on a template/suggested view
+    if (activeWorkflowsCount === 0 && 
+        !hasShownPopup && 
+        selectedBusinessTemplate === "0" && 
+        !currentFlow.suggested) {
+      setShowZeroWorkflowPopup(true);
+      setHasShownPopup(true);
+    }
+    
     handleFlowData({ business_areas: businessArea, topcard: tc_details });
     setCurrentFlow({
       type: "company",
@@ -4060,6 +4085,7 @@ function Flow({ currentPath, setCurrnetPath, reportData, setSidebarOpen, sidebar
         handleTemplateConfirm("company");
       }
     }
+    setHasShownPopup(false);
   }, [selectedBusinessTemplate]);
 
   const handleWorkflowTypeSelect = (workflow_type) => {
@@ -4314,6 +4340,21 @@ function Flow({ currentPath, setCurrnetPath, reportData, setSidebarOpen, sidebar
         return node;
       }),
     );
+  };
+
+  const handleZeroWorkflowSelection = (choice) => {
+    setShowZeroWorkflowPopup(false);
+    
+    if (choice === 'ai') {
+      handleBusinessTemplateChange("suggested");
+    } else {
+      handleBusinessTemplateChange("0");
+    }
+  };
+
+  const handlePopupClose = () => {
+    setShowZeroWorkflowPopup(false);
+    handleBusinessTemplateChange("suggested");
   };
 
   return (
@@ -4617,6 +4658,11 @@ function Flow({ currentPath, setCurrnetPath, reportData, setSidebarOpen, sidebar
             </div>
           </>
         )}
+        <ZeroWorkflowPopup 
+          open={showZeroWorkflowPopup}
+          onClose={handlePopupClose}
+          onSelect={handleZeroWorkflowSelection}
+        />
       </FlowContext.Provider>
       <PreviewAiSuggestion
         open={isWorkFlowSidePan}

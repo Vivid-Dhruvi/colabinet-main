@@ -364,6 +364,16 @@ export default function BusinessChat({
   };
 
   const shouldHideAside = () => {
+    const currentRoute = location.pathname;
+    if (selectedBusinessTemplate === "0" && currentRoute.includes('/business/overview') && !isMobile) {
+
+      setSidebarOpen(false);
+      if (guide.open) {
+        handleShowVideo(false);
+      }
+      return true;
+    }
+    
     const allowedPaths = [
       '/business/setup',
       '/business/overview',
@@ -376,7 +386,6 @@ export default function BusinessChat({
       return !isAllowedIframe;
     }
 
-    const currentRoute = location.pathname;
     const isAllowedRoute = allowedPaths.some(path => currentRoute.includes(path));    
     return !isAllowedRoute;
   };
@@ -712,7 +721,7 @@ export default function BusinessChat({
 
           {guide.open && (
             <>
-              {location.pathname.includes("ai-dashboard") && [7, 6].includes(user?.role_id) ? (
+              {location.pathname.includes("ai-dashboard") && ( user?.role_id === 6 || (user?.role_id === 7 && user?.permission_type === 0)) ? (
                 <>
                   <div className="clb-video-block clb-walkthrough-video-block">
                     <button className={"clb-video-btn"} onClick={() => handleShowVideo(false)}>

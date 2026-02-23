@@ -1,10 +1,12 @@
 import { X } from "lucide-react";
 import "./DisplayWalkThrough.css";
-import React from "react";
+import React, { useContext } from "react";
 import { Button } from "../ui/button";
+import { MainContext } from "@/App";
 
 export default function WalkThroughPopup({ current_stage, onClose, current_page }) {
   const [overviewVideo, setOverviewVideo] = React.useState(null);
+  const { user_id, user, token } = useContext(MainContext);
 
   const handleClose = () => {
     onClose?.();
@@ -36,7 +38,7 @@ export default function WalkThroughPopup({ current_stage, onClose, current_page 
         {/* Image or Video Section */}
         {overviewVideo?.video_url && (
           <div className="business-setup-video">
-            <iframe src={overviewVideo?.video_url} frameborder="0" width={"100%"} allow="autoplay; fullscreen; picture-in-picture" allowFullScreen></iframe>
+            <iframe src={user?.role_id === 7 && user?.permission_type === 1 && overviewVideo?.manager_vurl ? overviewVideo.manager_vurl : overviewVideo?.video_url } frameborder="0" width={"100%"} allow="autoplay; fullscreen; picture-in-picture" allowFullScreen></iframe>
           </div>
         )}
 

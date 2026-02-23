@@ -78,7 +78,7 @@ function BusinessLayout() {
         }
       }
 
-      if (user?.colabi_overview_video_seen == 0 && user?.role_id == 2) {
+      if (user?.colabi_overview_video_seen == 0 && (user?.role_id == 2 || (user?.role_id == 7 && user?.permission_type == 1))) {
         setOpen(true);
         skipIntoView(token);
       }

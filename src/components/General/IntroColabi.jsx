@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "../ui/button";
 import { videoLinks } from "@/lib/config";
 import { ArrowRight } from "lucide-react";
+import { MainContext } from "@/App";
 
 function IntroColabi({ open, setIsOpen, handleSkipSubmit }) {
+    const { user_id, user, token } = useContext(MainContext);
+
   const handleSkip = async () => {
     setIsOpen(false);
     handleSkipSubmit();
@@ -25,7 +28,7 @@ function IntroColabi({ open, setIsOpen, handleSkipSubmit }) {
           <div className="relative">
             <iframe
               title="vimeo-player"
-              src={videoLinks.intro_video}
+              src={ user?.role_id === 7 && user?.permission_type === 1 && videoLinks.intro_video_manager ? videoLinks.intro_video_manager : videoLinks.intro_video}
               width="100%"
               height="360"
               frameborder="0"

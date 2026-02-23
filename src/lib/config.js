@@ -62,6 +62,7 @@ export const videoLinks = {
   intro_video: "https://player.vimeo.com/video/1088678383?autoplay=1&title=0&byline=0&portrait=0&controls=1&playsinline=0",
   business_overview: "https://player.vimeo.com/video/1088673917?autoplay=1&title=0&byline=0&portrait=0&controls=1&playsinline=0",
   business_setup: "https://player.vimeo.com/video/1088675868?autoplay=1&title=0&byline=0&portrait=0&controls=1&playsinline=0",
+  intro_video_manager: "https://player.vimeo.com/video/1129734936?autoplay=1&title=0&byline=0&portrait=0&controls=1&playsinline=0",
   dash_board: {
     member: "https://player.vimeo.com/video/1088696463?autoplay=1&title=0&byline=0&portrait=0&controls=1&playsinline=0",
     non_member: "https://player.vimeo.com/video/1088682578?autoplay=1&title=0&byline=0&portrait=0&controls=1&playsinline=0",
@@ -151,6 +152,7 @@ export const stages = [
     member_vurl: "https://player.vimeo.com/video/1129734936?autoplay=1&title=0&byline=0&portrait=0&controls=1&playsinline=0",
     non_member_vurl: "https://player.vimeo.com/video/1088682578?autoplay=1&title=0&byline=0&portrait=0&controls=1&playsinline=0",
     team_member_vurl: "https://player.vimeo.com/video/1088696463?autoplay=1&title=0&byline=0&portrait=0&controls=1&playsinline=0",
+    manager_vurl: "https://player.vimeo.com/video/1088682578?autoplay=1&title=0&byline=0&portrait=0&controls=1&playsinline=0",
     option_videos: [
       {
         title: "Workflow Management Made Simple",
