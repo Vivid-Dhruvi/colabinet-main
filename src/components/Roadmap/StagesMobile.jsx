@@ -22,7 +22,7 @@ export function StageMobile({ currentStage, handleStageChange }) {
                 className={cn(
                   "p-1.5 w-fit -tracking-wider font-semibold text-[11px] border-b-2 border-solid transition-all duration-200",
                   isActive && "border-[#5CA28E] text-[#1E1E23]",
-                  isCompleted && "border-[#F88B62] text-[#F88B62]",
+                  isCompleted && "border-[#5CA28E]",
                   !isActive && !isCompleted && "border-[#E5E7EB] text-[#9CA3AF]"
                 )}
               >
@@ -30,7 +30,7 @@ export function StageMobile({ currentStage, handleStageChange }) {
               </li>
 
               {index < stages.length - 1 && (
-                <span className="h-0.5 w-3 bg-[#E5E7EB] shrink-0 mb-3.5"></span>
+                <span className={cn("h-0.5 w-3 bg-[#E5E7EB] shrink-0 mb-3.5", isCompleted && "bg-[#5CA28E]")}></span>
               )}
             </div>
           );
