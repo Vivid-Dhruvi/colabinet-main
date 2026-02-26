@@ -115,7 +115,7 @@ function BusinessArea({ data }) {
           </div>
         </div>
         <div className="w-full flex justify-between items-center pt-2 px-2">
-          <p className="text-[#4B5563] font-normal text-sm leading-none">{active_wf} Active Workflows</p>
+          {/* <p className="text-[#4B5563] font-normal text-sm leading-none">{active_wf} Active Workflows</p> */}
           {currentFlow.type === "template" && (
             <button onClick={handleAddCanvas} className="text-sm font-medium text-[#59A8B2] z-2 cursor-pointer">
               Add This Business Area

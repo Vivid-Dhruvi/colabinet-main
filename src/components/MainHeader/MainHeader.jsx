@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { getOriginUrl } from "@/lib/config";
-import { cn, isUserAllow, isUserAllowAny, notallowUserToAccess } from "@/lib/utils";
+import { businessOverviewPermissionKeys, businessSetupPermissionKeys, cn, isUserAllow, isUserAllowAny, notallowUserToAccess } from "@/lib/utils";
 import TimeCounter from "./TimeCounter";
 import { LogoutDialog } from "./Logout";
 import { RateChangePopup } from "./RateChangePopup";
@@ -23,11 +23,8 @@ export const MainHeader = ({ isBusinessOverview }) => {
   const { days_left = 0, percent = 0, label = "", button_text = "", is_trial = false } = user?.active_plan_status || {};
 
   const [showRatePopup, setShowRatePopup] = useState(false);
-  const canAccessBusinessSetup = user?.role_id != 7 || !isUserAllow(user, "hide-business-setup");
-  const canAccessBusinessOverview =
-    user?.role_id != 7 ||
-    (!isUserAllow(user, "hide-business-overview") &&
-      isUserAllowAny(user, ["create-business-area", "edit-business-area", "delete-business-area", "create-workflow", "edit-workflow", "delete-workflow"]));
+  const canAccessBusinessSetup = user?.role_id != 7 || isUserAllowAny(user, businessSetupPermissionKeys);
+  const canAccessBusinessOverview = user?.role_id != 7 || isUserAllowAny(user, businessOverviewPermissionKeys);
 
   useEffect(() => {
     const handleClickOutside = (event) => {

@@ -383,8 +383,14 @@ aside .clb-sidebar-btn {
   align-items: center;
   gap: 0.5rem;
   position: relative;
-  z-index: 10;
+  z-index: 11;
 }
+
+.clb-sidebar-roo-btn, .clb-sidebar-roo-btn2{
+  z-index: 11 !important;
+  left: 0 !important;
+}
+
 .clb-aiChat-block {
   display: flex;
   flex-direction: column;
@@ -1211,11 +1217,6 @@ aside .clb-sidebar-btn {
   }
 }
 @media (max-width: 639px) {
-  aside .clb-sidebar-btn {
-    left: 0;
-    pointer-events: none;
-    opacity: 0;
-  }
   .mobi-dashboard-bottom {
     position: static;
     width: 100%;
@@ -1776,3 +1777,7 @@ aside .clb-sidebar-btn {
     font-size: 16px !important;
   }
 }
+.wl-colabi-popup{z-index: 9999;}
+.wl-colabi-popup div[data-slot="dialog-header"]{padding-top: 24px !important;padding-bottom: 24px !important;}
+.wl-colabi-popup button[close-btn=""]{top: 12px;right: 12px;color: #000000;background-color: #ffffff;border-radius: 50%;}
+.wl-colabi-btn{background-color: #fa8b64;}

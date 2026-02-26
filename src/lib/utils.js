@@ -97,16 +97,36 @@ export const notallowUserToAccess = (user, role_ids) => {
   return role_ids.includes(user?.role_id);
 };
 
+export const businessSetupPermissionKeys = [
+  "view-team", "create-team", "edit-team", "delete-team",
+  "view-guest", "create-guest", "edit-guest", "delete-guest",
+  "view-freelancer", "manage-payouts-freelancer", "create-freelancer",
+  "view-ai-employee", "create-ai-employee", "edit-ai-employee", "delete-ai-employee",
+  "view-ai-assistants", "create-ai-assistants", "edit-ai-assistants", "delete-ai-assistants",
+  "view-ai-sales-employees", "create-ai-sales-employees", "edit-ai-sales-employees", "delete-ai-sales-employees",
+  "view-ai-customer-service-employees", "create-ai-customer-service-employees", "edit-ai-customer-service-employees", "delete-ai-customer-service-employees",
+  "view-business-plan", "create-business-plan",
+  "view-marketing-plan", "manage-marketing-plan",
+  "view-job-descriptions", "manage-job-descriptions",
+  "view-current-processes", "create-current-processes", "edit-current-processes", "delete-current-processes",
+];
+
+export const businessOverviewPermissionKeys = [
+  "create-business-area", "edit-business-area", "delete-business-area",
+  "create-workflow", "edit-workflow", "delete-workflow",
+];
+
+
 export const isBusinessOverviewAccessible = (user) => {
   if (user?.role_id != 7) return true;
   if (user?.permission_type == 0) return false;
-  if (user?.user_permission.includes("hide-business-overview")) return false;
-  return true;
+  const user_permission = user?.user_permission || [];
+  return user_permission.some((perm) => businessOverviewPermissionKeys.includes(perm));
 };
 
 export const isBusinessSetupAccessible = (user) => {
   if (user?.role_id != 7) return true;
   if (user?.permission_type == 0) return false;
-  if (user?.user_permission.includes("hide-business-setup")) return false;
-  return true;
+  const user_permission = user?.user_permission || [];
+  return user_permission.some((perm) => businessSetupPermissionKeys.includes(perm));
 };

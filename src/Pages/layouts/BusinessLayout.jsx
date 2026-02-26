@@ -8,7 +8,7 @@ import { MainContext } from "@/App";
 import { skipIntoView } from "@/service/general.service";
 import { useLocation } from "react-router-dom";
 import { Outlet } from "react-router-dom";
-import { isUserAllow } from "@/lib/utils";
+import { businessOverviewPermissionKeys, businessSetupPermissionKeys, isUserAllow, isUserAllowAny } from "@/lib/utils";
 import { getBusinessAreaTemplate } from "@/service/reposting.service";
 
 export const BusinessContext = React.createContext();
@@ -73,7 +73,10 @@ function BusinessLayout() {
   useEffect(() => {
     if (user) {
       if (user?.role_id == 7) {
-        if ((isBusinessOverview && isUserAllow(user, "hide-business-overview")) || (!isBusinessOverview && isUserAllow(user, "hide-business-setup"))) {
+        const hasBusinessOverviewAccess = isUserAllowAny(user,businessOverviewPermissionKeys);
+        const hasBusinessSetupAccess = isUserAllowAny(user, businessSetupPermissionKeys);
+
+        if ((isBusinessOverview && !hasBusinessOverviewAccess) || (!isBusinessOverview && !hasBusinessSetupAccess)) {
           window.location.href = getOriginUrl() + "/ai-dashboard";
         }
       }

@@ -15,8 +15,8 @@ function IntroColabi({ open, setIsOpen, handleSkipSubmit }) {
 
   return (
     <Dialog open={open} onOpenChange={() => handleSkip(false)}>
-      <DialogContent className="max-w-[96%] md:max-w-2xl max-h-[96svh] p-0 border-0 overflow-visible shadow-[0px_25px_50px_0px_#00000040] gap-0 [&>button]:size-6 [&>button]:flex [&>button]:items-center [&>button]:justify-center [&>button]:opacity-100 [&>button>svg]:size-full [&>button]:rounded-full [&>button]:-top-2.5 [&>button]:-right-2.5 [&>button]:text-white [&>button]:bg-[#49b8bf]">
-        <DialogHeader className={"bg-[linear-gradient(99.35deg,_#FA8B64_8.18%,_#49B8BF_95.42%)] py-11 gap-2.5 rounded-t-lg"}>
+      <DialogContent className="max-w-[96%] md:max-w-2xl max-h-[96svh] p-0 border-0 overflow-visible shadow-[0px_25px_50px_0px_#00000040] gap-0 [&>button]:size-6 [&>button]:flex [&>button]:items-center [&>button]:justify-center [&>button]:opacity-100 [&>button>svg]:size-full [&>button]:rounded-full [&>button]:-top-2.5 [&>button]:-right-2.5 [&>button]:text-white [&>button]:bg-[#49b8bf] wl-colabi-popup">
+        <DialogHeader className={"bg-[linear-gradient(99.35deg,_#FA8B64_8.18%,_#49B8BF_95.42%)] py-9 gap-2.5 rounded-t-lg"}>
           <img src="/images/fullhand.png" className="w-20 mx-auto" />
           <DialogTitle className="text-center text-white font-bold text-2xl lg:text-3xl">Welcome to Colabi!</DialogTitle>
           <p className="max-w-[482px] mx-auto text-white font-normal text-base lg:text-lg leading-normal text-center mb-0">
@@ -24,7 +24,7 @@ function IntroColabi({ open, setIsOpen, handleSkipSubmit }) {
           </p>
         </DialogHeader>
 
-        <div className="popupBody text-center p-8 flex flex-col gap-4">
+        <div className="popupBody text-center p-4 flex flex-col gap-4">
           <div className="relative">
             <iframe
               title="vimeo-player"
@@ -49,7 +49,7 @@ function IntroColabi({ open, setIsOpen, handleSkipSubmit }) {
             >
               Learn more about how Colabi works
             </Button> */}
-          <Button className={"bg-[#fa8b64] hover:bg-[#fa8b64] text-white rounded-lg p-2"} onClick={handleSkip}>
+          <Button className={"bg-[#fa8b64] hover:bg-[#fa8b64] text-white rounded-lg p-2 wl-colabi-btn"} onClick={handleSkip}>
             <ArrowRight />
           </Button>
         </div>
