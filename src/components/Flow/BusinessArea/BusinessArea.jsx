@@ -44,8 +44,8 @@ function BusinessArea({ data }) {
   }, [user, currentFlow]);
 
   const isThreeDotted = useMemo(() => {
-    return is_readOnly && isUserAllowAny(user, ["edit-business-area", "delete-business-area"]);
-  }, [is_readOnly, user]);
+    return ((is_readOnly || selectedBusinessTemplate === "suggested") && isUserAllowAny(user, ["edit-business-area", "delete-business-area"]));
+  }, [is_readOnly, user, selectedBusinessTemplate]);
 
   return (
     <>

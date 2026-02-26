@@ -1,6 +1,7 @@
 import { useEffect, useRef, useCallback, useContext } from "react";
 import { FlowContext } from "../Flow";
 import { isUserAllow } from "@/lib/utils";
+import { BusinessContext } from "@/Pages/layouts/BusinessLayout";
 
 const WorkflowOptionModal = ({
   isOpen,
@@ -17,6 +18,7 @@ const WorkflowOptionModal = ({
 }) => {
   const modalRef = useRef(null);
   const { currentFlow } = useContext(FlowContext);
+  const { selectedBusinessTemplate } = useContext(BusinessContext);
 
   const closeModal = useCallback(() => {
     setIsOpen(false);
@@ -40,6 +42,8 @@ const WorkflowOptionModal = ({
 
   if (!isOpen) return null;
 
+  const isSuggested = selectedBusinessTemplate === "suggested";
+
   return (
     <div
       ref={modalRef}
@@ -54,76 +58,91 @@ const WorkflowOptionModal = ({
       </button>
 
       <ul className="list-none pt-4">
-        {wfdetails.chain_no && !transfer && (
-          <li
-            className="text-xs md:text-sm text-[#49B8BF] px-4 py-0.5 hover:bg-gray-100 cursor-pointer"
-            onClick={() => handleViewWorkFlow(1)}
-          >
-            View Linked Workflow
-          </li>
-        )}
-        <li
-          onClick={() => handleViewWorkFlow(3)}
-          className="text-xs md:text-sm text-[#49B8BF] px-4 py-0.5 hover:bg-gray-100 cursor-pointer"
-        >
-          View Transferred Workflows
-        </li>
-        <li
-          className="text-xs md:text-sm text-[#49B8BF] px-4 py-0.5 hover:bg-gray-100 cursor-pointer"
-          onClick={() => handleViewWorkFlow(2)}
-        >
-          View Workflow Tasks
-        </li>
-
-        <li
-          onClick={() => handleViewWorkFlow(4)}
-          className="text-xs md:text-sm text-[#49B8BF] px-4 py-0.5 hover:bg-gray-100 cursor-pointer"
-        >
-          View Workflow Users
-        </li>
-
-        {currentFlow.type === "company" && !wfdetails.is_draft && (
-          <a
-            href={`/workflow/discussion/${wfdetails.uuid}`}
-            className="text-xs md:text-sm text-[#49B8BF] px-4 py-0.5 hover:bg-gray-100 cursor-pointer block"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Workflow Discussions
-          </a>
-        )}
-
-        {currentFlow.type === "template" ? (
-          wfdetails.business_area_id && (
-            <li
-              className="text-xs md:text-sm text-[#49B8BF] px-4 py-0.5 hover:bg-gray-100 cursor-pointer"
-              onClick={() => setSelectBARemove(true)}
-            >
-              Remove Business Area
-            </li>
-          )
-        ) : wfdetails.is_draft ? (
-          <li
-            className="text-xs md:text-sm text-[#49B8BF] px-4 py-0.5 hover:bg-gray-100 cursor-pointer"
-            onClick={removeFromCanvas}
-          >
-            Remove from canvas
-          </li>
-        ) : (
+        {isSuggested ? (
           <>
-            <li
-              className="text-xs md:text-sm text-[#f98a63] px-4 py-0.5 hover:bg-gray-100 cursor-pointer"
-              onClick={() => handleArciveWorkFlow(wf_status.status == "Archived" ? "unarchive" : "archive")}
-            >
-              {wf_status.status == "Archived" ? "Unarchive" : "Archive"} Workflow
-            </li>
-            {wf_status.status != "Active" && isUserAllow(user, "delete-workflow") && (
+            {(currentFlow.type === "company" || user.role_id == 17) && isUserAllow(user, "delete-workflow") && (
               <li
                 className="text-xs md:text-sm text-red-600 px-4 py-0.5 hover:bg-gray-100 cursor-pointer"
                 onClick={handleDeleteWorkFlow}
               >
                 Delete
               </li>
+            )}
+          </>
+        ) : (
+          <>
+            {wfdetails.chain_no && !transfer && (
+              <li
+                className="text-xs md:text-sm text-[#49B8BF] px-4 py-0.5 hover:bg-gray-100 cursor-pointer"
+                onClick={() => handleViewWorkFlow(1)}
+              >
+                View Linked Workflow
+              </li>
+            )}
+            <li
+              onClick={() => handleViewWorkFlow(3)}
+              className="text-xs md:text-sm text-[#49B8BF] px-4 py-0.5 hover:bg-gray-100 cursor-pointer"
+            >
+              View Transferred Workflows
+            </li>
+            <li
+              className="text-xs md:text-sm text-[#49B8BF] px-4 py-0.5 hover:bg-gray-100 cursor-pointer"
+              onClick={() => handleViewWorkFlow(2)}
+            >
+              View Workflow Tasks
+            </li>
+
+            <li
+              onClick={() => handleViewWorkFlow(4)}
+              className="text-xs md:text-sm text-[#49B8BF] px-4 py-0.5 hover:bg-gray-100 cursor-pointer"
+            >
+              View Workflow Users
+            </li>
+
+            {currentFlow.type === "company" && !wfdetails.is_draft && (
+              <a
+                href={`/workflow/discussion/${wfdetails.uuid}`}
+                className="text-xs md:text-sm text-[#49B8BF] px-4 py-0.5 hover:bg-gray-100 cursor-pointer block"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Workflow Discussions
+              </a>
+            )}
+
+            {currentFlow.type === "template" ? (
+              wfdetails.business_area_id && (
+                <li
+                  className="text-xs md:text-sm text-[#49B8BF] px-4 py-0.5 hover:bg-gray-100 cursor-pointer"
+                  onClick={() => setSelectBARemove(true)}
+                >
+                  Remove Business Area
+                </li>
+              )
+            ) : wfdetails.is_draft ? (
+              <li
+                className="text-xs md:text-sm text-[#49B8BF] px-4 py-0.5 hover:bg-gray-100 cursor-pointer"
+                onClick={removeFromCanvas}
+              >
+                Remove from canvas
+              </li>
+            ) : (
+              <>
+                <li
+                  className="text-xs md:text-sm text-[#f98a63] px-4 py-0.5 hover:bg-gray-100 cursor-pointer"
+                  onClick={() => handleArciveWorkFlow(wf_status.status == "Archived" ? "unarchive" : "archive")}
+                >
+                  {wf_status.status == "Archived" ? "Unarchive" : "Archive"} Workflow
+                </li>
+                {wf_status.status != "Active" && isUserAllow(user, "delete-workflow") && (
+                  <li
+                    className="text-xs md:text-sm text-red-600 px-4 py-0.5 hover:bg-gray-100 cursor-pointer"
+                    onClick={handleDeleteWorkFlow}
+                  >
+                    Delete
+                  </li>
+                )}
+              </>
             )}
           </>
         )}

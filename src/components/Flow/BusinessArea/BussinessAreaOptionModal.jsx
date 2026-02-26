@@ -1,10 +1,12 @@
 import { useEffect, useRef, useCallback, useContext } from "react";
 import { FlowContext } from "../Flow";
 import { isUserAllow } from "@/lib/utils";
+import { BusinessContext } from "@/Pages/layouts/BusinessLayout";
 
 const BussinessAreaOptionModal = ({ isOpen, setIsOpen, setShowDeleteModal, setShowEditModal, user }) => {
   const modalRef = useRef(null);
   const { currentFlow } = useContext(FlowContext);
+  const { selectedBusinessTemplate } = useContext(BusinessContext);
 
   const closeModal = useCallback(() => {
     setIsOpen(false);
@@ -37,6 +39,7 @@ const BussinessAreaOptionModal = ({ isOpen, setIsOpen, setShowDeleteModal, setSh
   }, [closeModal, isOpen]);
 
   if (!isOpen) return null;
+  const isSuggested = selectedBusinessTemplate === "suggested";
 
   return (
     <div ref={modalRef} className="min-w-36 py-2 absolute right-0 top-10 bg-white border border-[#dedede] rounded-lg shadow-sm cursor-default">
@@ -47,7 +50,7 @@ const BussinessAreaOptionModal = ({ isOpen, setIsOpen, setShowDeleteModal, setSh
       <ul className="list-none pt-4">
         {(currentFlow.type === "company" || user.role_id == 17) && (
           <>
-            {isUserAllow(user, "edit-business-area") && (
+            {!isSuggested && isUserAllow(user, "edit-business-area") && (
               <li className="text-xs md:text-sm text-[#49B8BF] px-4 py-0.5 hover:bg-gray-100 cursor-pointer" onClick={handleEdit}>
                 Edit
               </li>
