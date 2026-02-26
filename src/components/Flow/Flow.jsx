@@ -100,7 +100,9 @@ function Flow({ currentPath, setCurrnetPath, reportData, setSidebarOpen, sidebar
   });
 
   const [showZeroWorkflowPopup, setShowZeroWorkflowPopup] = useState(false);
-  const [hasShownPopup, setHasShownPopup] = useState(false);
+  const [hasShownPopup, setHasShownPopup] = useState(() => {
+    return sessionStorage.getItem('zero-workflow-popup-shown') === 'true';
+  });
 
   useEffect(() => {
     if (isFrame) {
@@ -295,15 +297,18 @@ function Flow({ currentPath, setCurrnetPath, reportData, setSidebarOpen, sidebar
     }, 0);
     
     const businessArea = data?.business_areas || [];
-    
+
+    const popupShownInSession = sessionStorage.getItem('zero-workflow-popup-shown') === 'true';
+
     // Show popup if no active workflows and we haven't shown it yet
     // and we're not already on a template/suggested view
     if (activeWorkflowsCount === 0 && 
-        !hasShownPopup && 
+        !popupShownInSession && 
         selectedBusinessTemplate === "0" && 
         !currentFlow.suggested) {
       setShowZeroWorkflowPopup(true);
       setHasShownPopup(true);
+      sessionStorage.setItem('zero-workflow-popup-shown', 'true');
     }
     
     handleFlowData({ business_areas: businessArea, topcard: tc_details });
@@ -4347,6 +4352,9 @@ function Flow({ currentPath, setCurrnetPath, reportData, setSidebarOpen, sidebar
     
     if (choice === 'ai') {
       handleBusinessTemplateChange("suggested");
+      if(isMobile){
+        setSidebarOpen(false);
+      }
     } else {
       handleBusinessTemplateChange("0");
     }
@@ -4355,6 +4363,9 @@ function Flow({ currentPath, setCurrnetPath, reportData, setSidebarOpen, sidebar
   const handlePopupClose = () => {
     setShowZeroWorkflowPopup(false);
     handleBusinessTemplateChange("suggested");
+    if(isMobile){
+      setSidebarOpen(false);
+    }
   };
 
   return (
@@ -4400,7 +4411,7 @@ function Flow({ currentPath, setCurrnetPath, reportData, setSidebarOpen, sidebar
             <div ref={flowRef} className="w-full h-full">
               <div
                 className={cn(
-                  "absolute bottom-36 md:bottom-28 z-10 flex flex-col gap-2 w-fit right-8 xl:right-auto",
+                  "absolute bottom-40 md:bottom-28 z-10 flex flex-col gap-2 w-fit right-4 xl:right-auto",
                   sidebarOpen
                     ? "left-auto xl:left-[calc(33.333%_+_20px)] 2xl:left-[calc(25%_+_20px)] xl:bottom-4 items-end xl:items-start"
                     : "lg:left-4 lg:bottom-4 items-end lg:items-start",
@@ -4546,16 +4557,22 @@ function Flow({ currentPath, setCurrnetPath, reportData, setSidebarOpen, sidebar
                   </CollapsibleContent>
                 </Collapsible>
               </div>
-              <div className="absolute top-24 md:top-8 lg:top-4 right-20 md:right-16 z-10 flex flex-row gap-1 backdrop-blur-sm rounded-lg p-1 border border-gray-200 shadow-lg h-10" data-tooltip-direction="down" data-tooltip-broad="true">
+              <div className="absolute bottom-28 md:top-8 lg:top-4 right-20 md:right-16 z-50 flex flex-row gap-1 backdrop-blur-sm rounded-lg p-1 border border-gray-200 shadow-lg h-10 bg-[#E2EBF3]" data-tooltip-direction="down" data-tooltip-broad="true">
                 <CustomTooltip content="Manage your active operations and real-time team workflows.">
                   <button 
                     className={cn(
-                      "px-3 h-full text-sm font-medium rounded-md transition-all duration-200 flex items-center",
+                      "px-3 h-full text-xs sm:text-sm font-medium rounded-md transition-all duration-200 flex items-center",
                       selectedBusinessTemplate === "0" 
                         ? "bg-gradient-to-r from-[#49b8c1] to-[#62AAB4] text-white shadow-sm" 
-                        : "bg-white text-gray-700 hover:bg-gray-50 border border-gray-200"
+                        : "text-[#4D4D53] bg-transparent"
                     )}
-                    onClick={() => handleBusinessTemplateChange("0")}
+                    onClick={() => {
+                      handleBusinessTemplateChange("0")
+                      if(isMobile){
+                        setSidebarOpen(false);
+                      } 
+                      
+                    }}
                   >
                     Your Business
                   </button>
@@ -4564,12 +4581,17 @@ function Flow({ currentPath, setCurrnetPath, reportData, setSidebarOpen, sidebar
                 <CustomTooltip content="Explore AI growth suggestions based on your Stage 1 Blueprint.">
                   <button 
                     className={cn(
-                      "px-3 h-full text-sm font-medium rounded-md transition-all duration-200 flex items-center",
+                      "px-3 h-full text-xs sm:text-sm font-medium rounded-md transition-all duration-200 flex items-center",
                       selectedBusinessTemplate === "suggested" 
                         ? "bg-gradient-to-r from-[#49b8c1] to-[#62AAB4] text-white shadow-sm" 
-                        : "bg-white text-gray-700 hover:bg-gray-50 border border-gray-200"
+                        : "text-[#4D4D53] bg-transparent"
                     )}
-                    onClick={() => handleBusinessTemplateChange("suggested")}
+                    onClick={() => {
+                      handleBusinessTemplateChange("suggested");
+                      if(isMobile){
+                        setSidebarOpen(false);
+                      }
+                    }}
                   >
                     AI Business
                   </button>
@@ -4594,7 +4616,7 @@ function Flow({ currentPath, setCurrnetPath, reportData, setSidebarOpen, sidebar
                   onClick={() => setIsRearrange(true)}
                   title="Rearrange"
                   className={
-                    "size-10 rounded-md absolute top-24 md:top-8 lg:top-4 right-8 md:right-4 left-auto z-10 flex items-center justify-center text-white shadow-[0_4px_12px_0_rgba(0,0,0,0.25)] text-sm bg-gradient-to-l from-[#fb8b65] to-[#49b8c1] cursor-pointer"
+                    "size-10 rounded-md absolute bottom-28 md:top-8 lg:top-4 right-4 md:right-4 left-auto z-10 flex items-center justify-center text-white shadow-[0_4px_12px_0_rgba(0,0,0,0.25)] text-sm bg-gradient-to-l from-[#fb8b65] to-[#49b8c1] cursor-pointer"
                   }
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor" className="">
@@ -4677,7 +4699,7 @@ function Flow({ currentPath, setCurrnetPath, reportData, setSidebarOpen, sidebar
       {isMobile && (
         <div className={cn("chatFlow-btns mobile_chatflow_button")}>
           <ul className="chatFlow-btn-list !bg-[#e2ebf3]">
-            <li className={cn("chatFlow-btn-item", selectedBusinessTemplate === "0" && "active")}>
+            {/* <li className={cn("chatFlow-btn-item", selectedBusinessTemplate === "0" && "active")}>
               <CustomTooltip content="Manage your active operations and real-time team workflows.">
                 <button className="py-2.5 px-1.5 sm:px-3 sm:py-3 font-semibold" onClick={() => handleBusinessTemplateChange("0")}>
                   Your Business
@@ -4690,7 +4712,7 @@ function Flow({ currentPath, setCurrnetPath, reportData, setSidebarOpen, sidebar
                   AI Business Structure
                 </button>
               </CustomTooltip>
-            </li>
+            </li> */}
             {/* <li className={cn("chatFlow-btn-item", selectedBusinessTemplate === "unified" && "active")}>
               <CustomTooltip content="Your master roadmap. Bridge live operations with AI strategic planning.">
                 <button className="py-2 px-1 sm:px-3 sm:py-3" onClick={() => handleBusinessTemplateChange("unified")}>

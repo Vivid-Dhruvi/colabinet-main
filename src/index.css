@@ -387,7 +387,6 @@ aside .clb-sidebar-btn {
 }
 
 .clb-sidebar-roo-btn, .clb-sidebar-roo-btn2{
-  z-index: 11 !important;
   left: 0 !important;
 }
 
@@ -400,8 +399,8 @@ aside .clb-sidebar-btn {
   margin-left: auto;
   margin-right: auto;
   padding-bottom: 16px;
-  position: relative;
-  z-index: 10;
+  /* position: relative;
+  z-index: 10; */
 }
 /* .clb-message-input{display: block;width: 50%;height: 96px; flex-grow: 1;border: 1px solid #B4CCCC;background-color: #FBFBFB;font-size: 0.875rem;padding: 12px;padding-top: 10px;padding-bottom: 10px;border-radius: 10px;outline: none;} */
 .clb-guide-block {
@@ -491,7 +490,7 @@ aside .clb-sidebar-btn {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  gap: 10px;
+  gap: 0;
   background-color: #fff;
   box-shadow: 4px 8px 8px 0 rgba(0, 0, 0, 0.2);
   transition: all 0.2s linear;
@@ -900,9 +899,11 @@ aside .clb-sidebar-btn {
 }
 
 .clb-aiChat-block.accordian-open {
-  flex-grow: 1;
+  /* flex-grow: 1; */
   padding: 16px;
 }
+aside.clb-aside-sdc .clb-aiChat-block.accordian-open{flex-grow: 1;padding: 0;}
+
 .head_title_page {
   color: #f08965;
   font-weight: 600;
@@ -914,6 +915,12 @@ aside .clb-sidebar-btn {
 .react-flow__panel.react-flow__attribution {
   font-size: 6px;
 }
+
+
+.clb-business-overview-wrap {background-color: #ffffff;border-bottom: 1px solid #E5E7EB;box-shadow: 0px 1px 2px 0px #0000000D;border-bottom-left-radius: 12px;border-bottom-right-radius: 12px;text-align: center;padding: 10px 8px;position: relative;z-index: 9;display: block;}
+.clb-business-overview-wrap.sidebar-open{display: none;}
+.clb-business-overview-wrap h3 {color: #5A5A61;font-size: 20px;font-weight: 700;margin-bottom: 4px;}
+.clb-business-overview-wrap p {font-size: 11px;color: #8B959F;font-weight: 400;letter-spacing: -0.02em;margin: 0;}
 
 @media (min-width: 640px) {
   .clb-aside-wrapper {
@@ -1008,6 +1015,7 @@ aside .clb-sidebar-btn {
     height: fit-content;
     z-index: 1;
   }
+  .clb-business-overview-wrap {display: none;}
 }
 
 @media (min-width: 768px) {
@@ -1715,7 +1723,7 @@ aside .clb-sidebar-btn {
   transform: inherit;
 }
 .chatFlow-btn-item:last-child .custom-tooltip__content .custom-tooltip__arrow {left: auto;right: 34px;}
-#react_root aside > button.clb-sidebar-btn2{outline: none;cursor: pointer;position: absolute;left: 100%;z-index: 10;top: 40px;width: 62px !important; background-color: #ffffff;border-radius: 0 8px 8px 0;padding: 3px 3px 2px 4px;border: 2px solid #FFFFFF;box-shadow: 0px 4px 4px 0px #00000040;}
+#react_root aside > button.clb-sidebar-btn2{outline: none;cursor: pointer;position: absolute;left: 100%;z-index: 999;top: 40px;width: 62px !important; background-color: #ffffff;border-radius: 0 8px 8px 0;padding: 3px 3px 2px 4px;border: 2px solid #FFFFFF;box-shadow: 0px 4px 4px 0px #00000040;}
 #react_root aside > button.clb-sidebar-btn2 img{display: block;max-width: 100%;height: auto;}
 #react_root aside > button.clb-sidebar-btn2 span{white-space: nowrap; font-family: "Poppins", sans-serif;font-weight: 500;font-size: 9px;line-height: 16px;letter-spacing: -0.7px;color:#535258;display: block;}
 #react_root aside > button.clb-sidebar-btn2 b{font-family: "Poppins", sans-serif;font-weight: 500;font-size: 9px;line-height: 15px;letter-spacing: -0.7px;color: #FF8C42;display: block;}

@@ -4,7 +4,7 @@ const stages = ["Setup", "Overview", "Dashboard"];
 
 export function StageMobile({ currentStage, handleStageChange }) {
   return (
-    <div className="border-t-2 border-solid border-[#E7E9ED] rounded-t-2xl p-1.5 text-center flex flex-col items-center gap-1 z-10">
+    <div className="border-t-2 border-solid border-[#E7E9ED] rounded-t-2xl p-1.5 text-center flex flex-col items-center gap-1 z-10 bg-white">
       
       <h5 className="text-[#1E1E23] text-[13px] font-medium -tracking-wide text-center">
         Stage {currentStage + 1} of {stages.length}

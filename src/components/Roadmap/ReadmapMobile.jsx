@@ -213,17 +213,7 @@ function ReadmapMobile({ setCurrnetPath }) {
           )
         } */}
 
-        <div className="flex flex-col gap-2.5 h-10 grow overflow-auto p-1.5 -m-1.5">
-          <div className="text-center">
-            <h3 className="font-bold text-xl text-[#5A5A61]">Business Setup</h3>
-            <p className="text-[#94969C] text-[11px] px-10 leading-normal">
-              Build your Business Brain.
-            </p>
-            <p className="text-[#94969C] text-[11px] px-10 leading-normal my-1">
-              The more context you define, the smarter your operating system
-              becomes.
-            </p>
-          </div>
+        <div className="flex flex-col gap-2.5 h-10 grow overflow-auto p-1.5 -m-1.5 p-4">
           <ul className="bg-white border border-solid border-[#E5E7EB] shadow-[0px_1px_2px_0px_#0000000D,0px_4px_4px_0px_#00000040] rounded-md p-2 py-4 flex flex-col gap-6">
             <div className="flex flex-col gap-1">
               <span className="text-[#1E1E23] font-semibold text-base col-span-full">

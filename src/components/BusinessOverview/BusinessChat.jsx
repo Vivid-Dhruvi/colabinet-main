@@ -428,9 +428,11 @@ export default function BusinessChat({
     const currentRoute = location.pathname;
     if (
       selectedBusinessTemplate === "0" &&
-      currentRoute.includes("/business/overview") &&
-      !isMobile
+      currentRoute.includes("/business/overview")
     ) {
+      if (isMobile) {
+        return false;
+      }
       setSidebarOpen(false);
       if (guide.open) {
         handleShowVideo(false);
@@ -456,6 +458,14 @@ export default function BusinessChat({
       currentRoute.includes(path),
     );
     return !isAllowedRoute;
+  };
+
+  const shouldHideChatOnMobile = () => {
+    return (
+      isMobile && !sidebarOpen &&
+      selectedBusinessTemplate === "0" &&
+      location.pathname.includes("/business/overview")
+    );
   };
 
   const handleStageChange = (stage) => {
@@ -493,33 +503,32 @@ export default function BusinessChat({
                 sidebarOpen ? "clb-aside-sdo" : "clb-aside-sdc",
               )}
             >
-              {sidebarOpen ? (
-                <button
-                  type="button"
-                  className={cn("clb-sidebar-btn", isMobile && "clb-sidebar-roo-btn")}
-                  onClick={() => setSidebarOpen(!sidebarOpen)}
-                >
-                  <ChevronLeft className="text-white" />
-                </button>
-              ) : (
-                <button
-                  type="button"
-                  className={cn("clb-sidebar-btn2" , isMobile && "clb-sidebar-roo-btn2")}
-                  onClick={() => setSidebarOpen(!sidebarOpen)}
-                >
-                  <img src="/images/colabi-roo.png" alt="COLABI-ROO" />
-                  <span>COLABI-ROO</span>
-                  <b>Chat Here</b>
-                </button>
+              {!shouldHideChatOnMobile() && (
+                <>
+                  {sidebarOpen ? (
+                    <button
+                      type="button"
+                      className={cn("clb-sidebar-btn", isMobile && "clb-sidebar-roo-btn")}
+                      onClick={() => setSidebarOpen(!sidebarOpen)}
+                    >
+                      <ChevronLeft className="text-white" />
+                    </button>
+                  ) : (
+                    <button
+                      type="button"
+                      className={cn("clb-sidebar-btn2" , isMobile && "clb-sidebar-roo-btn2")}
+                      onClick={() => setSidebarOpen(!sidebarOpen)}
+                    >
+                      <img src="/images/colabi-roo.png" alt="COLABI-ROO" />
+                      <span>COLABI-ROO</span>
+                      <b>Chat Here</b>
+                    </button>
+                  )}
+                </>
               )}
+              
 
-              <div
-                onClick={() => handleShowVideo(true)}
-                className={cn(
-                  "clb-handleVideo-block",
-                  sidebarOpen ? "sidebar-open" : "sidebar-closed",
-                )}
-              >
+              <div onClick={() => handleShowVideo(true)} className={cn("clb-handleVideo-block", sidebarOpen ? "sidebar-open" : "sidebar-closed",)}>
                 <span className={"head_truncate"}>
                   Need help? Watch a quick walkthrough of this page
                 </span>
@@ -538,6 +547,16 @@ export default function BusinessChat({
                   />
                 </svg>
               </div>
+              {!sidebarOpen && isMobile && (<div class={cn("clb-business-overview-wrap", sidebarOpen && isMobile ? 'hidden' : '')} >
+                <h3>
+                  {type === "business-overview" ? 'Business Overview' 
+                    : type === "business-setup" ? 'Business Setup' 
+                    : 'Dashboard'
+                  }
+                </h3>
+                <p>Build your Business Brain.</p>
+                <p>The more context you define, the smarter your operating system becomes.</p>
+              </div>)}
 
               {(sidebarOpen || !isMobile) && (
                 <div
@@ -982,16 +1001,7 @@ export default function BusinessChat({
                           }}
                         />
                       )}
-                    {isMobile && <StageMobile
-                      currentStage={
-                        type === "business-setup"
-                          ? 0
-                          : type === "business-overview"
-                            ? 1
-                            : 2
-                      }
-                      handleStageChange={handleStageChange}
-                    />}
+                    
                   </div>
                 </div>
               </div>
@@ -1054,6 +1064,16 @@ export default function BusinessChat({
                   )}
                 </>
               )}
+              {isMobile && <StageMobile
+                      currentStage={
+                        type === "business-setup"
+                          ? 0
+                          : type === "business-overview"
+                            ? 1
+                            : 2
+                      }
+                      handleStageChange={handleStageChange}
+                    />}
             </aside>
           )}
         </>

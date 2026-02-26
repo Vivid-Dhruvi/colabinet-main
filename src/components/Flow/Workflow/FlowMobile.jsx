@@ -38,8 +38,8 @@ function FlowMobile({ reportData, currentPath, setCurrnetPath, sidebarOpen, setS
   }, [token]);
 
   return (
-    <div className="w-full border border-solid border-[#9CA3AF] rounded-md md:p-2 md:hidden flex flex-col gap-2.5 grow">
-      <Accordion className="grow flex flex-col" type="single" value={openAccordion} collapsible>
+    <div className="w-full sm:border sm:border-solid sm:border-[#9CA3AF] rounded-md md:p-2 md:hidden flex flex-col gap-2.5 grow">
+      {/* <Accordion className="grow flex flex-col" type="single" value={openAccordion} collapsible>
         <AccordionItem value="item-1" className={"grow flex flex-col [&>div[data-state]]:flex [&>div[data-state]]:flex-col [&>div[data-state]]:grow"}>
           <div
             onClick={() => setOpenAccordion(openAccordion ? "" : "item-1")}
@@ -58,7 +58,10 @@ function FlowMobile({ reportData, currentPath, setCurrnetPath, sidebarOpen, setS
             </button>
           </div>
           <AccordionContent className={"shadow-[inset_0_4px_4px_0_rgba(0,0,0,0.1)] grow flex flex-col"}>
-            <div className="h-[calc(100vh-320px)] grow overflow-auto">
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion> */}
+       <div className="h-[calc(100vh-320px)] grow overflow-auto">
               <ReactFlowProvider>
                 <Flow
                   reportData={reportData}
@@ -73,10 +76,7 @@ function FlowMobile({ reportData, currentPath, setCurrnetPath, sidebarOpen, setS
                 />
               </ReactFlowProvider>
             </div>
-          </AccordionContent>
-        </AccordionItem>
-      </Accordion>
-      <div
+      {/* <div
         className="flex flex-row items-center shrink-0 gap-2.5 md:gap-4 text-xs px-2 pb-2"
         onClick={() => {
           window.location.href = `${getOriginUrl()}/ai-dashboard`;
@@ -84,7 +84,7 @@ function FlowMobile({ reportData, currentPath, setCurrnetPath, sidebarOpen, setS
       >
         <Button className={"bg-[#F88B62] text-[#F5D8C3]"}>&gt; Step 3</Button>
         <p className="text-[#8C8C92] font-semibold leading-normal">Next Step: Business Overview-See Your Business In One View</p>
-      </div>
+      </div> */}
     </div>
   );
 }
