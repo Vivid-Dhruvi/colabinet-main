@@ -902,7 +902,7 @@ aside .clb-sidebar-btn {
   /* flex-grow: 1; */
   padding: 16px;
 }
-aside.clb-aside-sdc .clb-aiChat-block.accordian-open{flex-grow: 1;padding: 0;}
+aside.clb-aside-sdc .clb-aiChat-block.accordian-open{flex-grow: 1;height: 100px; padding: 0;}
 
 .head_title_page {
   color: #f08965;
@@ -919,8 +919,8 @@ aside.clb-aside-sdc .clb-aiChat-block.accordian-open{flex-grow: 1;padding: 0;}
 
 .clb-business-overview-wrap {background-color: #ffffff;border-bottom: 1px solid #E5E7EB;box-shadow: 0px 1px 2px 0px #0000000D;border-bottom-left-radius: 12px;border-bottom-right-radius: 12px;text-align: center;padding: 10px 8px;position: relative;z-index: 9;display: block;}
 .clb-business-overview-wrap.sidebar-open{display: none;}
-.clb-business-overview-wrap h3 {color: #5A5A61;font-size: 20px;font-weight: 700;margin-bottom: 4px;}
-.clb-business-overview-wrap p {font-size: 11px;color: #8B959F;font-weight: 400;letter-spacing: -0.02em;margin: 0;}
+.clb-business-overview-wrap h3 {color: #5A5A61;font-size: 20px;font-weight: 700;margin-bottom: 4px;text-align: center;}
+.clb-business-overview-wrap p {font-size: 11px;color: #8B959F;font-weight: 400;letter-spacing: -0.02em;margin: 0;text-align: center;}
 
 @media (min-width: 640px) {
   .clb-aside-wrapper {
@@ -1770,6 +1770,11 @@ aside.clb-aside-sdc .clb-aiChat-block.accordian-open{flex-grow: 1;padding: 0;}
     height: initial;
   }
   /* ------This css for ai-dashboard page for mobile view - end------ */
+  #react_root aside > button.clb-sidebar-btn2{
+    width: 50px !important;padding: 2px;top: 250px;
+  }
+  #react_root aside > button.clb-sidebar-btn2 img{width: 35px;height: 50px;margin: 0 auto;object-fit: contain;}
+  #react_root aside > button.clb-sidebar-btn2 span{font-size: 8px;}
 }
 
 @media (max-width: 480px) {

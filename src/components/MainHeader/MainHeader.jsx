@@ -232,7 +232,7 @@ export const MainHeader = ({ isBusinessOverview }) => {
               )}
             </ul>
           </div>
-          <a href="/beta-feedback" className="bg-[#66aab2] text-white text-[12px] px-[9px] py-[5px] rounded-[5px] cursor-pointer hidden xl:block">
+          <a href="/beta-feedback" className="bg-[#66aab2] text-white text-[12px] px-[9px] py-[5px] rounded-[5px] cursor-pointer xl:block">
             Beta Feedback
           </a>
 

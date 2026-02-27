@@ -4,9 +4,9 @@ const stages = ["Setup", "Overview", "Dashboard"];
 
 export function StageMobile({ currentStage, handleStageChange }) {
   return (
-    <div className="border-t-2 border-solid border-[#E7E9ED] rounded-t-2xl p-1.5 text-center flex flex-col items-center gap-1 z-10 bg-white">
+    <div className="border-t-2 border-solid !border-zinc-200 rounded-t-2xl p-2 text-center flex flex-col items-center gap-1 z-10 bg-white">
       
-      <h5 className="text-[#1E1E23] text-[13px] font-medium -tracking-wide text-center">
+      <h5 className="text-zinc-700 text-xs font-medium -tracking-wide text-center">
         Stage {currentStage + 1} of {stages.length}
       </h5>
 
@@ -21,16 +21,16 @@ export function StageMobile({ currentStage, handleStageChange }) {
               <li
                 className={cn(
                   "p-1.5 w-fit -tracking-wider font-semibold text-[11px] border-b-2 border-solid transition-all duration-200",
-                  isActive && "border-[#5CA28E] text-[#1E1E23]",
-                  isCompleted && "border-[#5CA28E]",
-                  !isActive && !isCompleted && "border-[#E5E7EB] text-[#9CA3AF]"
+                  isActive && "border-teal-600 text-zinc-700",
+                  isCompleted && "border-teal-600",
+                  !isActive && !isCompleted && "border-zinc-200 text-zinc-400"
                 )}
               >
                 {stage}
               </li>
 
               {index < stages.length - 1 && (
-                <span className={cn("h-0.5 w-3 bg-[#E5E7EB] shrink-0 mb-3.5", isCompleted && "bg-[#5CA28E]")}></span>
+                <span className={cn("h-0.5 w-3 bg-zinc-400 shrink-0 mb-3", isCompleted && "bg-teal-600")}></span>
               )}
             </div>
           );

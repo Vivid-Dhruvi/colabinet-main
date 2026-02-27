@@ -179,7 +179,7 @@ function ReadmapMobile({ setCurrnetPath }) {
           "fixed inset-0 select-none pointer-events-none bg-white backdrop-blur-md block",
         )}
       ></span>
-      <div className="z-50 rounded-md md:hidden flex flex-col gap-2.5 h-52 p-2 grow">
+      <div className="z-50 rounded-md md:hidden flex flex-col gap-2.5 h-52 p-3 grow">
         {/* <Accordion type="single" value={openAccordion} collapsible>
           <AccordionItem value="item-1">
             <div className={"p-0 text-sm hover:no-underline font-normal text-[#4A4E52]"} onClick={() => setOpenAccordion(openAccordion ? "" : "item-1")}>
