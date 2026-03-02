@@ -51,6 +51,13 @@ function BusinessLayout() {
   }, []);
 
   useEffect(() => {
+    if (isMobile) {
+      setSidebarOpen(false);
+      sessionStorage.setItem("sidebar-state", 0);
+    }
+  }, [isMobile]);
+
+  useEffect(() => {
     const currentPath = window.location.pathname + window.location.search;
 
     const handlePopState = (event) => {

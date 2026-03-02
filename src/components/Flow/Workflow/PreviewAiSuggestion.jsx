@@ -8,7 +8,7 @@ export function PreviewAiSuggestion({ open, setOpen, workflow, handlePathChange 
   return (
     <>
       <div
-        className={`pointer-events-none fixed top-16 bottom-0 right-0 z-40 flex w-full max-w-xl transition-transform duration-300 ${
+        className={`pointer-events-none fixed top-16 bottom-0 right-0 z-50 flex w-full max-w-xl transition-transform duration-300 ${
           open ? "translate-x-0" : "translate-x-full"
         }`}
       >

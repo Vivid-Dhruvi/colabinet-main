@@ -90,6 +90,13 @@ function AiDashBoard() {
     }));
   };
 
+  useEffect(() => {
+    if (isMobile) {
+      setSidebarOpen(false);
+      sessionStorage.setItem("sidebar-state", 0);
+    }
+  }, [isMobile]);
+
   return (
     user &&
     user?.role_id != 6 && (

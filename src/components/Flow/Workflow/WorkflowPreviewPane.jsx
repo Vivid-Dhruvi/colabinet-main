@@ -206,7 +206,7 @@ export const WorkflowPreviewPane = ({ data, onPrimaryAction, onClose, workflow }
         </div>
 
         <div
-          className="shrink-0 relative flex flex-col gap-5 overflow-hidden rounded-[22px] border border-[#d7e5ff] bg-white px-6 pb-6 pt-6 shadow-[0_24px_40px_rgba(15,23,42,0.12)]"
+          className="w-[90%] mx-auto shrink-0 relative flex flex-col gap-5 overflow-hidden rounded-[22px] border border-[#d7e5ff] bg-white px-6 pb-6 pt-6 shadow-[0_24px_40px_rgba(15,23,42,0.12)]"
           aria-label="Workflow"
         >
           <div className="flex flex-col gap-3">

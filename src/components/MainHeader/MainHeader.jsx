@@ -67,7 +67,7 @@ export const MainHeader = ({ isBusinessOverview }) => {
 
   return (
     <header className={cn("fixed top-0 left-0 z-999999 w-full bg-white shadow-[0_4px_6px_0_rgba(0,0,0,0.1)] py-1.5 xl:py-2 h-12 md:h-16 content-center")}>
-      <div className="max-w-[1730px] m-auto px-5 w-full">
+      <div className="max-w-[1730px] m-auto px-4 md:px-5 w-full">
         <div className="flex flex-wrap items-center justify-between gap-2.5">
           <button
             className="block xl:hidden z-10 cursor-pointer outline-none rounded-lg p-1 bg-white border border-solid border-gray-200"
@@ -232,7 +232,7 @@ export const MainHeader = ({ isBusinessOverview }) => {
               )}
             </ul>
           </div>
-          <a href="/beta-feedback" className="bg-[#66aab2] text-white text-[12px] px-[9px] py-[5px] rounded-[5px] cursor-pointer xl:block">
+          <a href="/beta-feedback" className="bg-[#66aab2] text-white text-[11px] md:text-xs p-1.5 rounded-md cursor-pointer xl:block">
             Beta Feedback
           </a>
 

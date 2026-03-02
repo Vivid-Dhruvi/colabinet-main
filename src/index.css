@@ -1771,10 +1771,10 @@ aside.clb-aside-sdc .clb-aiChat-block.accordian-open{flex-grow: 1;height: 100px;
   }
   /* ------This css for ai-dashboard page for mobile view - end------ */
   #react_root aside > button.clb-sidebar-btn2{
-    width: 50px !important;padding: 2px;top: 250px;
+    width: 46px !important;padding: 2px;top: 250px;
   }
   #react_root aside > button.clb-sidebar-btn2 img{width: 35px;height: 50px;margin: 0 auto;object-fit: contain;}
-  #react_root aside > button.clb-sidebar-btn2 span{font-size: 8px;}
+  #react_root aside > button.clb-sidebar-btn2 span{font-size: 7px;}
 }
 
 @media (max-width: 480px) {
