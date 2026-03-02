@@ -982,7 +982,7 @@ export default function BusinessChat({
                         openAccordion={openAccordion}
                       />
                     )}
-                    {!sidebarOpen &&
+                    {
                       isMobile &&
                       type === "business-overview" && (
                         <FlowMobile

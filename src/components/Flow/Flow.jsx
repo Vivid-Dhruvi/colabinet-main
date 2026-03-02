@@ -4411,7 +4411,7 @@ function Flow({ currentPath, setCurrnetPath, reportData, setSidebarOpen, sidebar
             <div ref={flowRef} className="w-full h-full">
               <div
                 className={cn(
-                  "absolute bottom-40 md:bottom-28 z-10 flex flex-col gap-2 w-fit right-4 xl:right-auto",
+                  "absolute bottom-32 md:bottom-28 z-10 flex flex-col gap-2 w-fit right-4 xl:right-auto",
                   sidebarOpen
                     ? "left-auto xl:left-[calc(33.333%_+_20px)] 2xl:left-[calc(25%_+_20px)] xl:bottom-4 items-end xl:items-start"
                     : "lg:left-4 lg:bottom-4 items-end lg:items-start",
@@ -4557,7 +4557,7 @@ function Flow({ currentPath, setCurrnetPath, reportData, setSidebarOpen, sidebar
                   </CollapsibleContent>
                 </Collapsible>
               </div>
-              <div className="absolute bottom-28 md:top-8 lg:top-4 right-20 md:right-16 z-50 flex flex-row gap-1 backdrop-blur-sm rounded-lg p-1 border border-gray-200 shadow-lg h-10 bg-[#E2EBF3]" data-tooltip-direction="down" data-tooltip-broad="true">
+              <div className="absolute bottom-20 md:top-8 lg:top-4 right-20 md:right-16 z-50 flex flex-row gap-1 backdrop-blur-sm rounded-lg p-1 border border-gray-200 shadow-lg h-10 bg-[#E2EBF3]" data-tooltip-direction="down" data-tooltip-broad="true">
                 <CustomTooltip content="Manage your active operations and real-time team workflows.">
                   <button 
                     className={cn(
@@ -4616,7 +4616,7 @@ function Flow({ currentPath, setCurrnetPath, reportData, setSidebarOpen, sidebar
                   onClick={() => setIsRearrange(true)}
                   title="Rearrange"
                   className={
-                    "size-10 rounded-md absolute bottom-28 md:top-8 lg:top-4 right-4 md:right-4 left-auto z-10 flex items-center justify-center text-white shadow-[0_4px_12px_0_rgba(0,0,0,0.25)] text-sm bg-gradient-to-l from-[#fb8b65] to-[#49b8c1] cursor-pointer"
+                    "size-10 rounded-md absolute bottom-20 md:top-8 lg:top-4 right-4 md:right-4 left-auto z-10 flex items-center justify-center text-white shadow-[0_4px_12px_0_rgba(0,0,0,0.25)] text-sm bg-gradient-to-l from-[#fb8b65] to-[#49b8c1] cursor-pointer"
                   }
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor" className="">

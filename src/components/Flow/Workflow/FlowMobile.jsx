@@ -7,6 +7,7 @@ import { BusinessContext } from "@/Pages/layouts/BusinessLayout";
 import { getReportingDetails } from "@/service/reposting.service";
 import { MainContext } from "@/App";
 import { getOriginUrl } from "@/lib/config";
+import { cn } from "@/lib/utils";
 
 function FlowMobile({ reportData, currentPath, setCurrnetPath, sidebarOpen, setSidebarOpen, openAccordion, setOpenAccordion }) {
   const { setReportData } = useContext(BusinessContext);
@@ -38,7 +39,7 @@ function FlowMobile({ reportData, currentPath, setCurrnetPath, sidebarOpen, setS
   }, [token]);
 
   return (
-    <div className="w-full sm:border sm:border-solid sm:border-[#9CA3AF] rounded-md md:p-2 md:hidden flex flex-col gap-2.5 grow">
+    <div className={cn("w-full sm:border sm:border-solid sm:border-[#9CA3AF] rounded-md md:p-2 md:hidden flex flex-col gap-2.5 grow", sidebarOpen && "hidden")}>
       {/* <Accordion className="grow flex flex-col" type="single" value={openAccordion} collapsible>
         <AccordionItem value="item-1" className={"grow flex flex-col [&>div[data-state]]:flex [&>div[data-state]]:flex-col [&>div[data-state]]:grow"}>
           <div
