@@ -1,7 +1,8 @@
 import React, { useId, useState } from "react";
 import "./CustomTooltip.css";
+import { cn } from "@/lib/utils";
 
-export default function CustomTooltip({ content, children }) {
+export default function CustomTooltip({ variant, content, children }) {
   const [isVisible, setIsVisible] = useState(false);
   const tooltipId = useId();
 
@@ -29,7 +30,7 @@ export default function CustomTooltip({ content, children }) {
       {childWithAria}
 
       {isVisible && (
-        <div id={tooltipId} role="tooltip" className="custom-tooltip__content">
+        <div id={tooltipId} role="tooltip" className={cn("custom-tooltip__content", variant ? variant : "")}>
           <div className="custom-tooltip__bubble">
             {content}
             <span className="custom-tooltip__arrow" />

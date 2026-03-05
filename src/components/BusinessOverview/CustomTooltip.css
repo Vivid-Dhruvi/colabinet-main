@@ -72,3 +72,9 @@
   padding: 8px !important; /* Add more padding */
   text-align: center !important;
 }
+
+
+@media(max-width: 639px){
+  [data-tooltip-broad="true"] .custom-tooltip__content.mb-top{top: auto !important;bottom: calc(100% + 4px) !important;}
+  [data-tooltip-broad="true"] .custom-tooltip__content.mb-top .custom-tooltip__arrow{top: 100% !important;transform: none !important;}
+}

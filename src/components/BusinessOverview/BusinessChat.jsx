@@ -434,9 +434,9 @@ export default function BusinessChat({
         return false;
       }
       setSidebarOpen(false);
-      if (guide.open) {
-        handleShowVideo(false);
-      }
+      // if (guide.open) {
+      //   handleShowVideo(false);
+      // }
       return true;
     }
 
@@ -469,6 +469,7 @@ export default function BusinessChat({
   };
 
   const handleStageChange = (stage) => {
+    sessionStorage.removeItem("business-iframe-url");
     if (stage == 1) {
       if (handlePath) {
         handlePath("");
@@ -482,9 +483,6 @@ export default function BusinessChat({
 
   return (
     <>
-      {guide.open && (
-        <span className="fixed hidden lg:block bottom-0 right-0 min-w-screen h-full bg-black/10 backdrop-blur-sm pointer-events-none z-15"></span>
-      )}
       {isFrame && currentPath && isMobile ? (
         <div className="w-full bg-white h-full">
           <iframe
@@ -528,7 +526,13 @@ export default function BusinessChat({
               )}
               
 
-              <div onClick={() => handleShowVideo(true)} className={cn("clb-handleVideo-block", sidebarOpen ? "sidebar-open" : "sidebar-closed",)}>
+              <div onClick={() => {
+                    if(isMobile){
+                      setSidebarOpen(false)
+                    }
+                    handleShowVideo(true)
+                  }
+                } className={cn("clb-handleVideo-block", sidebarOpen ? "sidebar-open" : "sidebar-closed",)}>
                 <span className={"head_truncate"}>
                   Need help? Watch a quick walkthrough of this page
                 </span>
@@ -1006,7 +1010,7 @@ export default function BusinessChat({
                 </div>
               </div>
 
-              {guide.open && (
+              {/* {guide.open && (
                 <>
                   {location.pathname.includes("ai-dashboard") &&
                   (user?.role_id === 6 ||
@@ -1073,7 +1077,7 @@ export default function BusinessChat({
                             : 2
                       }
                       handleStageChange={handleStageChange}
-                    />}
+                    />} */}
             </aside>
           )}
         </>
