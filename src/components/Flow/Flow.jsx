@@ -104,6 +104,7 @@ function Flow({ currentPath, setCurrnetPath, reportData, setSidebarOpen, sidebar
   const [hasShownPopup, setHasShownPopup] = useState(() => {
     return sessionStorage.getItem('zero-workflow-popup-shown') === 'true';
   });
+  const [showViewTooltip, setShowViewTooltip] = useState(false);
 
   useEffect(() => {
     if (isFrame) {
@@ -117,7 +118,7 @@ function Flow({ currentPath, setCurrnetPath, reportData, setSidebarOpen, sidebar
 
   useEffect(() => {
     if (prevVideoOpen === true && guide?.open === false) {
-      if (reportData) {
+      if (reportData && user?.view_workflow_tab_popup == 0 && !currentPath) {
         const activeWorkflowsCount = reportData?.business_areas?.reduce((acc, ba) => {
           return acc + (ba.workflows?.filter(wf => 
             wf.in_draft !== 1 && 
@@ -126,18 +127,13 @@ function Flow({ currentPath, setCurrnetPath, reportData, setSidebarOpen, sidebar
           ).length || 0);
         }, 0);
 
-        const popupShownInSession = sessionStorage.getItem('zero-workflow-popup-shown') === 'true';
-
-        if (activeWorkflowsCount === 0 && !popupShownInSession && selectedBusinessTemplate === "0") {
+        if (activeWorkflowsCount === 0 && selectedBusinessTemplate === "0") {
           setShowZeroWorkflowPopup(true);
-          setHasShownPopup(true);
-          sessionStorage.setItem('zero-workflow-popup-shown', 'true');
         }
       }
     }
     setPrevVideoOpen(guide?.open);
-  }, [guide?.open, reportData, selectedBusinessTemplate]);
-
+  }, [guide?.open, reportData, selectedBusinessTemplate, user]);
   const onConnect = useCallback(
     (params) => {
       const node_target = params.target;
@@ -233,7 +229,6 @@ function Flow({ currentPath, setCurrnetPath, reportData, setSidebarOpen, sidebar
 
   useEffect(() => {
     if (user && user?.view_business_overview_popup == 0) {
-      setIsIntroInProgress(true);
       handleShowVideo(true);
       setSidebarOpen(false);
       sessionStorage.setItem("sidebar-state", 0);
@@ -323,14 +318,15 @@ function Flow({ currentPath, setCurrnetPath, reportData, setSidebarOpen, sidebar
     
     const businessArea = data?.business_areas || [];
 
-    const popupShownInSession = sessionStorage.getItem('zero-workflow-popup-shown') === 'true';
     const isUserNew = user?.view_business_overview_popup == 0;
+    const hasSeenWorkflowPopup = user?.view_workflow_tab_popup == 1;
     // Show popup if no active workflows and we haven't shown it yet
     // and we're not already on a template/suggested view
     if (!guide?.open && 
         !isUserNew && 
+        !currentPath &&
         activeWorkflowsCount === 0 && 
-        !popupShownInSession && 
+        !hasSeenWorkflowPopup && 
         selectedBusinessTemplate === "0" && 
         !currentFlow.suggested) {
       setShowZeroWorkflowPopup(true);
@@ -4376,7 +4372,9 @@ function Flow({ currentPath, setCurrnetPath, reportData, setSidebarOpen, sidebar
 
   const handleZeroWorkflowSelection = (choice) => {
     setShowZeroWorkflowPopup(false);
-    
+    updateViewPopup(token, {
+      view_workflow_tab_popup: "1",
+    });
     if (choice === 'ai') {
       handleBusinessTemplateChange("suggested");
       if(isMobile){
@@ -4389,10 +4387,26 @@ function Flow({ currentPath, setCurrnetPath, reportData, setSidebarOpen, sidebar
 
   const handlePopupClose = () => {
     setShowZeroWorkflowPopup(false);
+    updateViewPopup(token, {
+      view_workflow_tab_popup: "1",
+    });
     handleBusinessTemplateChange("suggested");
     if(isMobile){
       setSidebarOpen(false);
     }
+  };
+
+  useEffect(() => {
+    if (user && user.view_switch_view_popup == 0 && reportData) {
+      setShowViewTooltip(true);
+    }
+  }, [user, reportData]);
+
+  const handleDismissTooltip = () => {
+    setShowViewTooltip(false);
+    updateViewPopup(token, {
+      view_switch_view_popup: "1",
+    });
   };
 
   return (
@@ -4638,6 +4652,50 @@ function Flow({ currentPath, setCurrnetPath, reportData, setSidebarOpen, sidebar
                   </button>
                 </CustomTooltip> */}
               </div>
+              {showViewTooltip &&  reportData && (
+                <div className="absolute left-2 right-auto bottom-32 sm:top-20 sm:left-auto sm:right-10 w-[96%] sm:w-[340px] h-fit bg-white rounded-xl shadow-[0_10px_40px_rgba(0,0,0,0.15)] border border-gray-100 p-4 sm:p-6 animate-in fade-in zoom-in duration-300 md:right-16 z-50 md:z-15">
+                  <div className="absolute -bottom-4 sm:-top-2 left-2/4 -translate-2/4 sm:left-auto sm:translate-0 sm:right-24 size-4 bg-white rotate-45 border-l border-t border-gray-100"></div>
+
+                  <div className="flex flex-col gap-3 sm:gap-5">
+                    <div className="flex gap-3 sm:gap-4">
+                      <div className="shrink-0 w-10 h-10 bg-cyan-50 rounded-lg flex items-center justify-center">
+                        <svg className="w-6 h-6 text-[#49b8c1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                        </svg>
+                      </div>
+                      <div className="flex flex-col text-left">
+                        <h3 className="text-base font-bold text-gray-800 leading-tight">Switch Between Two Views</h3>
+                        <p className="text-xs sm:text-[13px] font-normal text-gray-600 mt-1 leading-relaxed">Your Business shows your real workflows. AI Business Structure shows suggested areas and workflows. Switch between them anytime.</p>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-2 sm:gap-3">
+                      <div className="p-3 bg-gray-50/50 rounded-xl border border-gray-200 flex flex-col items-start text-start">
+                        <div className="size-8 bg-blue-50 text-blue-500 rounded flex items-center justify-center mb-2">
+                          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
+                        </div>
+                        <p className="text-xs font-bold text-gray-700 mb-1">Your Business</p>
+                        <p className="text-[10px] font-normal text-gray-400 leading-relaxed">Live workflows and tasks</p>
+                      </div>
+
+                      <div className="p-3 bg-gray-50/50 rounded-xl border border-gray-200 flex flex-col items-start text-start">
+                        <div className="w-8 h-8 bg-cyan-50 text-cyan-500 rounded flex items-center justify-center mb-2">
+                          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeWidth={2} d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" /></svg>
+                        </div>
+                        <p className="text-xs font-bold text-gray-700 mb-1">AI Business</p>
+                        <p className="text-[10px] font-normal text-gray-400 leading-relaxed">Suggested areas and workflows</p>
+                      </div>
+                    </div>
+
+                    <button
+                      onClick={handleDismissTooltip}
+                      className="w-full py-2.5 bg-[#62AAB4] hover:bg-[#49b8c1] text-white text-sm font-bold rounded-lg transition-all active:scale-[0.98] shadow-sm shadow-cyan-200"
+                    >
+                      Got it
+                    </button>
+                  </div>
+                </div>
+              )}
               {(currentFlow.type != "template" || user.role_id == 17) && (
                 <button
                   onClick={() => setIsRearrange(true)}
@@ -4707,11 +4765,13 @@ function Flow({ currentPath, setCurrnetPath, reportData, setSidebarOpen, sidebar
             </div>
           </>
         )}
-        <ZeroWorkflowPopup 
-          open={showZeroWorkflowPopup}
-          onClose={handlePopupClose}
-          onSelect={handleZeroWorkflowSelection}
-        />
+        {!currentPath &&
+          <ZeroWorkflowPopup 
+            open={showZeroWorkflowPopup}
+            onClose={handlePopupClose}
+            onSelect={handleZeroWorkflowSelection}
+          />
+        }
       </FlowContext.Provider>
       <PreviewAiSuggestion
         open={isWorkFlowSidePan}

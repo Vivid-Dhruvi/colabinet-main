@@ -33,7 +33,7 @@ const ZeroWorkflowPopup = ({ open, onClose, onSelect }) => {
 
   return (
     <Dialog open={open} onOpenChange={onClose}>
-      <DialogContent className="md:max-w-4xl rounded-2xl bg-card p-0">
+      <DialogContent className="md:max-w-4xl rounded-2xl bg-card p-0" onPointerDownOutside={(e) => e.preventDefault()} onEscapeKeyDown={(e) => e.preventDefault()}>
         <DialogHeader className="space-y-1 p-4 pb-0 lg:px-6 lg:pt-4">
           <DialogTitle>
             <p className="text-[10px] sm:text-xs tracking-wider text-gray-400 text-center mb-2">
