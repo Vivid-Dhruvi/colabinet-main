@@ -4400,7 +4400,7 @@ function Flow({ currentPath, setCurrnetPath, reportData, setSidebarOpen, sidebar
     if (user && user.view_switch_view_popup == 0 && reportData) {
       setShowViewTooltip(true);
     }
-  }, [user, reportData]);
+  }, [user]);
 
   const handleDismissTooltip = () => {
     setShowViewTooltip(false);
@@ -4653,7 +4653,7 @@ function Flow({ currentPath, setCurrnetPath, reportData, setSidebarOpen, sidebar
                 </CustomTooltip> */}
               </div>
               {showViewTooltip &&  reportData && (
-                <div className="absolute left-2 right-auto bottom-32 sm:top-20 sm:left-auto sm:right-10 w-[96%] sm:w-[340px] h-fit bg-white rounded-xl shadow-[0_10px_40px_rgba(0,0,0,0.15)] border border-gray-100 p-4 sm:p-6 animate-in fade-in zoom-in duration-300 md:right-16 z-50 md:z-15">
+                <div className="absolute left-2 right-auto bottom-32 sm:top-20 sm:left-auto sm:right-10 w-[96%] sm:w-[340px] h-fit bg-white rounded-xl shadow-[0_10px_40px_rgba(0,0,0,0.15)] border border-gray-100 p-4 sm:p-6 animate-in fade-in zoom-in duration-300 md:right-16 z-30 md:z-15">
                   <div className="absolute -bottom-4 sm:-top-2 left-2/4 -translate-2/4 sm:left-auto sm:translate-0 sm:right-24 size-4 bg-white rotate-45 border-l border-t border-gray-100"></div>
 
                   <div className="flex flex-col gap-3 sm:gap-5">
@@ -4689,7 +4689,7 @@ function Flow({ currentPath, setCurrnetPath, reportData, setSidebarOpen, sidebar
 
                     <button
                       onClick={handleDismissTooltip}
-                      className="w-full py-2.5 bg-[#62AAB4] hover:bg-[#49b8c1] text-white text-sm font-bold rounded-lg transition-all active:scale-[0.98] shadow-sm shadow-cyan-200"
+                      className="w-full py-2.5 bg-[#62AAB4] hover:bg-[#49b8c1] text-white text-sm font-bold rounded-lg transition-all active:scale-[0.98] shadow-sm shadow-cyan-200 cursor-pointer"
                     >
                       Got it
                     </button>
