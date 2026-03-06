@@ -260,6 +260,7 @@ const [type] = useState(
         selectedBusinessTemplate,
         handleBusinessTemplateChange,
         handleCurrentInnerPath,
+        guide
       }}
     >
       {!isAppView && <MainHeader isBusinessOverview={isBusinessOverview} />}

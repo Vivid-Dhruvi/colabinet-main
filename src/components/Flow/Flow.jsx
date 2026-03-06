@@ -48,7 +48,7 @@ const nodeTypes = {
 };
 
 function Flow({ currentPath, setCurrnetPath, reportData, setSidebarOpen, sidebarOpen, handleGetData }) {
-  const { handleShowVideo, isMobile, businessTemplate, selectedBusinessTemplate, handleBusinessTemplateChange, handleCurrentInnerPath } =
+  const { handleShowVideo, isMobile, businessTemplate, selectedBusinessTemplate, handleBusinessTemplateChange, handleCurrentInnerPath, guide } =
     useContext(BusinessContext);
   const { user, token } = useContext(MainContext);
   const { setViewport, zoomIn, zoomOut } = useReactFlow();
@@ -72,6 +72,7 @@ function Flow({ currentPath, setCurrnetPath, reportData, setSidebarOpen, sidebar
   const [searchCanvas, setSearchCanvas] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const [currentTemplate, setCurrentTemplate] = useState(null);
+  const [prevVideoOpen, setPrevVideoOpen] = useState(false);
   const iframeRef = useRef(null);
 
   const [currentFlow, setCurrentFlow] = useState({
@@ -113,6 +114,29 @@ function Flow({ currentPath, setCurrnetPath, reportData, setSidebarOpen, sidebar
       });
     }
   }, [isFrame]);
+
+  useEffect(() => {
+    if (prevVideoOpen === true && guide?.open === false) {
+      if (reportData) {
+        const activeWorkflowsCount = reportData?.business_areas?.reduce((acc, ba) => {
+          return acc + (ba.workflows?.filter(wf => 
+            wf.in_draft !== 1 && 
+            wf.recurring_status !== 2 && 
+            wf.recurring_status !== 1
+          ).length || 0);
+        }, 0);
+
+        const popupShownInSession = sessionStorage.getItem('zero-workflow-popup-shown') === 'true';
+
+        if (activeWorkflowsCount === 0 && !popupShownInSession && selectedBusinessTemplate === "0") {
+          setShowZeroWorkflowPopup(true);
+          setHasShownPopup(true);
+          sessionStorage.setItem('zero-workflow-popup-shown', 'true');
+        }
+      }
+    }
+    setPrevVideoOpen(guide?.open);
+  }, [guide?.open, reportData, selectedBusinessTemplate]);
 
   const onConnect = useCallback(
     (params) => {
@@ -209,6 +233,7 @@ function Flow({ currentPath, setCurrnetPath, reportData, setSidebarOpen, sidebar
 
   useEffect(() => {
     if (user && user?.view_business_overview_popup == 0) {
+      setIsIntroInProgress(true);
       handleShowVideo(true);
       setSidebarOpen(false);
       sessionStorage.setItem("sidebar-state", 0);
@@ -299,10 +324,12 @@ function Flow({ currentPath, setCurrnetPath, reportData, setSidebarOpen, sidebar
     const businessArea = data?.business_areas || [];
 
     const popupShownInSession = sessionStorage.getItem('zero-workflow-popup-shown') === 'true';
-
+    const isUserNew = user?.view_business_overview_popup == 0;
     // Show popup if no active workflows and we haven't shown it yet
     // and we're not already on a template/suggested view
-    if (activeWorkflowsCount === 0 && 
+    if (!guide?.open && 
+        !isUserNew && 
+        activeWorkflowsCount === 0 && 
         !popupShownInSession && 
         selectedBusinessTemplate === "0" && 
         !currentFlow.suggested) {
