@@ -154,7 +154,7 @@ function WorkflowNode({ data }) {
       </div>
 
       {/* Trigger and Status  */}
-      {!transfer && (
+      {!transfer && selectedBusinessTemplate != "suggested" && (
         <div className="flex flex-row items-center gap-1.5">
           <p className="text-[#6B7280] text-sm leading-normal font-normal w-full">
             Trigger: {recurringTypeLabels[value.recurring_type] || "N/A"} {value.recurring_type == 3 && value.recurring}
@@ -243,7 +243,7 @@ function WorkflowNode({ data }) {
           </div>
         ) : (
           <>
-            {isUserAllow(user, "edit-workflow") && (
+            {isUserAllow(user, "edit-workflow") && selectedBusinessTemplate != "suggested" && (
               <div className="flex gap-1.5 items-center">
                 {wf_status.status != "Draft" && (
                   <div className="w-fit justify-end flex flex-col project-card-tooltip">
