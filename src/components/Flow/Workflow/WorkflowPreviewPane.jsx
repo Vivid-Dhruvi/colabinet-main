@@ -287,7 +287,7 @@ export const WorkflowPreviewPane = ({ data, onPrimaryAction, onClose, workflow }
                 ))}
               </ol>
               <p className="m-0 text-[12px] leading-[1.6] text-[#64748b]">
-                Each task builds on the last &mdash; creating a smooth experience your clients will love.
+                Then you run it again next month.
               </p>
             </>
           ) : (
@@ -320,7 +320,7 @@ export const WorkflowPreviewPane = ({ data, onPrimaryAction, onClose, workflow }
           >
             Build With AI
           </button>
-          <p className="m-0 text-center text-[12px] leading-[1.4] text-[#6b7280]">Colabi Roo will expand this idea into a full, detailed workflow.</p>
+          <p className="m-0 text-center text-[12px] leading-[1.4] text-[#6b7280] mb-2">Colabi Roo will expand this idea into a full, detailed workflow.</p>
         </div>
         <button
           type="button"
