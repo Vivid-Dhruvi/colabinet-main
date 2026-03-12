@@ -279,8 +279,8 @@ export const WorkflowPreviewPane = ({ data, onPrimaryAction, onClose, workflow }
                       {index !== workflowSteps.length - 1 && <span className="mt-1 h-full w-[2px] flex-1 rounded-full bg-[#dbeafe]" aria-hidden="true" />}
                     </div>
                     <div className="flex flex-1 flex-col gap-1">
-                      <StepActor label={step.label} tone={step.tone} />
-                      <p className="m-0 text-[13px] leading-[1.55] text-[#1f2937]">{step.primary}</p>
+                      <StepActor label={step.primary || step.label} tone={step.tone} />
+                      <p className="m-0 text-[13px] leading-[1.55] text-[#1f2937]">{step.secondary}</p>
                       {/* {step.secondary && <p className="m-0 text-[12px] leading-[1.5] text-[#64748b]">{step.secondary}</p>} */}
                     </div>
                   </li>
