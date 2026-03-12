@@ -158,7 +158,8 @@ export const WorkflowPreviewPane = ({ data, onPrimaryAction, onClose, workflow }
     trigger = {};
   }
 
-  const rawSteps = Array.isArray(trigger?.tasks) ? trigger.tasks : Array.isArray(data?.steps) ? data.steps : Array.isArray(trigger?.general_flow) ? trigger?.general_flow : [];
+  const rawSteps = Array.isArray(trigger?.tasks) ? trigger.tasks : Array.isArray(data?.steps) ? data.steps : Array.isArray(trigger?.general_flow) ? trigger?.general_flow : Array.isArray(trigger?.roadmap?.steps)
+  ? trigger?.roadmap?.steps : [];
   const workflowSteps = rawSteps
     .map((step, index) => {
       if (!step) return null;
