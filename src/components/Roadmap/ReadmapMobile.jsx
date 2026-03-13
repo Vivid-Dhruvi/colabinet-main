@@ -213,7 +213,7 @@ function ReadmapMobile({ setCurrnetPath }) {
           )
         } */}
 
-        <div className="flex flex-col gap-2.5 h-10 grow overflow-auto p-1.5 -m-1.5 p-4">
+        <div className="flex flex-col gap-2.5 h-10 grow overflow-auto p-1.5 -m-1.5 pb-20">
           <ul className="bg-white border border-solid border-[#E5E7EB] shadow-[0px_1px_2px_0px_#0000000D,0px_4px_4px_0px_#00000040] rounded-md p-2 py-4 flex flex-col gap-6">
             <div className="flex flex-col gap-1">
               <span className="text-[#1E1E23] font-semibold text-base col-span-full">
