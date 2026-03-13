@@ -366,6 +366,7 @@ const [type] = useState(
                     : 2
               }
               handleStageChange={handleStageChange}
+              currentPath={currentPath}
             />}
 
       <IntroColabi

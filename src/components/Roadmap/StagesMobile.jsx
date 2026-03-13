@@ -1,8 +1,17 @@
 import { cn } from "@/lib/utils";
+import { useLocation } from "react-router-dom";
 
 const stages = ["Setup", "Overview", "Dashboard"];
 
-export function StageMobile({ currentStage, handleStageChange }) {
+export function StageMobile({ currentStage, handleStageChange, currentPath }) {
+  const location = useLocation();
+  const allowedPaths = ["/business/setup", "/business/overview", "/ai-dashboard"];
+
+  if (currentPath) return null;
+
+  const isRouteAllowed = allowedPaths.some(path => location.pathname.includes(path));
+
+  if (!isRouteAllowed) return null;
   return (
     <div className="fixed border-t-2 border-solid !border-zinc-200 rounded-t-2xl p-2 text-center flex flex-col items-center gap-1 z-16 bg-white left-0 bottom-0 w-full">
       <h5 className="text-zinc-700 text-xs font-medium -tracking-wide text-center">Stage {currentStage + 1} of {stages.length}</h5>
