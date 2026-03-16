@@ -4598,11 +4598,11 @@ function Flow({ currentPath, setCurrnetPath, reportData, setSidebarOpen, sidebar
                   </CollapsibleContent>
                 </Collapsible>
               </div>
-              <div className="absolute bottom-20 md:top-8 lg:top-4 right-20 md:right-16 z-50 md:z-15 flex flex-row gap-1 backdrop-blur-sm rounded-lg p-1 border border-gray-200 shadow-lg h-10 bg-[#E2EBF3]" data-tooltip-direction="down" data-tooltip-broad="true">
+               <div className="absolute bottom-20 left-1/2 -translate-x-1/2 md:top-8 lg:top-4 md:left-auto md:translate-x-0 md:right-16 z-50 md:z-15 flex flex-row gap-1 backdrop-blur-sm rounded-lg p-1 border border-gray-200 shadow-lg h-10 bg-[#E2EBF3]" data-tooltip-direction="down" data-tooltip-broad="true">
                 <CustomTooltip variant="mb-top" content="Manage your active operations and real-time team workflows.">
                   <button 
                     className={cn(
-                      "px-3 h-full text-xs sm:text-sm font-medium rounded-md transition-all duration-200 flex items-center",
+                      "px-3 h-full text-xs sm:text-sm font-medium rounded-md transition-all duration-200 flex items-center whitespace-nowrap",
                       selectedBusinessTemplate === "0" 
                         ? "bg-gradient-to-r from-[#49b8c1] to-[#62AAB4] text-white shadow-sm" 
                         : "text-[#4D4D53] bg-transparent"
@@ -4622,7 +4622,7 @@ function Flow({ currentPath, setCurrnetPath, reportData, setSidebarOpen, sidebar
                 <CustomTooltip variant="mb-top" content="Explore AI growth suggestions based on your Stage 1 Blueprint.">
                   <button 
                     className={cn(
-                      "px-3 h-full text-xs sm:text-sm font-medium rounded-md transition-all duration-200 flex items-center",
+                      "px-3 h-full text-xs sm:text-sm font-medium rounded-md transition-all duration-200 flex items-center whitespace-nowrap",
                       selectedBusinessTemplate === "suggested" 
                         ? "bg-gradient-to-r from-[#49b8c1] to-[#62AAB4] text-white shadow-sm" 
                         : "text-[#4D4D53] bg-transparent"
